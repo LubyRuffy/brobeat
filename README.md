@@ -34,9 +34,6 @@ See [`CHANGELOG.md`](https://github.com/blacktop/brobeat/blob/master/CHANGELOG.m
 
 Please start by reading our [CONTRIBUTING](CONTRIBUTING.md) file.
 
-If you are new to Beats dev you can following the [developer
-guide](https://www.elastic.co/guide/en/beats/libbeat/master/new-beat.html).
-
 [See all contributors on GitHub](https://github.com/blacktop/brobeat/graphs/contributors).
 
 Please update the [CHANGELOG.md](https://github.com/blacktop/brobeat/blob/master/CHANGELOG.md) and submit a [Pull Request on GitHub](https://help.github.com/articles/using-pull-requests/).
@@ -44,4 +41,4 @@ Please update the [CHANGELOG.md](https://github.com/blacktop/brobeat/blob/master
 ### License
 
 Apache License (Version 2.0)  
-Copyright (c) 2013 - 2016 **blacktop** Joshua Maine
+Copyright (c) 2016-2017 **blacktop**
