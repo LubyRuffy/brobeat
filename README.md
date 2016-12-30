@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/blacktop/brobeat.svg?branch=master)](https://travis-ci.org/blacktop/brobeat)
 [![License][license]](http://www.apache.org/licenses/LICENSE-2.0)
+[![codecov](https://codecov.io/gh/blacktop/brobeat/branch/master/graph/badge.svg)](https://codecov.io/gh/blacktop/brobeat)
 
 ### DISCUSSION HERE - https://discuss.elastic.co/t/question-about-creating-brobeat
 
