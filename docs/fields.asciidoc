@@ -14,6 +14,7 @@ grouped in the following categories:
 
 * <<exported-fields-beat>>
 * <<exported-fields-cloud>>
+* <<exported-fields-common>>
 * <<exported-fields-files>>
 * <<exported-fields-http>>
 
@@ -122,23 +123,44 @@ Name of the project in Google Cloud.
 Region in which this host is running.
 
 
+[[exported-fields-common]]
+== Common Fields
+
+Common Fields.
+
+
+[float]
+=== counter
+
+type: integer
+
+Log line count.
+
+
+[float]
+=== type
+
+type: text
+
+Log type.
+
+
+[float]
+=== created
+
+type: date
+
+Log created date.
+
+
 [[exported-fields-files]]
 == Files Fields
 
 File analysis results
 
 
-
 [float]
-=== files.ts
-
-type: double
-
-The time when the file was first seen.
-
-
-[float]
-=== files.fuid
+=== fuid
 
 type: text
 
@@ -146,19 +168,25 @@ An identifier associated with a single file.
 
 
 [float]
-=== files.tx_hosts
+=== tx_hosts
 
 If this file was transferred over a network connection this should show the host or hosts that the data sourced from.
 
 
 [float]
-=== files.rx_hosts
+=== rx_hosts
 
 If this file was transferred over a network connection this should show the host or hosts that the data traveled to.
 
 
 [float]
-=== files.source
+=== conn_uids
+
+Connection UIDs over which the file was transferred.
+
+
+[float]
+=== source
 
 type: text
 
@@ -166,7 +194,7 @@ An identification of the source of the file data.  E.g. it may be a network prot
 
 
 [float]
-=== files.depth
+=== depth
 
 type: integer
 
@@ -174,13 +202,13 @@ A value to represent the depth of this file in relation to its source.  In SMTP,
 
 
 [float]
-=== files.analyzers
+=== analyzers
 
 A set of analysis types done during the file analysis.
 
 
 [float]
-=== files.mime_type
+=== mime_type
 
 type: text
 
@@ -188,7 +216,7 @@ A mime type provided by the strongest file magic signature match against the bof
 
 
 [float]
-=== files.filename
+=== filename
 
 type: text
 
@@ -196,7 +224,7 @@ A filename for the file if one is available from the source for the file.  These
 
 
 [float]
-=== files.integer
+=== duration
 
 type: double
 
@@ -204,7 +232,7 @@ The duration the file was analyzed for.
 
 
 [float]
-=== files.local_orig
+=== local_orig
 
 type: boolean
 
@@ -212,7 +240,7 @@ If the source of this file is a network connection, this field indicates if the 
 
 
 [float]
-=== files.is_orig
+=== is_orig
 
 type: boolean
 
@@ -220,7 +248,7 @@ If the source of this file is a network connection, this field indicates if the 
 
 
 [float]
-=== files.seen_bytes
+=== seen_bytes
 
 type: integer
 
@@ -228,7 +256,7 @@ Number of bytes provided to the file analysis engine for the file.
 
 
 [float]
-=== files.total_bytes
+=== total_bytes
 
 type: integer
 
@@ -236,7 +264,7 @@ Total number of bytes that are supposed to comprise the full file.
 
 
 [float]
-=== files.missing_bytes
+=== missing_bytes
 
 type: integer
 
@@ -244,7 +272,7 @@ The number of bytes in the file stream that were completely missed during the pr
 
 
 [float]
-=== files.overflow_bytes
+=== overflow_bytes
 
 type: integer
 
@@ -252,7 +280,7 @@ The number of bytes in the file stream that were not delivered to stream file an
 
 
 [float]
-=== files.timedout
+=== timedout
 
 type: boolean
 
@@ -260,7 +288,7 @@ Whether the file analysis timed out at least once for the file.
 
 
 [float]
-=== files.parent_fuid
+=== parent_fuid
 
 type: text
 
@@ -268,7 +296,7 @@ Identifier associated with a container file from which this one was extracted as
 
 
 [float]
-=== files.md5
+=== md5
 
 type: text
 
@@ -276,7 +304,7 @@ type: text
 
 
 [float]
-=== files.sha1
+=== sha1
 
 type: text
 
@@ -284,7 +312,7 @@ type: text
 
 
 [float]
-=== files.sha256
+=== sha256
 
 type: text
 
@@ -292,7 +320,7 @@ type: text
 
 
 [float]
-=== files.x509.ts
+=== x509.ts
 
 type: double
 
@@ -300,7 +328,7 @@ Current timestamp.
 
 
 [float]
-=== files.x509.id
+=== x509.id
 
 type: text
 
@@ -308,37 +336,37 @@ File id of this certificate.
 
 
 [float]
-=== files.x509.certificate
+=== x509.certificate
 
 Basic information about the certificate.
 
 
 [float]
-=== files.x509.handle
+=== x509.handle
 
 The opaque wrapping the certificate. Mainly used for the verify operations.
 
 
 [float]
-=== files.x509.extensions
+=== x509.extensions
 
 All extensions that were enintegerered in the certificate.
 
 
 [float]
-=== files.x509.san
+=== x509.san
 
 Subject alternative name extension of the certificate.
 
 
 [float]
-=== files.x509.basic_constraints
+=== x509.basic_constraints
 
 Basic constraints extension of the certificate.
 
 
 [float]
-=== files.x509.logcert
+=== x509.logcert
 
 type: boolean
 
@@ -346,7 +374,7 @@ type: boolean
 
 
 [float]
-=== files.extracted
+=== extracted
 
 type: text
 
@@ -354,7 +382,7 @@ type: text
 
 
 [float]
-=== files.entropy
+=== entropy
 
 type: double
 
@@ -367,9 +395,8 @@ type: double
 AMQP specific event fields.
 
 
-
 [float]
-=== http.ts
+=== ts
 
 type: double
 
@@ -377,7 +404,7 @@ Timestamp for when the request happened.
 
 
 [float]
-=== http.uid
+=== uid
 
 type: text
 
@@ -385,7 +412,7 @@ Unique ID for the connection.
 
 
 [float]
-=== http.id.orig_h
+=== id.orig_h
 
 type: ip
 
@@ -393,7 +420,7 @@ The originator's IP address.
 
 
 [float]
-=== http.id.orig_p
+=== id.orig_p
 
 type: integer
 
@@ -401,7 +428,7 @@ The originator's port number.
 
 
 [float]
-=== http.id.resp_h
+=== id.resp_h
 
 type: ip
 
@@ -409,7 +436,7 @@ The responder's IP address.
 
 
 [float]
-=== http.id.resp_p
+=== id.resp_p
 
 type: integer
 
@@ -417,7 +444,7 @@ The responder's port number.
 
 
 [float]
-=== http.trans_depth
+=== trans_depth
 
 type: integer
 
@@ -425,7 +452,7 @@ Represents the pipelined depth into the connection of this request/response tran
 
 
 [float]
-=== http.method
+=== method
 
 type: keyword
 
@@ -433,7 +460,7 @@ Verb used in the HTTP request (GET, POST, HEAD, etc.).
 
 
 [float]
-=== http.host
+=== host
 
 type: text
 
@@ -441,7 +468,7 @@ Value of the HOST header.
 
 
 [float]
-=== http.uri
+=== uri
 
 type: text
 
@@ -449,7 +476,7 @@ URI used in the request.
 
 
 [float]
-=== http.referrer
+=== referrer
 
 type: text
 
@@ -457,7 +484,7 @@ Value of the referer header.  The comment is deliberately misspelled like the st
 
 
 [float]
-=== http.version
+=== version
 
 type: text
 
@@ -465,7 +492,7 @@ Value of the version portion of the request.
 
 
 [float]
-=== http.user_agent
+=== user_agent
 
 type: text
 
@@ -473,7 +500,7 @@ Value of the User-Agent header from the client.
 
 
 [float]
-=== http.request_body_len
+=== request_body_len
 
 type: integer
 
@@ -481,7 +508,7 @@ Actual uncompressed content size of the data transferred from the client.
 
 
 [float]
-=== http.response_body_len
+=== response_body_len
 
 type: integer
 
@@ -489,7 +516,7 @@ Actual uncompressed content size of the data transferred from the server.
 
 
 [float]
-=== http.status_code
+=== status_code
 
 type: integer
 
@@ -497,7 +524,7 @@ Status code returned by the server.
 
 
 [float]
-=== http.status_msg
+=== status_msg
 
 type: text
 
@@ -505,7 +532,7 @@ Status message returned by the server.
 
 
 [float]
-=== http.info_code
+=== info_code
 
 type: integer
 
@@ -513,7 +540,7 @@ Last seen 1xx informational reply code returned by the server.
 
 
 [float]
-=== http.info_msg
+=== info_msg
 
 type: text
 
@@ -521,13 +548,7 @@ Last seen 1xx informational reply message returned by the server.
 
 
 [float]
-=== http.tags
-
-A set of indicators of various attributes discovered and related to a particular request/response pair.
-
-
-[float]
-=== http.username
+=== username
 
 type: text
 
@@ -535,7 +556,7 @@ Username if basic-auth is performed for the request.
 
 
 [float]
-=== http.password
+=== password
 
 type: text
 
@@ -543,7 +564,7 @@ Password if basic-auth is performed for the request.
 
 
 [float]
-=== http.capture_password
+=== capture_password
 
 type: boolean
 
@@ -551,13 +572,13 @@ Determines if the password will be captured for this request.
 
 
 [float]
-=== http.proxied
+=== proxied
 
 All of the headers that may indicate if the request was proxied.
 
 
 [float]
-=== http.range_request
+=== range_request
 
 type: boolean
 
@@ -565,43 +586,43 @@ Indicates if this request can assume 206 partial content in response.
 
 
 [float]
-=== http.orig_fuids
+=== orig_fuids
 
 (present if base/protocols/http/entities.bro is loaded)
 
 
 [float]
-=== http.orig_filenames
+=== orig_filenames
 
 (present if base/protocols/http/entities.bro is loaded)
 
 
 [float]
-=== http.orig_mime_types
+=== orig_mime_types
 
 (present if base/protocols/http/entities.bro is loaded)
 
 
 [float]
-=== http.resp_fuids
+=== resp_fuids
 
 (present if base/protocols/http/entities.bro is loaded)
 
 
 [float]
-=== http.resp_filenames
+=== resp_filenames
 
 (present if base/protocols/http/entities.bro is loaded)
 
 
 [float]
-=== http.resp_mime_types
+=== resp_mime_types
 
 (present if base/protocols/http/entities.bro is loaded)
 
 
 [float]
-=== http.current_entity.filename
+=== current_entity.filename
 
 type: text
 
@@ -609,7 +630,7 @@ Filename for the entity if discovered from a header.
 
 
 [float]
-=== http.orig_mime_depth
+=== orig_mime_depth
 
 type: integer
 
@@ -617,7 +638,7 @@ type: integer
 
 
 [float]
-=== http.resp_mime_depth
+=== resp_mime_depth
 
 type: integer
 
@@ -625,19 +646,19 @@ type: integer
 
 
 [float]
-=== http.client_header_names
+=== client_header_names
 
 (present if policy/protocols/http/header-names.bro is loaded)
 
 
 [float]
-=== http.server_header_names
+=== server_header_names
 
 (present if policy/protocols/http/header-names.bro is loaded)
 
 
 [float]
-=== http.omniture
+=== omniture
 
 type: boolean
 
@@ -645,7 +666,7 @@ type: boolean
 
 
 [float]
-=== http.flash_version
+=== flash_version
 
 type: text
 
@@ -653,13 +674,13 @@ type: text
 
 
 [float]
-=== http.cookie_vars
+=== cookie_vars
 
 (present if policy/protocols/http/var-extraction-cookies.bro is loaded)
 
 
 [float]
-=== http.uri_vars
+=== uri_vars
 
 (present if policy/protocols/http/var-extraction-uri.bro is loaded)
 

@@ -25,6 +25,11 @@
         "@timestamp": {
           "type": "date"
         },
+        "analyzers": {
+          "ignore_above": 1024,
+          "index": "not_analyzed",
+          "type": "string"
+        },
         "beat": {
           "properties": {
             "hostname": {
@@ -44,372 +49,127 @@
             }
           }
         },
-        "files": {
+        "capture_password": {
+          "type": "boolean"
+        },
+        "client_header_names": {
+          "ignore_above": 1024,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "conn_uids": {
+          "ignore_above": 1024,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "cookie_vars": {
+          "ignore_above": 1024,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "counter": {
+          "type": "long"
+        },
+        "created": {
+          "type": "date"
+        },
+        "current_entity": {
           "properties": {
-            "analyzers": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
-            },
-            "depth": {
-              "type": "long"
-            },
-            "entropy": {
-              "type": "double"
-            },
-            "extracted": {
-              "index": "analyzed",
-              "norms": {
-                "enabled": false
-              },
-              "type": "string"
-            },
             "filename": {
               "index": "analyzed",
               "norms": {
                 "enabled": false
               },
               "type": "string"
-            },
-            "fuid": {
-              "index": "analyzed",
-              "norms": {
-                "enabled": false
-              },
-              "type": "string"
-            },
-            "integer": {
-              "type": "double"
-            },
-            "is_orig": {
-              "type": "boolean"
-            },
-            "local_orig": {
-              "type": "boolean"
-            },
-            "md5": {
-              "index": "analyzed",
-              "norms": {
-                "enabled": false
-              },
-              "type": "string"
-            },
-            "mime_type": {
-              "index": "analyzed",
-              "norms": {
-                "enabled": false
-              },
-              "type": "string"
-            },
-            "missing_bytes": {
-              "type": "long"
-            },
-            "overflow_bytes": {
-              "type": "long"
-            },
-            "parent_fuid": {
-              "index": "analyzed",
-              "norms": {
-                "enabled": false
-              },
-              "type": "string"
-            },
-            "rx_hosts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
-            },
-            "seen_bytes": {
-              "type": "long"
-            },
-            "sha1": {
-              "index": "analyzed",
-              "norms": {
-                "enabled": false
-              },
-              "type": "string"
-            },
-            "sha256": {
-              "index": "analyzed",
-              "norms": {
-                "enabled": false
-              },
-              "type": "string"
-            },
-            "source": {
-              "index": "analyzed",
-              "norms": {
-                "enabled": false
-              },
-              "type": "string"
-            },
-            "timedout": {
-              "type": "boolean"
-            },
-            "total_bytes": {
-              "type": "long"
-            },
-            "ts": {
-              "type": "double"
-            },
-            "tx_hosts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
-            },
-            "x509": {
-              "properties": {
-                "basic_constraints": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
-                },
-                "certificate": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
-                },
-                "extensions": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
-                },
-                "handle": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
-                },
-                "id": {
-                  "index": "analyzed",
-                  "norms": {
-                    "enabled": false
-                  },
-                  "type": "string"
-                },
-                "logcert": {
-                  "type": "boolean"
-                },
-                "san": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
-                },
-                "ts": {
-                  "type": "double"
-                }
-              }
             }
           }
         },
-        "http": {
+        "depth": {
+          "type": "long"
+        },
+        "duration": {
+          "type": "double"
+        },
+        "entropy": {
+          "type": "double"
+        },
+        "extracted": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
+        "filename": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
+        "flash_version": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
+        "fuid": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
+        "host": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
+        "id": {
           "properties": {
-            "capture_password": {
-              "type": "boolean"
-            },
-            "client_header_names": {
+            "orig_h": {
               "ignore_above": 1024,
               "index": "not_analyzed",
               "type": "string"
             },
-            "cookie_vars": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
-            },
-            "current_entity": {
-              "properties": {
-                "filename": {
-                  "index": "analyzed",
-                  "norms": {
-                    "enabled": false
-                  },
-                  "type": "string"
-                }
-              }
-            },
-            "flash_version": {
-              "index": "analyzed",
-              "norms": {
-                "enabled": false
-              },
-              "type": "string"
-            },
-            "host": {
-              "index": "analyzed",
-              "norms": {
-                "enabled": false
-              },
-              "type": "string"
-            },
-            "id": {
-              "properties": {
-                "orig_h": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
-                },
-                "orig_p": {
-                  "type": "long"
-                },
-                "resp_h": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
-                },
-                "resp_p": {
-                  "type": "long"
-                }
-              }
-            },
-            "info_code": {
+            "orig_p": {
               "type": "long"
             },
-            "info_msg": {
-              "index": "analyzed",
-              "norms": {
-                "enabled": false
-              },
-              "type": "string"
-            },
-            "method": {
+            "resp_h": {
               "ignore_above": 1024,
               "index": "not_analyzed",
               "type": "string"
             },
-            "omniture": {
-              "type": "boolean"
-            },
-            "orig_filenames": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
-            },
-            "orig_fuids": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
-            },
-            "orig_mime_depth": {
+            "resp_p": {
               "type": "long"
-            },
-            "orig_mime_types": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
-            },
-            "password": {
-              "index": "analyzed",
-              "norms": {
-                "enabled": false
-              },
-              "type": "string"
-            },
-            "proxied": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
-            },
-            "range_request": {
-              "type": "boolean"
-            },
-            "referrer": {
-              "index": "analyzed",
-              "norms": {
-                "enabled": false
-              },
-              "type": "string"
-            },
-            "request_body_len": {
-              "type": "long"
-            },
-            "resp_filenames": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
-            },
-            "resp_fuids": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
-            },
-            "resp_mime_depth": {
-              "type": "long"
-            },
-            "resp_mime_types": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
-            },
-            "response_body_len": {
-              "type": "long"
-            },
-            "server_header_names": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
-            },
-            "status_code": {
-              "type": "long"
-            },
-            "status_msg": {
-              "index": "analyzed",
-              "norms": {
-                "enabled": false
-              },
-              "type": "string"
-            },
-            "tags": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
-            },
-            "trans_depth": {
-              "type": "long"
-            },
-            "ts": {
-              "type": "double"
-            },
-            "uid": {
-              "index": "analyzed",
-              "norms": {
-                "enabled": false
-              },
-              "type": "string"
-            },
-            "uri": {
-              "index": "analyzed",
-              "norms": {
-                "enabled": false
-              },
-              "type": "string"
-            },
-            "uri_vars": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
-            },
-            "user_agent": {
-              "index": "analyzed",
-              "norms": {
-                "enabled": false
-              },
-              "type": "string"
-            },
-            "username": {
-              "index": "analyzed",
-              "norms": {
-                "enabled": false
-              },
-              "type": "string"
-            },
-            "version": {
-              "index": "analyzed",
-              "norms": {
-                "enabled": false
-              },
-              "type": "string"
             }
           }
+        },
+        "info_code": {
+          "type": "long"
+        },
+        "info_msg": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
+        "is_orig": {
+          "type": "boolean"
+        },
+        "local_orig": {
+          "type": "boolean"
+        },
+        "md5": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
         },
         "meta": {
           "properties": {
@@ -449,10 +209,252 @@
             }
           }
         },
+        "method": {
+          "ignore_above": 1024,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "mime_type": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
+        "missing_bytes": {
+          "type": "long"
+        },
+        "omniture": {
+          "type": "boolean"
+        },
+        "orig_filenames": {
+          "ignore_above": 1024,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "orig_fuids": {
+          "ignore_above": 1024,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "orig_mime_depth": {
+          "type": "long"
+        },
+        "orig_mime_types": {
+          "ignore_above": 1024,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "overflow_bytes": {
+          "type": "long"
+        },
+        "parent_fuid": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
+        "password": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
+        "proxied": {
+          "ignore_above": 1024,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "range_request": {
+          "type": "boolean"
+        },
+        "referrer": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
+        "request_body_len": {
+          "type": "long"
+        },
+        "resp_filenames": {
+          "ignore_above": 1024,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "resp_fuids": {
+          "ignore_above": 1024,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "resp_mime_depth": {
+          "type": "long"
+        },
+        "resp_mime_types": {
+          "ignore_above": 1024,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "response_body_len": {
+          "type": "long"
+        },
+        "rx_hosts": {
+          "ignore_above": 1024,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "seen_bytes": {
+          "type": "long"
+        },
+        "server_header_names": {
+          "ignore_above": 1024,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "sha1": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
+        "sha256": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
+        "source": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
+        "status_code": {
+          "type": "long"
+        },
+        "status_msg": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
         "tags": {
           "ignore_above": 1024,
           "index": "not_analyzed",
           "type": "string"
+        },
+        "timedout": {
+          "type": "boolean"
+        },
+        "total_bytes": {
+          "type": "long"
+        },
+        "trans_depth": {
+          "type": "long"
+        },
+        "ts": {
+          "type": "double"
+        },
+        "tx_hosts": {
+          "ignore_above": 1024,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "type": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
+        "uid": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
+        "uri": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
+        "uri_vars": {
+          "ignore_above": 1024,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "user_agent": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
+        "username": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
+        "version": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
+          "type": "string"
+        },
+        "x509": {
+          "properties": {
+            "basic_constraints": {
+              "ignore_above": 1024,
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "certificate": {
+              "ignore_above": 1024,
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "extensions": {
+              "ignore_above": 1024,
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "handle": {
+              "ignore_above": 1024,
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "id": {
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
+              "type": "string"
+            },
+            "logcert": {
+              "type": "boolean"
+            },
+            "san": {
+              "ignore_above": 1024,
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "ts": {
+              "type": "double"
+            }
+          }
         }
       }
     }

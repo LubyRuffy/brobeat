@@ -22,6 +22,10 @@
         "@timestamp": {
           "type": "date"
         },
+        "analyzers": {
+          "ignore_above": 1024,
+          "type": "keyword"
+        },
         "beat": {
           "properties": {
             "hostname": {
@@ -38,281 +42,96 @@
             }
           }
         },
-        "files": {
+        "capture_password": {
+          "type": "boolean"
+        },
+        "client_header_names": {
+          "ignore_above": 1024,
+          "type": "keyword"
+        },
+        "conn_uids": {
+          "ignore_above": 1024,
+          "type": "keyword"
+        },
+        "cookie_vars": {
+          "ignore_above": 1024,
+          "type": "keyword"
+        },
+        "counter": {
+          "type": "long"
+        },
+        "created": {
+          "type": "date"
+        },
+        "current_entity": {
           "properties": {
-            "analyzers": {
-              "ignore_above": 1024,
-              "type": "keyword"
-            },
-            "depth": {
-              "type": "long"
-            },
-            "entropy": {
-              "type": "double"
-            },
-            "extracted": {
-              "norms": false,
-              "type": "text"
-            },
             "filename": {
               "norms": false,
               "type": "text"
-            },
-            "fuid": {
-              "norms": false,
-              "type": "text"
-            },
-            "integer": {
-              "type": "double"
-            },
-            "is_orig": {
-              "type": "boolean"
-            },
-            "local_orig": {
-              "type": "boolean"
-            },
-            "md5": {
-              "norms": false,
-              "type": "text"
-            },
-            "mime_type": {
-              "norms": false,
-              "type": "text"
-            },
-            "missing_bytes": {
-              "type": "long"
-            },
-            "overflow_bytes": {
-              "type": "long"
-            },
-            "parent_fuid": {
-              "norms": false,
-              "type": "text"
-            },
-            "rx_hosts": {
-              "ignore_above": 1024,
-              "type": "keyword"
-            },
-            "seen_bytes": {
-              "type": "long"
-            },
-            "sha1": {
-              "norms": false,
-              "type": "text"
-            },
-            "sha256": {
-              "norms": false,
-              "type": "text"
-            },
-            "source": {
-              "norms": false,
-              "type": "text"
-            },
-            "timedout": {
-              "type": "boolean"
-            },
-            "total_bytes": {
-              "type": "long"
-            },
-            "ts": {
-              "type": "double"
-            },
-            "tx_hosts": {
-              "ignore_above": 1024,
-              "type": "keyword"
-            },
-            "x509": {
-              "properties": {
-                "basic_constraints": {
-                  "ignore_above": 1024,
-                  "type": "keyword"
-                },
-                "certificate": {
-                  "ignore_above": 1024,
-                  "type": "keyword"
-                },
-                "extensions": {
-                  "ignore_above": 1024,
-                  "type": "keyword"
-                },
-                "handle": {
-                  "ignore_above": 1024,
-                  "type": "keyword"
-                },
-                "id": {
-                  "norms": false,
-                  "type": "text"
-                },
-                "logcert": {
-                  "type": "boolean"
-                },
-                "san": {
-                  "ignore_above": 1024,
-                  "type": "keyword"
-                },
-                "ts": {
-                  "type": "double"
-                }
-              }
             }
           }
         },
-        "http": {
+        "depth": {
+          "type": "long"
+        },
+        "duration": {
+          "type": "double"
+        },
+        "entropy": {
+          "type": "double"
+        },
+        "extracted": {
+          "norms": false,
+          "type": "text"
+        },
+        "filename": {
+          "norms": false,
+          "type": "text"
+        },
+        "flash_version": {
+          "norms": false,
+          "type": "text"
+        },
+        "fuid": {
+          "norms": false,
+          "type": "text"
+        },
+        "host": {
+          "norms": false,
+          "type": "text"
+        },
+        "id": {
           "properties": {
-            "capture_password": {
-              "type": "boolean"
+            "orig_h": {
+              "type": "ip"
             },
-            "client_header_names": {
-              "ignore_above": 1024,
-              "type": "keyword"
-            },
-            "cookie_vars": {
-              "ignore_above": 1024,
-              "type": "keyword"
-            },
-            "current_entity": {
-              "properties": {
-                "filename": {
-                  "norms": false,
-                  "type": "text"
-                }
-              }
-            },
-            "flash_version": {
-              "norms": false,
-              "type": "text"
-            },
-            "host": {
-              "norms": false,
-              "type": "text"
-            },
-            "id": {
-              "properties": {
-                "orig_h": {
-                  "type": "ip"
-                },
-                "orig_p": {
-                  "type": "long"
-                },
-                "resp_h": {
-                  "type": "ip"
-                },
-                "resp_p": {
-                  "type": "long"
-                }
-              }
-            },
-            "info_code": {
+            "orig_p": {
               "type": "long"
             },
-            "info_msg": {
-              "norms": false,
-              "type": "text"
+            "resp_h": {
+              "type": "ip"
             },
-            "method": {
-              "ignore_above": 1024,
-              "type": "keyword"
-            },
-            "omniture": {
-              "type": "boolean"
-            },
-            "orig_filenames": {
-              "ignore_above": 1024,
-              "type": "keyword"
-            },
-            "orig_fuids": {
-              "ignore_above": 1024,
-              "type": "keyword"
-            },
-            "orig_mime_depth": {
+            "resp_p": {
               "type": "long"
-            },
-            "orig_mime_types": {
-              "ignore_above": 1024,
-              "type": "keyword"
-            },
-            "password": {
-              "norms": false,
-              "type": "text"
-            },
-            "proxied": {
-              "ignore_above": 1024,
-              "type": "keyword"
-            },
-            "range_request": {
-              "type": "boolean"
-            },
-            "referrer": {
-              "norms": false,
-              "type": "text"
-            },
-            "request_body_len": {
-              "type": "long"
-            },
-            "resp_filenames": {
-              "ignore_above": 1024,
-              "type": "keyword"
-            },
-            "resp_fuids": {
-              "ignore_above": 1024,
-              "type": "keyword"
-            },
-            "resp_mime_depth": {
-              "type": "long"
-            },
-            "resp_mime_types": {
-              "ignore_above": 1024,
-              "type": "keyword"
-            },
-            "response_body_len": {
-              "type": "long"
-            },
-            "server_header_names": {
-              "ignore_above": 1024,
-              "type": "keyword"
-            },
-            "status_code": {
-              "type": "long"
-            },
-            "status_msg": {
-              "norms": false,
-              "type": "text"
-            },
-            "tags": {
-              "ignore_above": 1024,
-              "type": "keyword"
-            },
-            "trans_depth": {
-              "type": "long"
-            },
-            "ts": {
-              "type": "double"
-            },
-            "uid": {
-              "norms": false,
-              "type": "text"
-            },
-            "uri": {
-              "norms": false,
-              "type": "text"
-            },
-            "uri_vars": {
-              "ignore_above": 1024,
-              "type": "keyword"
-            },
-            "user_agent": {
-              "norms": false,
-              "type": "text"
-            },
-            "username": {
-              "norms": false,
-              "type": "text"
-            },
-            "version": {
-              "norms": false,
-              "type": "text"
             }
           }
+        },
+        "info_code": {
+          "type": "long"
+        },
+        "info_msg": {
+          "norms": false,
+          "type": "text"
+        },
+        "is_orig": {
+          "type": "boolean"
+        },
+        "local_orig": {
+          "type": "boolean"
+        },
+        "md5": {
+          "norms": false,
+          "type": "text"
         },
         "meta": {
           "properties": {
@@ -346,9 +165,189 @@
             }
           }
         },
+        "method": {
+          "ignore_above": 1024,
+          "type": "keyword"
+        },
+        "mime_type": {
+          "norms": false,
+          "type": "text"
+        },
+        "missing_bytes": {
+          "type": "long"
+        },
+        "omniture": {
+          "type": "boolean"
+        },
+        "orig_filenames": {
+          "ignore_above": 1024,
+          "type": "keyword"
+        },
+        "orig_fuids": {
+          "ignore_above": 1024,
+          "type": "keyword"
+        },
+        "orig_mime_depth": {
+          "type": "long"
+        },
+        "orig_mime_types": {
+          "ignore_above": 1024,
+          "type": "keyword"
+        },
+        "overflow_bytes": {
+          "type": "long"
+        },
+        "parent_fuid": {
+          "norms": false,
+          "type": "text"
+        },
+        "password": {
+          "norms": false,
+          "type": "text"
+        },
+        "proxied": {
+          "ignore_above": 1024,
+          "type": "keyword"
+        },
+        "range_request": {
+          "type": "boolean"
+        },
+        "referrer": {
+          "norms": false,
+          "type": "text"
+        },
+        "request_body_len": {
+          "type": "long"
+        },
+        "resp_filenames": {
+          "ignore_above": 1024,
+          "type": "keyword"
+        },
+        "resp_fuids": {
+          "ignore_above": 1024,
+          "type": "keyword"
+        },
+        "resp_mime_depth": {
+          "type": "long"
+        },
+        "resp_mime_types": {
+          "ignore_above": 1024,
+          "type": "keyword"
+        },
+        "response_body_len": {
+          "type": "long"
+        },
+        "rx_hosts": {
+          "ignore_above": 1024,
+          "type": "keyword"
+        },
+        "seen_bytes": {
+          "type": "long"
+        },
+        "server_header_names": {
+          "ignore_above": 1024,
+          "type": "keyword"
+        },
+        "sha1": {
+          "norms": false,
+          "type": "text"
+        },
+        "sha256": {
+          "norms": false,
+          "type": "text"
+        },
+        "source": {
+          "norms": false,
+          "type": "text"
+        },
+        "status_code": {
+          "type": "long"
+        },
+        "status_msg": {
+          "norms": false,
+          "type": "text"
+        },
         "tags": {
           "ignore_above": 1024,
           "type": "keyword"
+        },
+        "timedout": {
+          "type": "boolean"
+        },
+        "total_bytes": {
+          "type": "long"
+        },
+        "trans_depth": {
+          "type": "long"
+        },
+        "ts": {
+          "type": "double"
+        },
+        "tx_hosts": {
+          "ignore_above": 1024,
+          "type": "keyword"
+        },
+        "type": {
+          "norms": false,
+          "type": "text"
+        },
+        "uid": {
+          "norms": false,
+          "type": "text"
+        },
+        "uri": {
+          "norms": false,
+          "type": "text"
+        },
+        "uri_vars": {
+          "ignore_above": 1024,
+          "type": "keyword"
+        },
+        "user_agent": {
+          "norms": false,
+          "type": "text"
+        },
+        "username": {
+          "norms": false,
+          "type": "text"
+        },
+        "version": {
+          "norms": false,
+          "type": "text"
+        },
+        "x509": {
+          "properties": {
+            "basic_constraints": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "certificate": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "extensions": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "handle": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "id": {
+              "norms": false,
+              "type": "text"
+            },
+            "logcert": {
+              "type": "boolean"
+            },
+            "san": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            },
+            "ts": {
+              "type": "double"
+            }
+          }
         }
       }
     }
