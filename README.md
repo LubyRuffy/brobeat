@@ -1,4 +1,9 @@
-# Brobeat
+# Brobeat (WIP)
+
+[![Build Status](https://travis-ci.org/blacktop/brobeat.svg?branch=master)](https://travis-ci.org/blacktop/brobeat)
+[![License][license]](http://www.apache.org/licenses/LICENSE-2.0)
+
+### DISCUSSION HERE - https://discuss.elastic.co/t/question-about-creating-brobeat
 
 Welcome to Brobeat.
 
@@ -117,3 +122,5 @@ make package
 ```
 
 This will fetch and create all images required for the build process. The hole process to finish can take several minutes.
+
+[license]: https://img.shields.io/badge/licence-Apache%202.0-blue.svg

@@ -47,6 +47,29 @@
         "counter": {
           "type": "long"
         },
+        "created": {
+          "type": "date"
+        },
+        "id": {
+          "properties": {
+            "orig_h": {
+              "ignore_above": 1024,
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "orig_p": {
+              "type": "long"
+            },
+            "resp_h": {
+              "ignore_above": 1024,
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "resp_p": {
+              "type": "long"
+            }
+          }
+        },
         "meta": {
           "properties": {
             "cloud": {
@@ -88,6 +111,16 @@
         "tags": {
           "ignore_above": 1024,
           "index": "not_analyzed",
+          "type": "string"
+        },
+        "ts": {
+          "type": "double"
+        },
+        "uid": {
+          "index": "analyzed",
+          "norms": {
+            "enabled": false
+          },
           "type": "string"
         }
       }
