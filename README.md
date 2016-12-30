@@ -20,7 +20,7 @@ $ make
 $ ./brobeat -e -c brobeat.yml
 ```
 
-> **NOTE:** This is very **beta** software and it will only ingest a single bro log at this time 
+> **NOTE:** :construction: This is very **beta** software and it will only ingest a single bro log at this time :construction:
 
 ### Issues
 
