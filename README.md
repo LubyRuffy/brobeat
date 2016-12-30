@@ -20,6 +20,8 @@ $ make
 $ ./brobeat -e -c brobeat.yml
 ```
 
+> **NOTE:** This is very **beta** software and it will only ingest a single bro log at this time 
+
 ### Issues
 
 Find a bug? Want more features? Find something missing in the documentation? Let me know! Please don't hesitate to [file an issue](https://github.com/blacktop/brobeat/issues/new)
