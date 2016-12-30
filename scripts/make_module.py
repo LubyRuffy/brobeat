@@ -14,7 +14,7 @@ with open('../logstash/bro.conf', 'w') as lsfile:
     lsfile.write(template.render(logs=bro_logs['logs']))
 
 # create module manifests
-template = env.get_template('manifest.yml')
+template = env.get_template('module/manifest.yml')
 for log in bro_logs['logs']:
     module_dir = os.path.join('../module/bro', log['log_type'])
     if log.get('pattern', None):
@@ -24,7 +24,7 @@ for log in bro_logs['logs']:
             plfile.write(template.render(log_type=log['log_type']))
 
 # create module config
-template = env.get_template('config/config.yml')
+template = env.get_template('module/config/config.yml')
 for log in bro_logs['logs']:
     config_dir = os.path.join('../module/bro', log['log_type'], 'config')
     if log.get('pattern', None):
@@ -34,7 +34,7 @@ for log in bro_logs['logs']:
             cfile.write(template.render(log_type=log['log_type']))
 
 # create ingest pipelines
-template = env.get_template('ingest/pipeline.json')
+template = env.get_template('module/ingest/pipeline.json')
 for log in bro_logs['logs']:
     ingest_dir = os.path.join('../module/bro', log['log_type'], 'ingest')
     if log.get('pattern', None):
@@ -46,7 +46,7 @@ for log in bro_logs['logs']:
                                          pattern=log['pattern'].get('pattern')))
 
 # create _meta fields
-template = env.get_template('_meta/fields.yml')
+template = env.get_template('module/_meta/fields.yml')
 for log in bro_logs['logs']:
     meta_dir = os.path.join('../module/bro', log['log_type'], '_meta')
     if log.get('pattern', None):
