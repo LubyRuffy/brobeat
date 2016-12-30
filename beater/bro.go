@@ -11,6 +11,11 @@ import (
 	"time"
 )
 
+// BroLogs is an array of BroLogLines
+type BroLogs struct {
+	Logs []BroLogLine `json:"logs,omitempty"`
+}
+
 // BroHeaderFields log file header
 type BroHeaderFields struct {
 	Separator    string   `json:"separator,omitempty"`
@@ -23,13 +28,6 @@ type BroHeaderFields struct {
 	Types        []string `json:"types"`
 }
 
-// BroField log line field
-type BroField struct {
-	Name  string `json:"name"`
-	Type  string `json:"type"`
-	Value string `json:"value"`
-}
-
 // BroLogLine log entry
 type BroLogLine struct {
 	Type         string     `json:"type,omitempty"`
@@ -40,13 +38,14 @@ type BroLogLine struct {
 	Fields       []BroField `json:"fields,omitempty"`
 }
 
-// BroLogs is an array of BroLogLines
-type BroLogs struct {
-	Logs []BroLogLine `json:"logs,omitempty"`
+// BroField log line field
+type BroField struct {
+	Name  string `json:"name"`
+	Type  string `json:"type"`
+	Value string `json:"value"`
 }
 
 func convertTs2Time(ts string) (time.Time, error) {
-
 	tsNoDot := strings.Replace(ts, ".", "", 1)
 
 	nsec, err := strconv.ParseInt(tsNoDot+"000", 10, 64)
