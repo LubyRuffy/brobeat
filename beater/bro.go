@@ -59,6 +59,8 @@ func convertTs2Time(ts string) (time.Time, error) {
 // ReadHeader parses the bro log header
 func ReadHeader(filePath string) BroHeaderFields {
 
+	// Example Header ==============================
+
 	// #separator \x09
 	// #set_separator	,
 	// #empty_field	(empty)
@@ -151,12 +153,15 @@ func ParseLogFile(filePath string) BroLogs {
 	// read bro log header
 	broHeader := ReadHeader(filePath)
 
+	// open log files
+	// TODO: this will be replaced with filebeat functionality
 	csvFile, err := os.Open(filePath)
 	if err != nil {
 		fmt.Println(err)
 	}
 	defer csvFile.Close()
 
+	// parse TSV bro log files
 	r := csv.NewReader(csvFile)
 	r.Comma = '\t'
 	r.Comment = '#'
@@ -184,11 +189,6 @@ func ParseLogFile(filePath string) BroLogs {
 			broLine.Fields[j] = broField
 		}
 		logs.Logs = append(logs.Logs, broLine)
-		// broJSON, err := json.Marshal(broLine)
-		// if err != nil {
-		// 	fmt.Println(err)
-		// }
-		// fmt.Println(string(broJSON))
 	}
 	return logs
 }
