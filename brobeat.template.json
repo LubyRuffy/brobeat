@@ -297,7 +297,7 @@
         },
         "uri": {
           "norms": false,
-          "type": "text"
+          "type": "keyword"
         },
         "uri_vars": {
           "ignore_above": 1024,

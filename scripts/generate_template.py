@@ -94,6 +94,7 @@ def fields_to_es_template(args, input, output, index, version):
         properties.update(prop)
         dynamic_templates.extend(dynamic)
 
+    # TODO: This is the main problem here ======================================
     template["mappings"]["_default_"]["properties"] = properties
     if len(dynamic_templates) > 0:
         template["mappings"]["_default_"]["dynamic_templates"] = \

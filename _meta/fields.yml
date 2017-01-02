@@ -52,11 +52,9 @@
       description: >
         Verb used in the HTTP request (GET, POST, HEAD, etc.).
     - name: host
-      type: text
       description: >
         Value of the HOST header.
     - name: uri
-      type: text
       description: >
         URI used in the request.
     - name: referrer
