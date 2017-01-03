@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{NUMBER:ts}\t%{NOTSPACE:fuid}\t%{GREEDYDATA:tx_hosts}\t%{GREEDYDATA:rx_hosts}\t%{NOTSPACE:conn_uids}\t%{GREEDYDATA:source}\t%{INT:depth}\t%{GREEDYDATA:analyzers}\t%{GREEDYDATA:mime_type}\t%{GREEDYDATA:filename}\t%{GREEDYDATA:duration}\t%{GREEDYDATA:local_orig}\t%{GREEDYDATA:is_orig}\t%{INT:seen_bytes}\t%{INT:total_bytes}\t%{INT:missing_bytes}\t%{INT:overflow_bytes}\t%{GREEDYDATA:timedout}\t%{NOTSPACE:parent_fuid}\t%{GREEDYDATA:md5}\t%{GREEDYDATA:sha1}\t%{GREEDYDATA:sha256}\t%{NUMBER:x509.ts}\t%{GREEDYDATA:x509.id}\t%{GREEDYDATA:x509.certificate}\t%{GREEDYDATA:x509.handle}\t%{GREEDYDATA:x509.extensions}\t%{GREEDYDATA:x509.san}\t%{GREEDYDATA:x509.basic_constraints}\t%{GREEDYDATA:x509.logcert}\t%{GREEDYDATA:extracted}\t%{GREEDYDATA:entropy}"
+        "%{DATA:ts}\t%{NOTSPACE:fuid}\t%{DATA:tx_hosts}\t%{DATA:rx_hosts}\t%{NOTSPACE:conn_uids}\t%{DATA:source}\t%{DATA:depth}\t%{DATA:analyzers}\t%{DATA:mime_type}\t%{DATA:filename}\t%{DATA:duration}\t%{DATA:local_orig}\t%{DATA:is_orig}\t%{DATA:seen_bytes}\t%{DATA:total_bytes}\t%{DATA:missing_bytes}\t%{DATA:overflow_bytes}\t%{DATA:timedout}\t%{NOTSPACE:parent_fuid}\t%{DATA:md5}\t%{DATA:sha1}\t%{DATA:sha256}\t%{DATA:x509}\t%{DATA:extracted}\t%{DATA:entropy}"
         ],
       "ignore_missing": true
     }

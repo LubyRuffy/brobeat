@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{NUMBER:ts}\t%{GREEDYDATA:rule_id}\t%{IP:ip}\t%{GREEDYDATA:action}\t%{GREEDYDATA:block_interval}\t%{GREEDYDATA:watch_interval}\t%{NUMBER:blocked_until}\t%{NUMBER:watched_until}\t%{INT:num_blocked}\t%{GREEDYDATA:location}\t%{GREEDYDATA:message}"
+        "%{DATA:ts}\t%{DATA:rule_id}\t%{DATA:ip}\t%{DATA:action}\t%{DATA:block_interval}\t%{DATA:watch_interval}\t%{DATA:blocked_until}\t%{DATA:watched_until}\t%{DATA:num_blocked}\t%{DATA:location}\t%{DATA:message}"
         ],
       "ignore_missing": true
     }

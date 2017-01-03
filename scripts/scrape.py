@@ -5,8 +5,9 @@ import requests
 from requests.compat import urljoin
 import json
 import os
-import re
 import logging
+
+from utils import field_type_2_elastic_lookup, is_enum, build_url, doc2grok, conn_id
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -16,71 +17,14 @@ consoleHandler.setFormatter(logFormatter)
 logger.addHandler(consoleHandler)
 
 
-def is_url(url):
-    regex = re.compile(r'^(?:http|ftp)s?://'  # http:// or https://
-                       r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|'  # domain...
-                       r'localhost|'  # localhost...
-                       r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'  # ...or ip
-                       r'(?::\d+)?'  # optional port
-                       r'(?:/?|[/?]\S+)$',
-                       re.IGNORECASE)
-    return regex.match(url)
-
-
-def build_url(current_url, next_url):
-    if is_url(next_url):
-        return next_url
-    else:
-        return urljoin(current_url, next_url)
-
-
-def field_type_lookup(ftype, field):
-    type2grok = {
-        'time': 'NUMBER',
-        'count': 'INT',
-        'interval': 'DATA',
-        'bool': 'DATA',
-        'addr': 'IP',
-        'port': 'INT',
-        'string': 'DATA',
-        'double': 'DATA',
-        'geo_location': 'DATA',
-        'int': 'INT',
-        'transport_proto': 'WORD',
-        'conn_id': 'NOTSPACE',
-        'set': 'DATA',
-        'vector': 'DATA',
-    }
-    if 'uid' in field:
-        return 'NOTSPACE', field
-    return type2grok.get(ftype, 'DATA'), field
-
-
-def doc2grok(fields):
-    converted = []
-    for field in fields:
-        if field['field'] == 'id':
-            converted.append('%{IP:orig_h}\\t%{INT:orig_p}\\t%{IP:resp_h}\\t%{INT:resp_p}')
-        else:
-            converted.append('%%{%s:%s}' % field_type_lookup(field['type'], field['field']))
-    return '\\t'.join(converted)
-
-
-def is_enum(soup, dt_text):
-    p = soup.find("dt", id=dt_text).parent.find("p", {"class": "first"})
-    if p is not None and 'enum' in p.text:
-        return True
-    else:
-        return False
-
-
 def parse_p_table(soup, field_name=None, dt_text=None):
     pfields = []
     table = soup.find("dt", id=dt_text).parent.find("table")
     ps = table.find("th", text="Type:").parent.find_all("p")
     for p in ps[1:]:
         nfield_name = p.contents[0].split(':', 1)[0]
-        nfield_type = p.contents[1].text
+        # convert field type to elasticsearch type
+        nfield_type = field_type_2_elastic_lookup(p.contents[1].text, nfield_name)
         if field_name is None:
             logger.info(' ===> adding nested field: {}'.format(nfield_name))
             pfields.append(dict(field=nfield_name, type=nfield_type, description=""))
@@ -110,16 +54,17 @@ def get_nested_fields(field_name, field_type, url):
                 for nfield in list(zip(dl.find_all("dt"), dl.find_all("dd"))):
                     if len(nfield) == 2:
                         nfield_name = nfield[0].contents[0].split(':', 1)[0]
-                        nfield_type = nfield[0].contents[1].text
+                        # convert field type to elasticsearch type
+                        nfield_type = field_type_2_elastic_lookup(nfield[0].contents[1].text, nfield_name)
                         if nfield[1].p is not None:
-                            nfield_description = nfield[1].p.text.replace('\n', ' ').replace('\r', '').encode('ascii',
-                                                                                                              'ignore')
+                            nfield_description = nfield[1].p.text.replace('\n', ' ').replace('\r', '')
+                            nfield_description = nfield_description.encode('ascii', 'ignore').decode('ascii')
                         else:
                             nfield_description = ""
                         logger.info(' ===> adding nested field: {}'.format(field_name + '.' + nfield_name))
-                        nested.append(dict(field=field_name + '.' + nfield_name,
-                                           type=nfield_type,
-                                           description=nfield_description))
+                        nested.append(
+                            dict(
+                                field=field_name + '.' + nfield_name, type=nfield_type, description=nfield_description))
             else:
                 logger.warn(' ===> unable to parse nested field type: {}. Trying again...'.format(field_type))
                 nested += parse_p_table(soup, field_name, dt_text)
@@ -138,14 +83,14 @@ def get_log_types():
             cols = [ele.text.strip() for ele in cols]
             tds = [ele for ele in cols if ele]
             log['file'] = tds[0]
-            log['log_type'] = os.path.splitext(log['file'])[0]
-            log['description'] = tds[1]
+            log['type'] = os.path.splitext(log['file'])[0]
+            log['description'] = tds[1].replace('\n', ' ').replace('\r', '').encode('ascii', 'ignore').decode('ascii')
             log['fields'] = []
             link = row.find('a', href=True)
             # do not add a URL for notice_alarm.log
-            if link is not None and 'notice_alarm' not in log['log_type']:
+            if link is not None and 'notice_alarm' not in log['type']:
                 log['url'] = urljoin(url, link['href'])
-                logger.info('adding log type: {}'.format(log['log_type']))
+                logger.info('adding log type: {}'.format(log['type']))
             bro_logs['logs'].append(log)
     return bro_logs
 
@@ -166,19 +111,27 @@ def scrape_bro_docs():
                     for dfield in list(zip(dl.find_all("dt"), dl.find_all("dd"))):
                         if len(dfield) == 2:
                             field_name = dfield[0].contents[0].split(':', 1)[0]
-                            field_type = dfield[0].contents[1].text
+                            # convert field type to elasticsearch type
+                            field_type = field_type_2_elastic_lookup(dfield[0].contents[1].text, field_name)
                             if dfield[1].p is not None:
-                                field_description = dfield[1].p.text.replace('\n', ' ').replace('\r', '').encode(
-                                    'ascii', 'ignore')
+                                field_description = dfield[1].p.text.replace('\n', ' ').replace('\r', '')
+                                field_description = field_description.encode('ascii', 'ignore').decode('ascii')
                             else:
                                 field_description = ""
-                            if '::' in field_type:
+
+                            if field_type is None:
+                                log_type['fields'].append(
+                                    dict(
+                                        field=field_name, type=field_type, description=field_description))
+                            elif 'conn_id' in field_type:
+                                log_type['fields'] += conn_id
+                            elif '::' in field_type:
                                 url = build_url(log_type.get('url'), dfield[0].a['href'])
                                 log_type['fields'] += get_nested_fields(field_name, field_type, url)
                             else:
-                                log_type['fields'].append(dict(field=field_name,
-                                                               type=field_type,
-                                                               description=field_description))
+                                log_type['fields'].append(
+                                    dict(
+                                        field=field_name, type=field_type, description=field_description))
                 else:
                     logger.warn(' ===> unable to parse fields for log: {}. Trying again...'.format(log_type['file']))
                     log_type['fields'] += parse_p_table(soup, field_name=None, dt_text=dt_text)
@@ -192,7 +145,7 @@ def scrape_bro_docs():
 
 
 def get_log_grok_pattern(logtype):
-    return dict(name='BRO_' + logtype['log_type'].upper(), pattern=doc2grok(logtype.get('fields')))
+    return dict(name='BRO_' + logtype['type'].upper(), pattern=doc2grok(logtype.get('fields')))
 
 
 def convert_docs_to_grok_patterns(bro_logs):

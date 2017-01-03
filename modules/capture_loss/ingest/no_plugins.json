@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{NUMBER:ts}\t%{GREEDYDATA:ts_delta}\t%{GREEDYDATA:peer}\t%{INT:gaps}\t%{INT:acks}\t%{GREEDYDATA:percent_lost}"
+        "%{DATA:ts}\t%{DATA:ts_delta}\t%{DATA:peer}\t%{DATA:gaps}\t%{DATA:acks}\t%{DATA:percent_lost}"
         ],
       "ignore_missing": true
     }

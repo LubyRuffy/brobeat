@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{NUMBER:ts}\t%{GREEDYDATA:pid}\t%{GREEDYDATA:alert}"
+        "%{DATA:ts}\t%{DATA:pid}\t%{DATA:alert}"
         ],
       "ignore_missing": true
     }

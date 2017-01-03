@@ -1,17 +1,20 @@
-- name: known_modbus
-  type: group
+- key: known_modbus
+  title: known_modbus
   description: >
-    Contains fields for the Bro known_modbus logs.
+    Modbus masters and slaves
   fields:
-    - name: ts
-      type: time
-      description: >
-        The time the device was discovered.
-    - name: host
-      type: addr
-      description: >
-        The IP address of the host.
-    - name: device_type
-      type: Known::ModbusDeviceType
-      description: >
-        
+    - name: known_modbus
+      type: group
+      fields:
+        - name: ts
+          type: double
+          description: >
+            The time the device was discovered.
+        - name: host
+          type: ip
+          description: >
+            The IP address of the host.
+        - name: device_type
+          description: >
+            The type of device being tracked.
+

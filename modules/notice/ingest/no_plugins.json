@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:conn}\t%{GREEDYDATA:iconn}\t%{GREEDYDATA:f}\t%{NOTSPACE:fuid}\t%{GREEDYDATA:file_mime_type}\t%{GREEDYDATA:file_desc}\t%{WORD:proto}\t%{GREEDYDATA:note}\t%{GREEDYDATA:msg}\t%{GREEDYDATA:sub}\t%{IP:src}\t%{IP:dst}\t%{INT:p}\t%{INT:n}\t%{GREEDYDATA:src_peer}\t%{GREEDYDATA:peer_descr}\t%{GREEDYDATA:actions}\t%{GREEDYDATA:email_body_sections}\t%{GREEDYDATA:email_delay_tokens}\t%{GREEDYDATA:identifier}\t%{GREEDYDATA:suppress_for}\t%{GREEDYDATA:dropped}\t%{GREEDYDATA:remote_location}"
+        "%{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:conn}\t%{DATA:iconn}\t%{DATA:f}\t%{NOTSPACE:fuid}\t%{DATA:file_mime_type}\t%{DATA:file_desc}\t%{DATA:proto}\t%{DATA:note}\t%{DATA:msg}\t%{DATA:sub}\t%{DATA:src}\t%{DATA:dst}\t%{DATA:p}\t%{DATA:n}\t%{DATA:src_peer}\t%{DATA:peer_descr}\t%{DATA:actions}\t%{DATA:email_body_sections}\t%{DATA:email_delay_tokens}\t%{DATA:identifier}\t%{DATA:suppress_for}\t%{DATA:dropped}\t%{DATA:remote_location}"
         ],
       "ignore_missing": true
     }

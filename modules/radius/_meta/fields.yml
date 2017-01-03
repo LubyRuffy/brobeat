@@ -1,41 +1,57 @@
-- name: radius
-  type: group
+- key: radius
+  title: radius
   description: >
-    Contains fields for the Bro radius logs.
+    RADIUS authentication attempts
   fields:
-    - name: ts
-      type: time
-      description: >
-        Timestamp for when the event happened.
-    - name: uid
-      type: string
-      description: >
-        Unique ID for the connection.
-    - name: id
-      type: conn_id
-      description: >
-        The connections 4-tuple of endpoint addresses/ports.
-    - name: username
-      type: string
-      description: >
-        The username, if present.
-    - name: mac
-      type: string
-      description: >
-        MAC address, if present.
-    - name: remote_ip
-      type: addr
-      description: >
-        Remote IP address, if present.
-    - name: connect_info
-      type: string
-      description: >
-        Connect info, if present.
-    - name: result
-      type: string
-      description: >
-        Successful or failed authentication.
-    - name: logged
-      type: bool
-      description: >
-        Whether this has already been logged and can be ignored.
+    - name: radius
+      type: group
+      fields:
+        - name: ts
+          type: double
+          description: >
+            Timestamp for when the event happened.
+        - name: uid
+          type: text
+          description: >
+            Unique ID for the connection.
+        - name: id.orig_h
+          type: ip
+          description: >
+            The originators IP address.
+        - name: id.orig_p
+          type: integer
+          description: >
+            The originators port number.
+        - name: id.resp_h
+          type: ip
+          description: >
+            The responders IP address.
+        - name: id.resp_p
+          type: integer
+          description: >
+            The responders port number.
+        - name: username
+          type: keyword
+          description: >
+            The username, if present.
+        - name: mac
+          type: keyword
+          description: >
+            MAC address, if present.
+        - name: remote_ip
+          type: ip
+          description: >
+            Remote IP address, if present.
+        - name: connect_info
+          type: keyword
+          description: >
+            Connect info, if present.
+        - name: result
+          type: keyword
+          description: >
+            Successful or failed authentication.
+        - name: logged
+          type: boolean
+          description: >
+            Whether this has already been logged and can be ignored.
+

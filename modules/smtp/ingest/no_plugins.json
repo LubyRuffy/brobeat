@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{INT:trans_depth}\t%{GREEDYDATA:helo}\t%{GREEDYDATA:mailfrom}\t%{GREEDYDATA:rcptto}\t%{GREEDYDATA:date}\t%{GREEDYDATA:from}\t%{GREEDYDATA:to}\t%{GREEDYDATA:cc}\t%{GREEDYDATA:reply_to}\t%{GREEDYDATA:msg_id}\t%{GREEDYDATA:in_reply_to}\t%{GREEDYDATA:subject}\t%{IP:x_originating_ip}\t%{GREEDYDATA:first_received}\t%{GREEDYDATA:second_received}\t%{GREEDYDATA:last_reply}\t%{GREEDYDATA:path}\t%{GREEDYDATA:user_agent}\t%{GREEDYDATA:tls}\t%{GREEDYDATA:process_received_from}\t%{GREEDYDATA:has_client_activity}\t%{GREEDYDATA:entity.filename}\t%{GREEDYDATA:entity.excerpt}\t%{NOTSPACE:fuids}\t%{GREEDYDATA:is_webmail}"
+        "%{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:trans_depth}\t%{DATA:helo}\t%{DATA:mailfrom}\t%{DATA:rcptto}\t%{DATA:date}\t%{DATA:from}\t%{DATA:to}\t%{DATA:cc}\t%{DATA:reply_to}\t%{DATA:msg_id}\t%{DATA:in_reply_to}\t%{DATA:subject}\t%{DATA:x_originating_ip}\t%{DATA:first_received}\t%{DATA:second_received}\t%{DATA:last_reply}\t%{DATA:path}\t%{DATA:user_agent}\t%{DATA:tls}\t%{DATA:process_received_from}\t%{DATA:has_client_activity}\t%{DATA:entity}\t%{NOTSPACE:fuids}\t%{DATA:is_webmail}"
         ],
       "ignore_missing": true
     }

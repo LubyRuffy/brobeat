@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{NUMBER:ts}\t%{GREEDYDATA:peer}\t%{GREEDYDATA:src_name}\t%{GREEDYDATA:connected_peer_desc}\t%{IP:connected_peer_addr}\t%{INT:connected_peer_port}\t%{GREEDYDATA:level}\t%{GREEDYDATA:message}"
+        "%{DATA:ts}\t%{DATA:peer}\t%{DATA:src_name}\t%{DATA:connected_peer_desc}\t%{DATA:connected_peer_addr}\t%{DATA:connected_peer_port}\t%{DATA:level}\t%{DATA:message}"
         ],
       "ignore_missing": true
     }

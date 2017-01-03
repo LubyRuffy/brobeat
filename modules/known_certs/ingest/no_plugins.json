@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{NUMBER:ts}\t%{IP:host}\t%{INT:port_num}\t%{GREEDYDATA:subject}\t%{GREEDYDATA:issuer_subject}\t%{GREEDYDATA:serial}"
+        "%{DATA:ts}\t%{DATA:host}\t%{DATA:port_num}\t%{DATA:subject}\t%{DATA:issuer_subject}\t%{DATA:serial}"
         ],
       "ignore_missing": true
     }

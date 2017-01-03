@@ -1,21 +1,25 @@
-- name: traceroute
-  type: group
+- key: traceroute
+  title: traceroute
   description: >
-    Contains fields for the Bro traceroute logs.
+    Traceroute detection
   fields:
-    - name: ts
-      type: time
-      description: >
-        Timestamp
-    - name: src
-      type: addr
-      description: >
-        Address initiating the traceroute.
-    - name: dst
-      type: addr
-      description: >
-        Destination address of the traceroute.
-    - name: proto
-      type: string
-      description: >
-        Protocol used for the traceroute.
+    - name: traceroute
+      type: group
+      fields:
+        - name: ts
+          type: double
+          description: >
+            Timestamp
+        - name: src
+          type: ip
+          description: >
+            Address initiating the traceroute.
+        - name: dst
+          type: ip
+          description: >
+            Destination address of the traceroute.
+        - name: proto
+          type: keyword
+          description: >
+            Protocol used for the traceroute.
+

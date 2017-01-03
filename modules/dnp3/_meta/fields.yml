@@ -1,29 +1,45 @@
-- name: dnp3
-  type: group
+- key: dnp3
+  title: dnp3
   description: >
-    Contains fields for the Bro dnp3 logs.
+    DNP3 requests and replies
   fields:
-    - name: ts
-      type: time
-      description: >
-        Time of the request.
-    - name: uid
-      type: string
-      description: >
-        Unique identifier for the connection.
-    - name: id
-      type: conn_id
-      description: >
-        Identifier for the connection.
-    - name: fc_request
-      type: string
-      description: >
-        The name of the function message in the request.
-    - name: fc_reply
-      type: string
-      description: >
-        The name of the function message in the reply.
-    - name: iin
-      type: count
-      description: >
-        The responses internal indication number.
+    - name: dnp3
+      type: group
+      fields:
+        - name: ts
+          type: double
+          description: >
+            Time of the request.
+        - name: uid
+          type: text
+          description: >
+            Unique identifier for the connection.
+        - name: id.orig_h
+          type: ip
+          description: >
+            The originators IP address.
+        - name: id.orig_p
+          type: integer
+          description: >
+            The originators port number.
+        - name: id.resp_h
+          type: ip
+          description: >
+            The responders IP address.
+        - name: id.resp_p
+          type: integer
+          description: >
+            The responders port number.
+        - name: fc_request
+          type: keyword
+          description: >
+            The name of the function message in the request.
+        - name: fc_reply
+          type: keyword
+          description: >
+            The name of the function message in the reply.
+        - name: iin
+          type: integer
+          description: >
+            The responses internal indication number.
+

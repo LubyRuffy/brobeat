@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:user}\t%{GREEDYDATA:password}\t%{GREEDYDATA:command}\t%{GREEDYDATA:arg}\t%{GREEDYDATA:mime_type}\t%{INT:file_size}\t%{INT:reply_code}\t%{GREEDYDATA:reply_msg}\t%{GREEDYDATA:data_channel.passive}\t%{IP:data_channel.orig_h}\t%{IP:data_channel.resp_h}\t%{INT:data_channel.resp_p}\t%{GREEDYDATA:cwd}\t%{NUMBER:cmdarg.ts}\t%{GREEDYDATA:cmdarg.cmd}\t%{GREEDYDATA:cmdarg.arg}\t%{INT:cmdarg.seq}\t%{GREEDYDATA:pending_commands}\t%{GREEDYDATA:passive}\t%{GREEDYDATA:capture_password}\t%{NOTSPACE:fuid}\t%{GREEDYDATA:last_auth_requested}"
+        "%{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:user}\t%{DATA:password}\t%{DATA:command}\t%{DATA:arg}\t%{DATA:mime_type}\t%{DATA:file_size}\t%{DATA:reply_code}\t%{DATA:reply_msg}\t%{DATA:data_channel}\t%{DATA:cwd}\t%{DATA:cmdarg}\t%{DATA:pending_commands}\t%{DATA:passive}\t%{DATA:capture_password}\t%{NOTSPACE:fuid}\t%{DATA:last_auth_requested}"
         ],
       "ignore_missing": true
     }

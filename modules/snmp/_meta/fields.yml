@@ -1,53 +1,69 @@
-- name: snmp
-  type: group
+- key: snmp
+  title: snmp
   description: >
-    Contains fields for the Bro snmp logs.
+    SNMP messages
   fields:
-    - name: ts
-      type: time
-      description: >
-        Timestamp of first packet belonging to the SNMP session.
-    - name: uid
-      type: string
-      description: >
-        The unique ID for the connection.
-    - name: id
-      type: conn_id
-      description: >
-        The connections 5-tuple of addresses/ports (ports inherently include transport protocol information)
-    - name: duration
-      type: interval
-      description: >
-        The amount of time between the first packet beloning to the SNMP session and the latest one seen.
-    - name: version
-      type: string
-      description: >
-        The version of SNMP being used.
-    - name: community
-      type: string
-      description: >
-        The community string of the first SNMP packet associated with the session.  This is used as part of SNMPs (v1 and v2c) administrative/security framework.  See RFC 1157 or RFC 1901.
-    - name: get_requests
-      type: count
-      description: >
-        The number of variable bindings in GetRequest/GetNextRequest PDUs seen for the session.
-    - name: get_bulk_requests
-      type: count
-      description: >
-        The number of variable bindings in GetBulkRequest PDUs seen for the session.
-    - name: get_responses
-      type: count
-      description: >
-        The number of variable bindings in GetResponse/Response PDUs seen for the session.
-    - name: set_requests
-      type: count
-      description: >
-        The number of variable bindings in SetRequest PDUs seen for the session.
-    - name: display_string
-      type: string
-      description: >
-        A system description of the SNMP responder endpoint.
-    - name: up_since
-      type: time
-      description: >
-        The time at which the SNMP responder endpoint claims its been up since.
+    - name: snmp
+      type: group
+      fields:
+        - name: ts
+          type: double
+          description: >
+            Timestamp of first packet belonging to the SNMP session.
+        - name: uid
+          type: text
+          description: >
+            The unique ID for the connection.
+        - name: id.orig_h
+          type: ip
+          description: >
+            The originators IP address.
+        - name: id.orig_p
+          type: integer
+          description: >
+            The originators port number.
+        - name: id.resp_h
+          type: ip
+          description: >
+            The responders IP address.
+        - name: id.resp_p
+          type: integer
+          description: >
+            The responders port number.
+        - name: duration
+          type: double
+          description: >
+            The amount of time between the first packet beloning to the SNMP session and the latest one seen.
+        - name: version
+          type: keyword
+          description: >
+            The version of SNMP being used.
+        - name: community
+          type: keyword
+          description: >
+            The community string of the first SNMP packet associated with the session.  This is used as part of SNMPs (v1 and v2c) administrative/security framework.  See RFC 1157 or RFC 1901.
+        - name: get_requests
+          type: integer
+          description: >
+            The number of variable bindings in GetRequest/GetNextRequest PDUs seen for the session.
+        - name: get_bulk_requests
+          type: integer
+          description: >
+            The number of variable bindings in GetBulkRequest PDUs seen for the session.
+        - name: get_responses
+          type: integer
+          description: >
+            The number of variable bindings in GetResponse/Response PDUs seen for the session.
+        - name: set_requests
+          type: integer
+          description: >
+            The number of variable bindings in SetRequest PDUs seen for the session.
+        - name: display_string
+          type: keyword
+          description: >
+            A system description of the SNMP responder endpoint.
+        - name: up_since
+          type: double
+          description: >
+            The time at which the SNMP responder endpoint claims its been up since.
+

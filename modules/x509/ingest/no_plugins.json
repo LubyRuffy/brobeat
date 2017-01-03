@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{NUMBER:ts}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{INT:certificate.version}\t%{GREEDYDATA:certificate.serial}\t%{GREEDYDATA:certificate.subject}\t%{GREEDYDATA:certificate.issuer}\t%{GREEDYDATA:certificate.cn}\t%{NUMBER:certificate.not_valid_before}\t%{NUMBER:certificate.not_valid_after}\t%{GREEDYDATA:certificate.key_alg}\t%{GREEDYDATA:certificate.sig_alg}\t%{GREEDYDATA:certificate.key_type}\t%{INT:certificate.key_length}\t%{GREEDYDATA:certificate.exponent}\t%{GREEDYDATA:certificate.curve}\t%{GREEDYDATA:handle}\t%{GREEDYDATA:extensions}\t%{GREEDYDATA:san.dns}\t%{GREEDYDATA:san.uri}\t%{GREEDYDATA:san.email}\t%{GREEDYDATA:san.ip}\t%{GREEDYDATA:san.other_fields}\t%{GREEDYDATA:basic_constraints.ca}\t%{INT:basic_constraints.path_len}\t%{GREEDYDATA:logcert}"
+        "%{DATA:ts}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{DATA:certificate}\t%{DATA:handle}\t%{DATA:extensions}\t%{DATA:san}\t%{DATA:basic_constraints}\t%{DATA:logcert}"
         ],
       "ignore_missing": true
     }

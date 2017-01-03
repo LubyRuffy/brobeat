@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{WORD:proto}\t%{GREEDYDATA:service}\t%{GREEDYDATA:duration}\t%{INT:orig_bytes}\t%{INT:resp_bytes}\t%{GREEDYDATA:conn_state}\t%{GREEDYDATA:local_orig}\t%{GREEDYDATA:local_resp}\t%{INT:missed_bytes}\t%{GREEDYDATA:history}\t%{INT:orig_pkts}\t%{INT:orig_ip_bytes}\t%{INT:resp_pkts}\t%{INT:resp_ip_bytes}\t%{GREEDYDATA:tunnel_parents}\t%{GREEDYDATA:orig_l2_addr}\t%{GREEDYDATA:resp_l2_addr}\t%{INT:vlan}\t%{INT:inner_vlan}"
+        "%{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:proto}\t%{DATA:service}\t%{DATA:duration}\t%{DATA:orig_bytes}\t%{DATA:resp_bytes}\t%{DATA:conn_state}\t%{DATA:local_orig}\t%{DATA:local_resp}\t%{DATA:missed_bytes}\t%{DATA:history}\t%{DATA:orig_pkts}\t%{DATA:orig_ip_bytes}\t%{DATA:resp_pkts}\t%{DATA:resp_ip_bytes}\t%{DATA:tunnel_parents}\t%{DATA:orig_l2_addr}\t%{DATA:resp_l2_addr}\t%{DATA:vlan}\t%{DATA:inner_vlan}"
         ],
       "ignore_missing": true
     }

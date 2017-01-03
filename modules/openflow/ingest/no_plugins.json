@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{NUMBER:ts}\t%{INT:dpid}\t%{INT:match.in_port}\t%{GREEDYDATA:match.dl_src}\t%{GREEDYDATA:match.dl_dst}\t%{INT:match.dl_vlan}\t%{INT:match.dl_vlan_pcp}\t%{INT:match.dl_type}\t%{INT:match.nw_tos}\t%{INT:match.nw_proto}\t%{GREEDYDATA:match.nw_src}\t%{GREEDYDATA:match.nw_dst}\t%{INT:match.tp_src}\t%{INT:match.tp_dst}\t%{INT:flow_mod.cookie}\t%{INT:flow_mod.table_id}\t%{GREEDYDATA:flow_mod.command}\t%{INT:flow_mod.idle_timeout}\t%{INT:flow_mod.hard_timeout}\t%{INT:flow_mod.priority}\t%{INT:flow_mod.out_port}"
+        "%{DATA:ts}\t%{DATA:dpid}\t%{DATA:match}\t%{DATA:flow_mod}"
         ],
       "ignore_missing": true
     }

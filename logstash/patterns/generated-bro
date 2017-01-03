@@ -3,177 +3,178 @@
 # https://www.bro.org/sphinx/script-reference/log-files.html
 
 # conn.log
-BRO_CONN %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{WORD:proto}\t%{GREEDYDATA:service}\t%{GREEDYDATA:duration}\t%{INT:orig_bytes}\t%{INT:resp_bytes}\t%{GREEDYDATA:conn_state}\t%{GREEDYDATA:local_orig}\t%{GREEDYDATA:local_resp}\t%{INT:missed_bytes}\t%{GREEDYDATA:history}\t%{INT:orig_pkts}\t%{INT:orig_ip_bytes}\t%{INT:resp_pkts}\t%{INT:resp_ip_bytes}\t%{GREEDYDATA:tunnel_parents}\t%{GREEDYDATA:orig_l2_addr}\t%{GREEDYDATA:resp_l2_addr}\t%{INT:vlan}\t%{INT:inner_vlan}
+BRO_CONN %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:proto}\t%{DATA:service}\t%{DATA:duration}\t%{DATA:orig_bytes}\t%{DATA:resp_bytes}\t%{DATA:conn_state}\t%{DATA:local_orig}\t%{DATA:local_resp}\t%{DATA:missed_bytes}\t%{DATA:history}\t%{DATA:orig_pkts}\t%{DATA:orig_ip_bytes}\t%{DATA:resp_pkts}\t%{DATA:resp_ip_bytes}\t%{DATA:tunnel_parents}\t%{DATA:orig_l2_addr}\t%{DATA:resp_l2_addr}\t%{DATA:vlan}\t%{DATA:inner_vlan}
 
 # dce_rpc.log
-BRO_DCE_RPC %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:rtt}\t%{GREEDYDATA:named_pipe}\t%{GREEDYDATA:endpoint}\t%{GREEDYDATA:operation}
+BRO_DCE_RPC %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:rtt}\t%{DATA:named_pipe}\t%{DATA:endpoint}\t%{DATA:operation}
 
 # dhcp.log
-BRO_DHCP %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:mac}\t%{IP:assigned_ip}\t%{GREEDYDATA:lease_time}\t%{INT:trans_id}
+BRO_DHCP %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:mac}\t%{DATA:assigned_ip}\t%{DATA:lease_time}\t%{DATA:trans_id}
 
 # dnp3.log
-BRO_DNP3 %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:fc_request}\t%{GREEDYDATA:fc_reply}\t%{INT:iin}
+BRO_DNP3 %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:fc_request}\t%{DATA:fc_reply}\t%{DATA:iin}
 
 # dns.log
-BRO_DNS %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{WORD:proto}\t%{INT:trans_id}\t%{GREEDYDATA:rtt}\t%{GREEDYDATA:query}\t%{INT:qclass}\t%{GREEDYDATA:qclass_name}\t%{INT:qtype}\t%{GREEDYDATA:qtype_name}\t%{INT:rcode}\t%{GREEDYDATA:rcode_name}\t%{GREEDYDATA:AA}\t%{GREEDYDATA:TC}\t%{GREEDYDATA:RD}\t%{GREEDYDATA:RA}\t%{INT:Z}\t%{GREEDYDATA:answers}\t%{GREEDYDATA:TTLs}\t%{GREEDYDATA:rejected}\t%{INT:total_answers}\t%{INT:total_replies}\t%{GREEDYDATA:saw_query}\t%{GREEDYDATA:saw_reply}\t%{GREEDYDATA:auth}\t%{GREEDYDATA:addl}
+BRO_DNS %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:proto}\t%{DATA:trans_id}\t%{DATA:rtt}\t%{DATA:query}\t%{DATA:qclass}\t%{DATA:qclass_name}\t%{DATA:qtype}\t%{DATA:qtype_name}\t%{DATA:rcode}\t%{DATA:rcode_name}\t%{DATA:AA}\t%{DATA:TC}\t%{DATA:RD}\t%{DATA:RA}\t%{DATA:Z}\t%{DATA:answers}\t%{DATA:TTLs}\t%{DATA:rejected}\t%{DATA:total_answers}\t%{DATA:total_replies}\t%{DATA:saw_query}\t%{DATA:saw_reply}\t%{DATA:auth}\t%{DATA:addl}
 
 # ftp.log
-BRO_FTP %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:user}\t%{GREEDYDATA:password}\t%{GREEDYDATA:command}\t%{GREEDYDATA:arg}\t%{GREEDYDATA:mime_type}\t%{INT:file_size}\t%{INT:reply_code}\t%{GREEDYDATA:reply_msg}\t%{GREEDYDATA:data_channel.passive}\t%{IP:data_channel.orig_h}\t%{IP:data_channel.resp_h}\t%{INT:data_channel.resp_p}\t%{GREEDYDATA:cwd}\t%{NUMBER:cmdarg.ts}\t%{GREEDYDATA:cmdarg.cmd}\t%{GREEDYDATA:cmdarg.arg}\t%{INT:cmdarg.seq}\t%{GREEDYDATA:pending_commands}\t%{GREEDYDATA:passive}\t%{GREEDYDATA:capture_password}\t%{NOTSPACE:fuid}\t%{GREEDYDATA:last_auth_requested}
+BRO_FTP %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:user}\t%{DATA:password}\t%{DATA:command}\t%{DATA:arg}\t%{DATA:mime_type}\t%{DATA:file_size}\t%{DATA:reply_code}\t%{DATA:reply_msg}\t%{DATA:data_channel}\t%{DATA:cwd}\t%{DATA:cmdarg}\t%{DATA:pending_commands}\t%{DATA:passive}\t%{DATA:capture_password}\t%{NOTSPACE:fuid}\t%{DATA:last_auth_requested}
 
 # http.log
+BRO_HTTP %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:trans_depth}\t%{DATA:method}\t%{DATA:host}\t%{DATA:uri}\t%{DATA:referrer}\t%{DATA:version}\t%{DATA:user_agent}\t%{DATA:request_body_len}\t%{DATA:response_body_len}\t%{DATA:status_code}\t%{DATA:status_msg}\t%{DATA:info_code}\t%{DATA:info_msg}\t%{DATA:tags}\t%{DATA:username}\t%{DATA:password}\t%{DATA:capture_password}\t%{DATA:proxied}\t%{DATA:range_request}\t%{NOTSPACE:orig_fuids}\t%{DATA:orig_filenames}\t%{DATA:orig_mime_types}\t%{NOTSPACE:resp_fuids}\t%{DATA:resp_filenames}\t%{DATA:resp_mime_types}\t%{DATA:current_entity}\t%{DATA:orig_mime_depth}\t%{DATA:resp_mime_depth}\t%{DATA:client_header_names}\t%{DATA:server_header_names}\t%{DATA:omniture}\t%{DATA:flash_version}\t%{DATA:cookie_vars}\t%{DATA:uri_vars}
 
 # irc.log
-BRO_IRC %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:nick}\t%{GREEDYDATA:user}\t%{GREEDYDATA:command}\t%{GREEDYDATA:value}\t%{GREEDYDATA:addl}\t%{GREEDYDATA:dcc_file_name}\t%{INT:dcc_file_size}\t%{GREEDYDATA:dcc_mime_type}\t%{NOTSPACE:fuid}
+BRO_IRC %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:nick}\t%{DATA:user}\t%{DATA:command}\t%{DATA:value}\t%{DATA:addl}\t%{DATA:dcc_file_name}\t%{DATA:dcc_file_size}\t%{DATA:dcc_mime_type}\t%{NOTSPACE:fuid}
 
 # kerberos.log
-BRO_KERBEROS %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:request_type}\t%{GREEDYDATA:client}\t%{GREEDYDATA:service}\t%{GREEDYDATA:success}\t%{INT:error_code}\t%{GREEDYDATA:error_msg}\t%{NUMBER:from}\t%{NUMBER:till}\t%{GREEDYDATA:cipher}\t%{GREEDYDATA:forwardable}\t%{GREEDYDATA:renewable}\t%{GREEDYDATA:logged}\t%{NUMBER:client_cert.ts}\t%{NOTSPACE:client_cert.fuid}\t%{GREEDYDATA:client_cert.tx_hosts}\t%{GREEDYDATA:client_cert.rx_hosts}\t%{NOTSPACE:client_cert.conn_uids}\t%{GREEDYDATA:client_cert.source}\t%{INT:client_cert.depth}\t%{GREEDYDATA:client_cert.analyzers}\t%{GREEDYDATA:client_cert.mime_type}\t%{GREEDYDATA:client_cert.filename}\t%{GREEDYDATA:client_cert.duration}\t%{GREEDYDATA:client_cert.local_orig}\t%{GREEDYDATA:client_cert.is_orig}\t%{INT:client_cert.seen_bytes}\t%{INT:client_cert.total_bytes}\t%{INT:client_cert.missing_bytes}\t%{INT:client_cert.overflow_bytes}\t%{GREEDYDATA:client_cert.timedout}\t%{NOTSPACE:client_cert.parent_fuid}\t%{GREEDYDATA:client_cert.md5}\t%{GREEDYDATA:client_cert.sha1}\t%{GREEDYDATA:client_cert.sha256}\t%{GREEDYDATA:client_cert.x509}\t%{GREEDYDATA:client_cert.extracted}\t%{GREEDYDATA:client_cert.entropy}\t%{GREEDYDATA:client_cert_subject}\t%{NOTSPACE:client_cert_fuid}\t%{NUMBER:server_cert.ts}\t%{NOTSPACE:server_cert.fuid}\t%{GREEDYDATA:server_cert.tx_hosts}\t%{GREEDYDATA:server_cert.rx_hosts}\t%{NOTSPACE:server_cert.conn_uids}\t%{GREEDYDATA:server_cert.source}\t%{INT:server_cert.depth}\t%{GREEDYDATA:server_cert.analyzers}\t%{GREEDYDATA:server_cert.mime_type}\t%{GREEDYDATA:server_cert.filename}\t%{GREEDYDATA:server_cert.duration}\t%{GREEDYDATA:server_cert.local_orig}\t%{GREEDYDATA:server_cert.is_orig}\t%{INT:server_cert.seen_bytes}\t%{INT:server_cert.total_bytes}\t%{INT:server_cert.missing_bytes}\t%{INT:server_cert.overflow_bytes}\t%{GREEDYDATA:server_cert.timedout}\t%{NOTSPACE:server_cert.parent_fuid}\t%{GREEDYDATA:server_cert.md5}\t%{GREEDYDATA:server_cert.sha1}\t%{GREEDYDATA:server_cert.sha256}\t%{GREEDYDATA:server_cert.x509}\t%{GREEDYDATA:server_cert.extracted}\t%{GREEDYDATA:server_cert.entropy}\t%{GREEDYDATA:server_cert_subject}\t%{NOTSPACE:server_cert_fuid}
+BRO_KERBEROS %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:request_type}\t%{DATA:client}\t%{DATA:service}\t%{DATA:success}\t%{DATA:error_code}\t%{DATA:error_msg}\t%{DATA:from}\t%{DATA:till}\t%{DATA:cipher}\t%{DATA:forwardable}\t%{DATA:renewable}\t%{DATA:logged}\t%{DATA:client_cert}\t%{DATA:client_cert_subject}\t%{NOTSPACE:client_cert_fuid}\t%{DATA:server_cert}\t%{DATA:server_cert_subject}\t%{NOTSPACE:server_cert_fuid}
 
 # modbus.log
-BRO_MODBUS %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:func}\t%{GREEDYDATA:exception}\t%{INT:track_address}
+BRO_MODBUS %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:func}\t%{DATA:exception}\t%{DATA:track_address}
 
 # modbus_register_change.log
-BRO_MODBUS_REGISTER_CHANGE %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{INT:register}\t%{INT:old_val}\t%{INT:new_val}\t%{GREEDYDATA:delta}
+BRO_MODBUS_REGISTER_CHANGE %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:register}\t%{DATA:old_val}\t%{DATA:new_val}\t%{DATA:delta}
 
 # mysql.log
-BRO_MYSQL %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:cmd}\t%{GREEDYDATA:arg}\t%{GREEDYDATA:success}\t%{INT:rows}\t%{GREEDYDATA:response}
+BRO_MYSQL %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:cmd}\t%{DATA:arg}\t%{DATA:success}\t%{DATA:rows}\t%{DATA:response}
 
 # ntlm.log
-BRO_NTLM %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:username}\t%{GREEDYDATA:hostname}\t%{GREEDYDATA:domainname}\t%{GREEDYDATA:success}\t%{GREEDYDATA:status}\t%{GREEDYDATA:done}
+BRO_NTLM %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:username}\t%{DATA:hostname}\t%{DATA:domainname}\t%{DATA:success}\t%{DATA:status}\t%{DATA:done}
 
 # radius.log
-BRO_RADIUS %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:username}\t%{GREEDYDATA:mac}\t%{IP:remote_ip}\t%{GREEDYDATA:connect_info}\t%{GREEDYDATA:result}\t%{GREEDYDATA:logged}
+BRO_RADIUS %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:username}\t%{DATA:mac}\t%{DATA:remote_ip}\t%{DATA:connect_info}\t%{DATA:result}\t%{DATA:logged}
 
 # rdp.log
-BRO_RDP %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:cookie}\t%{GREEDYDATA:result}\t%{GREEDYDATA:security_protocol}\t%{GREEDYDATA:keyboard_layout}\t%{GREEDYDATA:client_build}\t%{GREEDYDATA:client_name}\t%{GREEDYDATA:client_dig_product_id}\t%{INT:desktop_width}\t%{INT:desktop_height}\t%{GREEDYDATA:requested_color_depth}\t%{GREEDYDATA:cert_type}\t%{INT:cert_count}\t%{GREEDYDATA:cert_permanent}\t%{GREEDYDATA:encryption_level}\t%{GREEDYDATA:encryption_method}\t%{INT:analyzer_id}\t%{GREEDYDATA:done}\t%{GREEDYDATA:ssl}
+BRO_RDP %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:cookie}\t%{DATA:result}\t%{DATA:security_protocol}\t%{DATA:keyboard_layout}\t%{DATA:client_build}\t%{DATA:client_name}\t%{DATA:client_dig_product_id}\t%{DATA:desktop_width}\t%{DATA:desktop_height}\t%{DATA:requested_color_depth}\t%{DATA:cert_type}\t%{DATA:cert_count}\t%{DATA:cert_permanent}\t%{DATA:encryption_level}\t%{DATA:encryption_method}\t%{DATA:analyzer_id}\t%{DATA:done}\t%{DATA:ssl}
 
 # rfb.log
-BRO_RFB %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:client_major_version}\t%{GREEDYDATA:client_minor_version}\t%{GREEDYDATA:server_major_version}\t%{GREEDYDATA:server_minor_version}\t%{GREEDYDATA:authentication_method}\t%{GREEDYDATA:auth}\t%{GREEDYDATA:share_flag}\t%{GREEDYDATA:desktop_name}\t%{INT:width}\t%{INT:height}\t%{GREEDYDATA:done}
+BRO_RFB %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:client_major_version}\t%{DATA:client_minor_version}\t%{DATA:server_major_version}\t%{DATA:server_minor_version}\t%{DATA:authentication_method}\t%{DATA:auth}\t%{DATA:share_flag}\t%{DATA:desktop_name}\t%{DATA:width}\t%{DATA:height}\t%{DATA:done}
 
 # sip.log
-BRO_SIP %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{INT:trans_depth}\t%{GREEDYDATA:method}\t%{GREEDYDATA:uri}\t%{GREEDYDATA:date}\t%{GREEDYDATA:request_from}\t%{GREEDYDATA:request_to}\t%{GREEDYDATA:response_from}\t%{GREEDYDATA:response_to}\t%{GREEDYDATA:reply_to}\t%{GREEDYDATA:call_id}\t%{GREEDYDATA:seq}\t%{GREEDYDATA:subject}\t%{GREEDYDATA:request_path}\t%{GREEDYDATA:response_path}\t%{GREEDYDATA:user_agent}\t%{INT:status_code}\t%{GREEDYDATA:status_msg}\t%{GREEDYDATA:warning}\t%{INT:request_body_len}\t%{INT:response_body_len}\t%{GREEDYDATA:content_type}
+BRO_SIP %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:trans_depth}\t%{DATA:method}\t%{DATA:uri}\t%{DATA:date}\t%{DATA:request_from}\t%{DATA:request_to}\t%{DATA:response_from}\t%{DATA:response_to}\t%{DATA:reply_to}\t%{DATA:call_id}\t%{DATA:seq}\t%{DATA:subject}\t%{DATA:request_path}\t%{DATA:response_path}\t%{DATA:user_agent}\t%{DATA:status_code}\t%{DATA:status_msg}\t%{DATA:warning}\t%{DATA:request_body_len}\t%{DATA:response_body_len}\t%{DATA:content_type}
 
 # smb_cmd.log
-BRO_SMB_CMD %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:command}\t%{GREEDYDATA:sub_command}\t%{GREEDYDATA:argument}\t%{GREEDYDATA:status}\t%{GREEDYDATA:rtt}\t%{GREEDYDATA:version}\t%{GREEDYDATA:username}\t%{GREEDYDATA:tree}\t%{GREEDYDATA:tree_service}\t%{NUMBER:referenced_file.ts}\t%{NOTSPACE:referenced_file.uid}\t%{NOTSPACE:referenced_file.id}\t%{NOTSPACE:referenced_file.fuid}\t%{GREEDYDATA:referenced_file.action}\t%{GREEDYDATA:referenced_file.path}\t%{GREEDYDATA:referenced_file.name}\t%{INT:referenced_file.size}\t%{GREEDYDATA:referenced_file.prev_name}\t%{GREEDYDATA:referenced_file.times}\t%{INT:referenced_file.fid}\t%{NOTSPACE:referenced_file.uuid}\t%{NUMBER:referenced_tree.ts}\t%{NOTSPACE:referenced_tree.uid}\t%{NOTSPACE:referenced_tree.id}\t%{GREEDYDATA:referenced_tree.path}\t%{GREEDYDATA:referenced_tree.service}\t%{GREEDYDATA:referenced_tree.native_file_system}\t%{GREEDYDATA:referenced_tree.share_type}\t%{GREEDYDATA:smb1_offered_dialects}\t%{GREEDYDATA:smb2_offered_dialects}
+BRO_SMB_CMD %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:command}\t%{DATA:sub_command}\t%{DATA:argument}\t%{DATA:status}\t%{DATA:rtt}\t%{DATA:version}\t%{DATA:username}\t%{DATA:tree}\t%{DATA:tree_service}\t%{DATA:referenced_file}\t%{DATA:referenced_tree}\t%{DATA:smb1_offered_dialects}\t%{DATA:smb2_offered_dialects}
 
 # smb_files.log
-BRO_SMB_FILES %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{NOTSPACE:fuid}\t%{GREEDYDATA:action}\t%{GREEDYDATA:path}\t%{GREEDYDATA:name}\t%{INT:size}\t%{GREEDYDATA:prev_name}\t%{NUMBER:times.modified}\t%{NUMBER:times.accessed}\t%{NUMBER:times.created}\t%{NUMBER:times.changed}\t%{INT:fid}\t%{NOTSPACE:uuid}
+BRO_SMB_FILES %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{NOTSPACE:fuid}\t%{DATA:action}\t%{DATA:path}\t%{DATA:name}\t%{DATA:size}\t%{DATA:prev_name}\t%{DATA:times}\t%{DATA:fid}\t%{NOTSPACE:uuid}
 
 # smb_mapping.log
-BRO_SMB_MAPPING %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:path}\t%{GREEDYDATA:service}\t%{GREEDYDATA:native_file_system}\t%{GREEDYDATA:share_type}
+BRO_SMB_MAPPING %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:path}\t%{DATA:service}\t%{DATA:native_file_system}\t%{DATA:share_type}
 
 # smtp.log
-BRO_SMTP %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{INT:trans_depth}\t%{GREEDYDATA:helo}\t%{GREEDYDATA:mailfrom}\t%{GREEDYDATA:rcptto}\t%{GREEDYDATA:date}\t%{GREEDYDATA:from}\t%{GREEDYDATA:to}\t%{GREEDYDATA:cc}\t%{GREEDYDATA:reply_to}\t%{GREEDYDATA:msg_id}\t%{GREEDYDATA:in_reply_to}\t%{GREEDYDATA:subject}\t%{IP:x_originating_ip}\t%{GREEDYDATA:first_received}\t%{GREEDYDATA:second_received}\t%{GREEDYDATA:last_reply}\t%{GREEDYDATA:path}\t%{GREEDYDATA:user_agent}\t%{GREEDYDATA:tls}\t%{GREEDYDATA:process_received_from}\t%{GREEDYDATA:has_client_activity}\t%{GREEDYDATA:entity.filename}\t%{GREEDYDATA:entity.excerpt}\t%{NOTSPACE:fuids}\t%{GREEDYDATA:is_webmail}
+BRO_SMTP %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:trans_depth}\t%{DATA:helo}\t%{DATA:mailfrom}\t%{DATA:rcptto}\t%{DATA:date}\t%{DATA:from}\t%{DATA:to}\t%{DATA:cc}\t%{DATA:reply_to}\t%{DATA:msg_id}\t%{DATA:in_reply_to}\t%{DATA:subject}\t%{DATA:x_originating_ip}\t%{DATA:first_received}\t%{DATA:second_received}\t%{DATA:last_reply}\t%{DATA:path}\t%{DATA:user_agent}\t%{DATA:tls}\t%{DATA:process_received_from}\t%{DATA:has_client_activity}\t%{DATA:entity}\t%{NOTSPACE:fuids}\t%{DATA:is_webmail}
 
 # snmp.log
-BRO_SNMP %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:duration}\t%{GREEDYDATA:version}\t%{GREEDYDATA:community}\t%{INT:get_requests}\t%{INT:get_bulk_requests}\t%{INT:get_responses}\t%{INT:set_requests}\t%{GREEDYDATA:display_string}\t%{NUMBER:up_since}
+BRO_SNMP %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:duration}\t%{DATA:version}\t%{DATA:community}\t%{DATA:get_requests}\t%{DATA:get_bulk_requests}\t%{DATA:get_responses}\t%{DATA:set_requests}\t%{DATA:display_string}\t%{DATA:up_since}
 
 # socks.log
-BRO_SOCKS %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{INT:version}\t%{GREEDYDATA:user}\t%{GREEDYDATA:password}\t%{GREEDYDATA:status}\t%{IP:request.host}\t%{GREEDYDATA:request.name}\t%{INT:request_p}\t%{IP:bound.host}\t%{GREEDYDATA:bound.name}\t%{INT:bound_p}
+BRO_SOCKS %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:version}\t%{DATA:user}\t%{DATA:password}\t%{DATA:status}\t%{DATA:request}\t%{DATA:request_p}\t%{DATA:bound}\t%{DATA:bound_p}
 
 # ssh.log
-BRO_SSH %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{INT:version}\t%{GREEDYDATA:auth_success}\t%{INT:auth_attempts}\t%{GREEDYDATA:direction}\t%{GREEDYDATA:client}\t%{GREEDYDATA:server}\t%{GREEDYDATA:cipher_alg}\t%{GREEDYDATA:mac_alg}\t%{GREEDYDATA:compression_alg}\t%{GREEDYDATA:kex_alg}\t%{GREEDYDATA:host_key_alg}\t%{GREEDYDATA:host_key}
+BRO_SSH %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:version}\t%{DATA:auth_success}\t%{DATA:auth_attempts}\t%{DATA:direction}\t%{DATA:client}\t%{DATA:server}\t%{DATA:cipher_alg}\t%{DATA:mac_alg}\t%{DATA:compression_alg}\t%{DATA:kex_alg}\t%{DATA:host_key_alg}\t%{DATA:host_key}
 
 # ssl.log
-BRO_SSL %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{INT:version_num}\t%{GREEDYDATA:version}\t%{GREEDYDATA:cipher}\t%{GREEDYDATA:curve}\t%{GREEDYDATA:server_name}\t%{GREEDYDATA:session_id}\t%{GREEDYDATA:resumed}\t%{GREEDYDATA:client_ticket_empty_session_seen}\t%{GREEDYDATA:client_key_exchange_seen}\t%{INT:server_appdata}\t%{GREEDYDATA:client_appdata}\t%{GREEDYDATA:last_alert}\t%{GREEDYDATA:next_protocol}\t%{INT:analyzer_id}\t%{GREEDYDATA:established}\t%{GREEDYDATA:logged}
+BRO_SSL %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:version_num}\t%{DATA:version}\t%{DATA:cipher}\t%{DATA:curve}\t%{DATA:server_name}\t%{DATA:session_id}\t%{DATA:resumed}\t%{DATA:client_ticket_empty_session_seen}\t%{DATA:client_key_exchange_seen}\t%{DATA:server_appdata}\t%{DATA:client_appdata}\t%{DATA:last_alert}\t%{DATA:next_protocol}\t%{DATA:analyzer_id}\t%{DATA:established}\t%{DATA:logged}
 
 # syslog.log
-BRO_SYSLOG %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{WORD:proto}\t%{GREEDYDATA:facility}\t%{GREEDYDATA:severity}\t%{GREEDYDATA:message}
+BRO_SYSLOG %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:proto}\t%{DATA:facility}\t%{DATA:severity}\t%{DATA:message}
 
 # tunnel.log
-BRO_TUNNEL %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:tunnel_type}\t%{GREEDYDATA:action}
+BRO_TUNNEL %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:tunnel_type}\t%{DATA:action}
 
 # files.log
-BRO_FILES %{NUMBER:ts}\t%{NOTSPACE:fuid}\t%{GREEDYDATA:tx_hosts}\t%{GREEDYDATA:rx_hosts}\t%{NOTSPACE:conn_uids}\t%{GREEDYDATA:source}\t%{INT:depth}\t%{GREEDYDATA:analyzers}\t%{GREEDYDATA:mime_type}\t%{GREEDYDATA:filename}\t%{GREEDYDATA:duration}\t%{GREEDYDATA:local_orig}\t%{GREEDYDATA:is_orig}\t%{INT:seen_bytes}\t%{INT:total_bytes}\t%{INT:missing_bytes}\t%{INT:overflow_bytes}\t%{GREEDYDATA:timedout}\t%{NOTSPACE:parent_fuid}\t%{GREEDYDATA:md5}\t%{GREEDYDATA:sha1}\t%{GREEDYDATA:sha256}\t%{NUMBER:x509.ts}\t%{GREEDYDATA:x509.id}\t%{GREEDYDATA:x509.certificate}\t%{GREEDYDATA:x509.handle}\t%{GREEDYDATA:x509.extensions}\t%{GREEDYDATA:x509.san}\t%{GREEDYDATA:x509.basic_constraints}\t%{GREEDYDATA:x509.logcert}\t%{GREEDYDATA:extracted}\t%{GREEDYDATA:entropy}
+BRO_FILES %{DATA:ts}\t%{NOTSPACE:fuid}\t%{DATA:tx_hosts}\t%{DATA:rx_hosts}\t%{NOTSPACE:conn_uids}\t%{DATA:source}\t%{DATA:depth}\t%{DATA:analyzers}\t%{DATA:mime_type}\t%{DATA:filename}\t%{DATA:duration}\t%{DATA:local_orig}\t%{DATA:is_orig}\t%{DATA:seen_bytes}\t%{DATA:total_bytes}\t%{DATA:missing_bytes}\t%{DATA:overflow_bytes}\t%{DATA:timedout}\t%{NOTSPACE:parent_fuid}\t%{DATA:md5}\t%{DATA:sha1}\t%{DATA:sha256}\t%{DATA:x509}\t%{DATA:extracted}\t%{DATA:entropy}
 
 # pe.log
-BRO_PE %{NUMBER:ts}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:machine}\t%{NUMBER:compile_ts}\t%{GREEDYDATA:os}\t%{GREEDYDATA:subsystem}\t%{GREEDYDATA:is_exe}\t%{GREEDYDATA:is_64bit}\t%{GREEDYDATA:uses_aslr}\t%{GREEDYDATA:uses_dep}\t%{GREEDYDATA:uses_code_integrity}\t%{GREEDYDATA:uses_seh}\t%{GREEDYDATA:has_import_table}\t%{GREEDYDATA:has_export_table}\t%{GREEDYDATA:has_cert_table}\t%{GREEDYDATA:has_debug_data}\t%{GREEDYDATA:section_names}
+BRO_PE %{DATA:ts}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{DATA:machine}\t%{DATA:compile_ts}\t%{DATA:os}\t%{DATA:subsystem}\t%{DATA:is_exe}\t%{DATA:is_64bit}\t%{DATA:uses_aslr}\t%{DATA:uses_dep}\t%{DATA:uses_code_integrity}\t%{DATA:uses_seh}\t%{DATA:has_import_table}\t%{DATA:has_export_table}\t%{DATA:has_cert_table}\t%{DATA:has_debug_data}\t%{DATA:section_names}
 
 # x509.log
-BRO_X509 %{NUMBER:ts}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{INT:certificate.version}\t%{GREEDYDATA:certificate.serial}\t%{GREEDYDATA:certificate.subject}\t%{GREEDYDATA:certificate.issuer}\t%{GREEDYDATA:certificate.cn}\t%{NUMBER:certificate.not_valid_before}\t%{NUMBER:certificate.not_valid_after}\t%{GREEDYDATA:certificate.key_alg}\t%{GREEDYDATA:certificate.sig_alg}\t%{GREEDYDATA:certificate.key_type}\t%{INT:certificate.key_length}\t%{GREEDYDATA:certificate.exponent}\t%{GREEDYDATA:certificate.curve}\t%{GREEDYDATA:handle}\t%{GREEDYDATA:extensions}\t%{GREEDYDATA:san.dns}\t%{GREEDYDATA:san.uri}\t%{GREEDYDATA:san.email}\t%{GREEDYDATA:san.ip}\t%{GREEDYDATA:san.other_fields}\t%{GREEDYDATA:basic_constraints.ca}\t%{INT:basic_constraints.path_len}\t%{GREEDYDATA:logcert}
+BRO_X509 %{DATA:ts}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{DATA:certificate}\t%{DATA:handle}\t%{DATA:extensions}\t%{DATA:san}\t%{DATA:basic_constraints}\t%{DATA:logcert}
 
 # netcontrol.log
-BRO_NETCONTROL %{NUMBER:ts}\t%{GREEDYDATA:rule_id}\t%{GREEDYDATA:category}\t%{GREEDYDATA:cmd}\t%{GREEDYDATA:state}\t%{GREEDYDATA:action}\t%{GREEDYDATA:target}\t%{GREEDYDATA:entity_type}\t%{GREEDYDATA:entity}\t%{GREEDYDATA:mod}\t%{GREEDYDATA:msg}\t%{INT:priority}\t%{GREEDYDATA:expire}\t%{GREEDYDATA:location}\t%{GREEDYDATA:plugin}
+BRO_NETCONTROL %{DATA:ts}\t%{DATA:rule_id}\t%{DATA:category}\t%{DATA:cmd}\t%{DATA:state}\t%{DATA:action}\t%{DATA:target}\t%{DATA:entity_type}\t%{DATA:entity}\t%{DATA:mod}\t%{DATA:msg}\t%{DATA:priority}\t%{DATA:expire}\t%{DATA:location}\t%{DATA:plugin}
 
 # netcontrol_drop.log
-BRO_NETCONTROL_DROP %{NUMBER:ts}\t%{GREEDYDATA:rule_id}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:expire}\t%{GREEDYDATA:location}
+BRO_NETCONTROL_DROP %{DATA:ts}\t%{DATA:rule_id}\t%{DATA:orig_h}\t%{DATA:orig_p}\t%{DATA:resp_h}\t%{DATA:resp_p}\t%{DATA:expire}\t%{DATA:location}
 
 # netcontrol_shunt.log
-BRO_NETCONTROL_SHUNT %{NUMBER:ts}\t%{GREEDYDATA:rule_id}\t%{GREEDYDATA:f}\t%{GREEDYDATA:expire}\t%{GREEDYDATA:location}
+BRO_NETCONTROL_SHUNT %{DATA:ts}\t%{DATA:rule_id}\t%{DATA:f}\t%{DATA:expire}\t%{DATA:location}
 
 # netcontrol_catch_release.log
-BRO_NETCONTROL_CATCH_RELEASE %{NUMBER:ts}\t%{GREEDYDATA:rule_id}\t%{IP:ip}\t%{GREEDYDATA:action}\t%{GREEDYDATA:block_interval}\t%{GREEDYDATA:watch_interval}\t%{NUMBER:blocked_until}\t%{NUMBER:watched_until}\t%{INT:num_blocked}\t%{GREEDYDATA:location}\t%{GREEDYDATA:message}
+BRO_NETCONTROL_CATCH_RELEASE %{DATA:ts}\t%{DATA:rule_id}\t%{DATA:ip}\t%{DATA:action}\t%{DATA:block_interval}\t%{DATA:watch_interval}\t%{DATA:blocked_until}\t%{DATA:watched_until}\t%{DATA:num_blocked}\t%{DATA:location}\t%{DATA:message}
 
 # openflow.log
-BRO_OPENFLOW %{NUMBER:ts}\t%{INT:dpid}\t%{INT:match.in_port}\t%{GREEDYDATA:match.dl_src}\t%{GREEDYDATA:match.dl_dst}\t%{INT:match.dl_vlan}\t%{INT:match.dl_vlan_pcp}\t%{INT:match.dl_type}\t%{INT:match.nw_tos}\t%{INT:match.nw_proto}\t%{GREEDYDATA:match.nw_src}\t%{GREEDYDATA:match.nw_dst}\t%{INT:match.tp_src}\t%{INT:match.tp_dst}\t%{INT:flow_mod.cookie}\t%{INT:flow_mod.table_id}\t%{GREEDYDATA:flow_mod.command}\t%{INT:flow_mod.idle_timeout}\t%{INT:flow_mod.hard_timeout}\t%{INT:flow_mod.priority}\t%{INT:flow_mod.out_port}
+BRO_OPENFLOW %{DATA:ts}\t%{DATA:dpid}\t%{DATA:match}\t%{DATA:flow_mod}
 
 # intel.log
-BRO_INTEL %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:seen.indicator}\t%{GREEDYDATA:seen.indicator_type}\t%{IP:seen.host}\t%{GREEDYDATA:seen.where}\t%{GREEDYDATA:seen.node}\t%{GREEDYDATA:seen.conn}\t%{NOTSPACE:seen.uid}\t%{GREEDYDATA:seen.f}\t%{NOTSPACE:seen.fuid}\t%{GREEDYDATA:matched}\t%{GREEDYDATA:sources}\t%{NOTSPACE:fuid}\t%{GREEDYDATA:file_mime_type}\t%{GREEDYDATA:file_desc}
+BRO_INTEL %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:seen}\t%{DATA:matched}\t%{DATA:sources}\t%{NOTSPACE:fuid}\t%{DATA:file_mime_type}\t%{DATA:file_desc}
 
 # notice.log
-BRO_NOTICE %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:conn}\t%{GREEDYDATA:iconn}\t%{GREEDYDATA:f}\t%{NOTSPACE:fuid}\t%{GREEDYDATA:file_mime_type}\t%{GREEDYDATA:file_desc}\t%{WORD:proto}\t%{GREEDYDATA:note}\t%{GREEDYDATA:msg}\t%{GREEDYDATA:sub}\t%{IP:src}\t%{IP:dst}\t%{INT:p}\t%{INT:n}\t%{GREEDYDATA:src_peer}\t%{GREEDYDATA:peer_descr}\t%{GREEDYDATA:actions}\t%{GREEDYDATA:email_body_sections}\t%{GREEDYDATA:email_delay_tokens}\t%{GREEDYDATA:identifier}\t%{GREEDYDATA:suppress_for}\t%{GREEDYDATA:dropped}\t%{GREEDYDATA:remote_location}
+BRO_NOTICE %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:conn}\t%{DATA:iconn}\t%{DATA:f}\t%{NOTSPACE:fuid}\t%{DATA:file_mime_type}\t%{DATA:file_desc}\t%{DATA:proto}\t%{DATA:note}\t%{DATA:msg}\t%{DATA:sub}\t%{DATA:src}\t%{DATA:dst}\t%{DATA:p}\t%{DATA:n}\t%{DATA:src_peer}\t%{DATA:peer_descr}\t%{DATA:actions}\t%{DATA:email_body_sections}\t%{DATA:email_delay_tokens}\t%{DATA:identifier}\t%{DATA:suppress_for}\t%{DATA:dropped}\t%{DATA:remote_location}
 
 # notice_alarm.log
 
 
 # signatures.log
-BRO_SIGNATURES %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:src_addr}\t%{INT:src_port}\t%{IP:dst_addr}\t%{INT:dst_port}\t%{GREEDYDATA:note}\t%{GREEDYDATA:sig_id}\t%{GREEDYDATA:event_msg}\t%{GREEDYDATA:sub_msg}\t%{INT:sig_count}\t%{INT:host_count}
+BRO_SIGNATURES %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:src_addr}\t%{DATA:src_port}\t%{DATA:dst_addr}\t%{DATA:dst_port}\t%{DATA:note}\t%{DATA:sig_id}\t%{DATA:event_msg}\t%{DATA:sub_msg}\t%{DATA:sig_count}\t%{DATA:host_count}
 
 # traceroute.log
-BRO_TRACEROUTE %{NUMBER:ts}\t%{IP:src}\t%{IP:dst}\t%{GREEDYDATA:proto}
+BRO_TRACEROUTE %{DATA:ts}\t%{DATA:src}\t%{DATA:dst}\t%{DATA:proto}
 
 # known_certs.log
-BRO_KNOWN_CERTS %{NUMBER:ts}\t%{IP:host}\t%{INT:port_num}\t%{GREEDYDATA:subject}\t%{GREEDYDATA:issuer_subject}\t%{GREEDYDATA:serial}
+BRO_KNOWN_CERTS %{DATA:ts}\t%{DATA:host}\t%{DATA:port_num}\t%{DATA:subject}\t%{DATA:issuer_subject}\t%{DATA:serial}
 
 # known_devices.log
-BRO_KNOWN_DEVICES %{NUMBER:ts}\t%{GREEDYDATA:mac}\t%{GREEDYDATA:dhcp_host_name}
+BRO_KNOWN_DEVICES %{DATA:ts}\t%{DATA:mac}\t%{DATA:dhcp_host_name}
 
 # known_hosts.log
-BRO_KNOWN_HOSTS %{NUMBER:ts}\t%{IP:host}
+BRO_KNOWN_HOSTS %{DATA:ts}\t%{DATA:host}
 
 # known_modbus.log
-BRO_KNOWN_MODBUS %{NUMBER:ts}\t%{IP:host}\t%{GREEDYDATA:device_type}
+BRO_KNOWN_MODBUS %{DATA:ts}\t%{DATA:host}\t%{DATA:device_type}
 
 # known_services.log
-BRO_KNOWN_SERVICES %{NUMBER:ts}\t%{IP:host}\t%{INT:port_num}\t%{WORD:port_proto}\t%{GREEDYDATA:service}
+BRO_KNOWN_SERVICES %{DATA:ts}\t%{DATA:host}\t%{DATA:port_num}\t%{DATA:port_proto}\t%{DATA:service}
 
 # software.log
-BRO_SOFTWARE %{NUMBER:ts}\t%{IP:host}\t%{INT:host_p}\t%{GREEDYDATA:software_type}\t%{GREEDYDATA:name}\t%{INT:version.major}\t%{INT:version.minor}\t%{INT:version.minor2}\t%{INT:version.minor3}\t%{GREEDYDATA:version.addl}\t%{GREEDYDATA:unparsed_version}\t%{GREEDYDATA:force_log}\t%{GREEDYDATA:url}
+BRO_SOFTWARE %{DATA:ts}\t%{DATA:host}\t%{DATA:host_p}\t%{DATA:software_type}\t%{DATA:name}\t%{DATA:version}\t%{DATA:unparsed_version}\t%{DATA:force_log}\t%{DATA:url}
 
 # barnyard2.log
-BRO_BARNYARD2 %{NUMBER:ts}\t%{GREEDYDATA:pid}\t%{GREEDYDATA:alert}
+BRO_BARNYARD2 %{DATA:ts}\t%{DATA:pid}\t%{DATA:alert}
 
 # dpd.log
-BRO_DPD %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{WORD:proto}\t%{GREEDYDATA:analyzer}\t%{GREEDYDATA:failure_reason}\t%{GREEDYDATA:disabled_aids}\t%{GREEDYDATA:packet_segment}
+BRO_DPD %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:proto}\t%{DATA:analyzer}\t%{DATA:failure_reason}\t%{DATA:disabled_aids}\t%{DATA:packet_segment}
 
 # unified2.log
-BRO_UNIFIED2 %{NUMBER:ts}\t%{IP:id.src_ip}\t%{INT:id.src_p}\t%{IP:id.dst_ip}\t%{INT:id.dst_p}\t%{INT:sensor_id}\t%{INT:signature_id}\t%{GREEDYDATA:signature}\t%{INT:generator_id}\t%{GREEDYDATA:generator}\t%{INT:signature_revision}\t%{INT:classification_id}\t%{GREEDYDATA:classification}\t%{INT:priority_id}\t%{INT:event_id}\t%{GREEDYDATA:packet}
+BRO_UNIFIED2 %{DATA:ts}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{DATA:sensor_id}\t%{DATA:signature_id}\t%{DATA:signature}\t%{DATA:generator_id}\t%{DATA:generator}\t%{DATA:signature_revision}\t%{DATA:classification_id}\t%{DATA:classification}\t%{DATA:priority_id}\t%{DATA:event_id}\t%{DATA:packet}
 
 # weird.log
-BRO_WEIRD %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{GREEDYDATA:conn}\t%{GREEDYDATA:name}\t%{GREEDYDATA:addl}\t%{GREEDYDATA:notice}\t%{GREEDYDATA:peer}\t%{GREEDYDATA:identifier}
+BRO_WEIRD %{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:conn}\t%{DATA:name}\t%{DATA:addl}\t%{DATA:notice}\t%{DATA:peer}\t%{DATA:identifier}
 
 # capture_loss.log
-BRO_CAPTURE_LOSS %{NUMBER:ts}\t%{GREEDYDATA:ts_delta}\t%{GREEDYDATA:peer}\t%{INT:gaps}\t%{INT:acks}\t%{GREEDYDATA:percent_lost}
+BRO_CAPTURE_LOSS %{DATA:ts}\t%{DATA:ts_delta}\t%{DATA:peer}\t%{DATA:gaps}\t%{DATA:acks}\t%{DATA:percent_lost}
 
 # cluster.log
-BRO_CLUSTER %{NUMBER:ts}\t%{GREEDYDATA:message}
+BRO_CLUSTER %{DATA:ts}\t%{DATA:message}
 
 # communication.log
-BRO_COMMUNICATION %{NUMBER:ts}\t%{GREEDYDATA:peer}\t%{GREEDYDATA:src_name}\t%{GREEDYDATA:connected_peer_desc}\t%{IP:connected_peer_addr}\t%{INT:connected_peer_port}\t%{GREEDYDATA:level}\t%{GREEDYDATA:message}
+BRO_COMMUNICATION %{DATA:ts}\t%{DATA:peer}\t%{DATA:src_name}\t%{DATA:connected_peer_desc}\t%{DATA:connected_peer_addr}\t%{DATA:connected_peer_port}\t%{DATA:level}\t%{DATA:message}
 
 # loaded_scripts.log
-BRO_LOADED_SCRIPTS %{GREEDYDATA:name}
+BRO_LOADED_SCRIPTS %{DATA:name}
 
 # packet_filter.log
-BRO_PACKET_FILTER %{NUMBER:ts}\t%{GREEDYDATA:node}\t%{GREEDYDATA:filter}\t%{GREEDYDATA:init}\t%{GREEDYDATA:success}
+BRO_PACKET_FILTER %{DATA:ts}\t%{DATA:node}\t%{DATA:filter}\t%{DATA:init}\t%{DATA:success}
 
 # prof.log
 
 
 # reporter.log
-BRO_REPORTER %{NUMBER:ts}\t%{GREEDYDATA:level}\t%{GREEDYDATA:message}\t%{GREEDYDATA:location}
+BRO_REPORTER %{DATA:ts}\t%{DATA:level}\t%{DATA:message}\t%{DATA:location}
 
 # stats.log
-BRO_STATS %{NUMBER:ts}\t%{GREEDYDATA:peer}\t%{INT:mem}\t%{INT:pkts_proc}\t%{INT:bytes_recv}\t%{INT:pkts_dropped}\t%{INT:pkts_link}\t%{GREEDYDATA:pkt_lag}\t%{INT:events_proc}\t%{INT:events_queued}\t%{INT:active_tcp_conns}\t%{INT:active_udp_conns}\t%{INT:active_icmp_conns}\t%{INT:tcp_conns}\t%{INT:udp_conns}\t%{INT:icmp_conns}\t%{INT:timers}\t%{INT:active_timers}\t%{INT:files}\t%{INT:active_files}\t%{INT:dns_requests}\t%{INT:active_dns_requests}\t%{INT:reassem_tcp_size}\t%{INT:reassem_file_size}\t%{INT:reassem_frag_size}\t%{INT:reassem_unknown_size}
+BRO_STATS %{DATA:ts}\t%{DATA:peer}\t%{DATA:mem}\t%{DATA:pkts_proc}\t%{DATA:bytes_recv}\t%{DATA:pkts_dropped}\t%{DATA:pkts_link}\t%{DATA:pkt_lag}\t%{DATA:events_proc}\t%{DATA:events_queued}\t%{DATA:active_tcp_conns}\t%{DATA:active_udp_conns}\t%{DATA:active_icmp_conns}\t%{DATA:tcp_conns}\t%{DATA:udp_conns}\t%{DATA:icmp_conns}\t%{DATA:timers}\t%{DATA:active_timers}\t%{DATA:files}\t%{DATA:active_files}\t%{DATA:dns_requests}\t%{DATA:active_dns_requests}\t%{DATA:reassem_tcp_size}\t%{DATA:reassem_file_size}\t%{DATA:reassem_frag_size}\t%{DATA:reassem_unknown_size}
 
 # stderr.log
 

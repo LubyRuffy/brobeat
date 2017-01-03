@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{NUMBER:ts}\t%{GREEDYDATA:rule_id}\t%{GREEDYDATA:f}\t%{GREEDYDATA:expire}\t%{GREEDYDATA:location}"
+        "%{DATA:ts}\t%{DATA:rule_id}\t%{DATA:f}\t%{DATA:expire}\t%{DATA:location}"
         ],
       "ignore_missing": true
     }

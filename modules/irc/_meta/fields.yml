@@ -1,53 +1,69 @@
-- name: irc
-  type: group
+- key: irc
+  title: irc
   description: >
-    Contains fields for the Bro irc logs.
+    IRC commands and responses
   fields:
-    - name: ts
-      type: time
-      description: >
-        Timestamp when the command was seen.
-    - name: uid
-      type: string
-      description: >
-        Unique ID for the connection.
-    - name: id
-      type: conn_id
-      description: >
-        The connections 4-tuple of endpoint addresses/ports.
-    - name: nick
-      type: string
-      description: >
-        Nickname given for the connection.
-    - name: user
-      type: string
-      description: >
-        Username given for the connection.
-    - name: command
-      type: string
-      description: >
-        Command given by the client.
-    - name: value
-      type: string
-      description: >
-        Value for the command given by the client.
-    - name: addl
-      type: string
-      description: >
-        Any additional data for the command.
-    - name: dcc_file_name
-      type: string
-      description: >
-        (present if base/protocols/irc/dcc-send.bro is loaded)
-    - name: dcc_file_size
-      type: count
-      description: >
-        (present if base/protocols/irc/dcc-send.bro is loaded)
-    - name: dcc_mime_type
-      type: string
-      description: >
-        (present if base/protocols/irc/dcc-send.bro is loaded)
-    - name: fuid
-      type: string
-      description: >
-        (present if base/protocols/irc/files.bro is loaded)
+    - name: irc
+      type: group
+      fields:
+        - name: ts
+          type: double
+          description: >
+            Timestamp when the command was seen.
+        - name: uid
+          type: text
+          description: >
+            Unique ID for the connection.
+        - name: id.orig_h
+          type: ip
+          description: >
+            The originators IP address.
+        - name: id.orig_p
+          type: integer
+          description: >
+            The originators port number.
+        - name: id.resp_h
+          type: ip
+          description: >
+            The responders IP address.
+        - name: id.resp_p
+          type: integer
+          description: >
+            The responders port number.
+        - name: nick
+          type: keyword
+          description: >
+            Nickname given for the connection.
+        - name: user
+          type: keyword
+          description: >
+            Username given for the connection.
+        - name: command
+          type: keyword
+          description: >
+            Command given by the client.
+        - name: value
+          type: keyword
+          description: >
+            Value for the command given by the client.
+        - name: addl
+          type: keyword
+          description: >
+            Any additional data for the command.
+        - name: dcc_file_name
+          type: keyword
+          description: >
+            (present if base/protocols/irc/dcc-send.bro is loaded)
+        - name: dcc_file_size
+          type: integer
+          description: >
+            (present if base/protocols/irc/dcc-send.bro is loaded)
+        - name: dcc_mime_type
+          type: keyword
+          description: >
+            (present if base/protocols/irc/dcc-send.bro is loaded)
+        - name: fuid
+          type: text
+          description: >
+            (present if base/protocols/irc/files.bro is loaded)
+

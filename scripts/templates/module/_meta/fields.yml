@@ -1,11 +1,22 @@
-- name: {{ log_type }}
-  type: group
+- key: {{ log_type }}
+  title: {{ log_type }}
+  {%- if log_descr %}
   description: >
-    Contains fields for the Bro {{ log_type }} logs.
+    {{ log_descr|string }}
+  {%- endif %}
   fields:
-    {%- for field in fields %}
-    - name: {{ field["field"]|string }}
-      type: {{ field["type"]|string }}
-      description: >
-        {{ field["description"]|string }}
-    {%- endfor %}
+    - name: {{ log_type }}
+      type: group
+      fields:
+        {%- for field in fields %}
+        - name: {{ field["field"]|string }}
+          {%- if field.type %}
+          type: {{ field["type"]|string }}
+          {%- endif %}
+          {%- if field.description %}
+          description: >
+            {{ field["description"]|string }}
+          {%- endif %}
+        {%- endfor %}
+
+

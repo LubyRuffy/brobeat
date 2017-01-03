@@ -1,21 +1,24 @@
-- name: reporter
-  type: group
+- key: reporter
+  title: reporter
   description: >
-    Contains fields for the Bro reporter logs.
+    Internal error/warning/info messages
   fields:
-    - name: ts
-      type: time
-      description: >
-        The network time at which the reporter event was generated.
-    - name: level
-      type: Reporter::Level
-      description: >
-        
-    - name: message
-      type: string
-      description: >
-        An info/warning/error message that could have either been generated from the internal Bro core or at the scripting-layer.
-    - name: location
-      type: string
-      description: >
-        This is the location in a Bro script where the message originated. Not all reporter messages will have locations in them though.
+    - name: reporter
+      type: group
+      fields:
+        - name: ts
+          type: double
+          description: >
+            The network time at which the reporter event was generated.
+        - name: level
+          description: >
+            The severity of the reporter message. Levels are INFO for informational messages, not needing specific attention; WARNING for warning of a potential problem, and ERROR for a non-fatal error that should be addressed, but doesnt terminate program execution.
+        - name: message
+          type: keyword
+          description: >
+            An info/warning/error message that could have either been generated from the internal Bro core or at the scripting-layer.
+        - name: location
+          type: keyword
+          description: >
+            This is the location in a Bro script where the message originated. Not all reporter messages will have locations in them though.
+

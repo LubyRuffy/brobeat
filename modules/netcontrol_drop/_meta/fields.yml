@@ -1,37 +1,41 @@
-- name: netcontrol_drop
-  type: group
+- key: netcontrol_drop
+  title: netcontrol_drop
   description: >
-    Contains fields for the Bro netcontrol_drop logs.
+    NetControl actions
   fields:
-    - name: ts
-      type: time
-      description: >
-        Time at which the recorded activity occurred.
-    - name: rule_id
-      type: string
-      description: >
-        ID of the rule; unique during each Bro run.
-    - name: orig_h
-      type: addr
-      description: >
-        The originators IP address.
-    - name: orig_p
-      type: port
-      description: >
-        The originators port number.
-    - name: resp_h
-      type: addr
-      description: >
-        The responders IP address.
-    - name: resp_p
-      type: port
-      description: >
-        The responders port number.
-    - name: expire
-      type: interval
-      description: >
-        Expiry time of the shunt.
-    - name: location
-      type: string
-      description: >
-        Location where the underlying action was triggered.
+    - name: netcontrol_drop
+      type: group
+      fields:
+        - name: ts
+          type: double
+          description: >
+            Time at which the recorded activity occurred.
+        - name: rule_id
+          type: keyword
+          description: >
+            ID of the rule; unique during each Bro run.
+        - name: orig_h
+          type: ip
+          description: >
+            The originators IP address.
+        - name: orig_p
+          type: integer
+          description: >
+            The originators port number.
+        - name: resp_h
+          type: ip
+          description: >
+            The responders IP address.
+        - name: resp_p
+          type: integer
+          description: >
+            The responders port number.
+        - name: expire
+          type: double
+          description: >
+            Expiry time of the shunt.
+        - name: location
+          type: keyword
+          description: >
+            Location where the underlying action was triggered.
+
