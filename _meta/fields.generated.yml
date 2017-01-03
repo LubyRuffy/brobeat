@@ -1,3 +1,19 @@
+- key: brobeat
+  title: brobeat
+  description:
+  fields:
+    - name: counter
+      type: long
+      description: >
+        Count of logs that have been indexed by brobeat
+    - name: created
+      type: date
+      description: >
+        Timestamp for when Bro created the log file.
+    - name: type
+      type: keyword
+      description: >
+        Event type.        
 - key: barnyard2
   title: barnyard2
   description: >

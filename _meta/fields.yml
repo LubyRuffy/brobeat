@@ -10,4 +10,7 @@
       type: date
       description: >
         Timestamp for when Bro created the log file.
-        
+    - name: type
+      type: keyword
+      description: >
+        Event type.        

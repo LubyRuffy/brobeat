@@ -242,6 +242,12 @@
             }
           }
         },
+        "counter": {
+          "type": "long"
+        },
+        "created": {
+          "type": "date"
+        },
         "dce_rpc": {
           "properties": {
             "endpoint": {
@@ -3436,6 +3442,11 @@
               "type": "string"
             }
           }
+        },
+        "type": {
+          "ignore_above": 1024,
+          "index": "not_analyzed",
+          "type": "string"
         },
         "unified2": {
           "properties": {
