@@ -22,6 +22,13 @@ $ ./brobeat -e -c brobeat.yml
 
 > **NOTE:** :construction: This is very **beta** software and it will only ingest a single bro log at this time :construction:
 
+### TODO
+
+ - [ ] Fix logstash pattern file generation
+ - [ ] Ask logstash people for help on ingest pipelines/grok patterns
+ - [ ] Pull in filebeat code to watch a folder for `*.log` files
+ - [ ] Create some cool dashboards
+
 ### Issues
 
 Find a bug? Want more features? Find something missing in the documentation? Let me know! Please don't hesitate to [file an issue](https://github.com/blacktop/brobeat/issues/new)
