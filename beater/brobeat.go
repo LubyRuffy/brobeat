@@ -59,7 +59,7 @@ func (bt *Brobeat) Run(b *beat.Beat) error {
 		}
 		for _, field := range log.Fields {
 			// use ts field as @timestamp
-			if field.Name == "ts" {
+			if field.Name == log.Type+".ts" {
 				time, err := convertTs2Time(field.Value)
 				if err != nil {
 					return err
