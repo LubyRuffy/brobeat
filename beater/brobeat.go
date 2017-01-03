@@ -52,8 +52,8 @@ func (bt *Brobeat) Run(b *beat.Beat) error {
 		fmt.Println(log)
 		event := common.MapStr{
 			"@timestamp": common.Time(time.Now()),
-			// "type":       b.Name,
-			"type":    log.Type,
+			"type":       b.Name,
+			// "type":    log.Type,
 			"created": log.Created,
 			"counter": counter,
 		}

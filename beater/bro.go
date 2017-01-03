@@ -182,7 +182,7 @@ func ParseLogFile(filePath string) BroLogs {
 		}
 		for j, word := range line {
 			broField := BroField{
-				Name:  broHeader.Fields[j],
+				Name:  broHeader.Path + "." + broHeader.Fields[j],
 				Type:  broHeader.Types[j],
 				Value: word,
 			}
