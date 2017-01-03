@@ -31,7 +31,8 @@ def fields_to_es_template(args, input, output, index, version):
 
     # Each template needs defaults
     if "defaults" not in docs.keys():
-        print("No defaults are defined. Each template needs at" + " least defaults defined.")
+        print("No defaults are defined. Each template needs at" +
+              " least defaults defined.")
         return
 
     defaults = docs["defaults"]
@@ -100,7 +101,8 @@ def fields_to_es_template(args, input, output, index, version):
         template["mappings"]["_default_"]["dynamic_templates"] = \
             dynamic_templates
 
-    json.dump(template, output, indent=2, separators=(',', ': '), sort_keys=True)
+    json.dump(
+        template, output, indent=2, separators=(',', ': '), sort_keys=True)
 
 
 def dedot(group):
@@ -123,7 +125,11 @@ def dedot(group):
             newkey, rest = field["name"].split(".", 1)
             field["name"] = rest  # move one level down
             if newkey not in dedotted:
-                dedotted[newkey] = {"name": newkey, "type": "group", "fields": []}
+                dedotted[newkey] = {
+                    "name": newkey,
+                    "type": "group",
+                    "fields": []
+                }
             if field.get("type") == "group":
                 dedotted[newkey]["fields"].append(dedotted(field))
             else:
@@ -169,24 +175,43 @@ def fill_field_properties(args, field, defaults, path):
 
     if field["type"] == "text":
         if args.es2x:
-            properties[field["name"]] = {"type": "string", "index": "analyzed", "norms": {"enabled": False}}
+            properties[field["name"]] = {
+                "type": "string",
+                "index": "analyzed",
+                "norms": {
+                    "enabled": False
+                }
+            }
         else:
             properties[field["name"]] = {"type": field["type"], "norms": False}
 
     elif field["type"] == "keyword":
         if args.es2x:
-            properties[field["name"]] = {"type": "string", "index": "not_analyzed", "ignore_above": 1024}
+            properties[field["name"]] = {
+                "type": "string",
+                "index": "not_analyzed",
+                "ignore_above": 1024
+            }
         else:
-            properties[field["name"]] = {"type": "keyword", "ignore_above": 1024}
+            properties[field["name"]] = {
+                "type": "keyword",
+                "ignore_above": 1024
+            }
 
     elif field["type"] == "ip":
         if args.es2x:
-            properties[field["name"]] = {"type": "string", "index": "not_analyzed", "ignore_above": 1024}
+            properties[field["name"]] = {
+                "type": "string",
+                "index": "not_analyzed",
+                "ignore_above": 1024
+            }
         else:
             properties[field["name"]] = {"type": "ip"}
 
-    elif field["type"] in ["geo_point", "date", "long", "integer", "double", "float", "half_float", "scaled_float",
-                           "boolean"]:
+    elif field["type"] in [
+            "geo_point", "date", "long", "integer", "double", "float",
+            "half_float", "scaled_float", "boolean"
+    ]:
         # Convert all integer fields to long
         if field["type"] == "integer":
             field["type"] = "long"
@@ -254,7 +279,10 @@ def fill_field_properties(args, field, defaults, path):
 
         # Only add properties if they have a content
         if len(prop) is not 0:
-            properties[field.get("name")] = {"type": "nested", "properties": {}}
+            properties[field.get("name")] = {
+                "type": "nested",
+                "properties": {}
+            }
             properties[field.get("name")]["properties"] = prop
 
         dynamic_templates.extend(dynamic)
@@ -266,11 +294,16 @@ def fill_field_properties(args, field, defaults, path):
 
 if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser(description="Generates the templates for a Beat.")
-    parser.add_argument("--es2x", action="store_true", help="Generate template for Elasticsearch 2.x.")
+    parser = argparse.ArgumentParser(
+        description="Generates the templates for a Beat.")
+    parser.add_argument(
+        "--es2x",
+        action="store_true",
+        help="Generate template for Elasticsearch 2.x.")
     parser.add_argument("path", help="Path to the beat folder")
     parser.add_argument("beatname", help="The beat fname")
-    parser.add_argument("es_beats", help="The path to the general beats folder")
+    parser.add_argument(
+        "es_beats", help="The path to the general beats folder")
 
     args = parser.parse_args()
 
@@ -296,4 +329,5 @@ if __name__ == "__main__":
             version_data = yaml.load(file)
 
         with open(target, 'w') as output:
-            fields_to_es_template(args, fields, output, args.beatname + "-*", version_data['version'])
+            fields_to_es_template(args, fields, output, args.beatname + "-*",
+                                  version_data['version'])

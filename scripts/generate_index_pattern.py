@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 """
 This script generates the index-pattern for Kibana from
 the fields.yml file.
@@ -16,8 +15,8 @@ import sys
 
 unique_fields = []
 
-def fields_to_json(section, path, output):
 
+def fields_to_json(section, path, output):
     for field in section["fields"]:
         if path == "":
             newpath = field["name"]
@@ -31,11 +30,12 @@ def fields_to_json(section, path, output):
 
 
 def field_to_json(desc, path, output):
-
     global unique_fields
 
     if path in unique_fields:
-        print("ERROR: Field {} is duplicated. Please delete it and try again. Fields already are {}".format(path, ", ".join(unique_fields)))
+        print(
+            "ERROR: Field {} is duplicated. Please delete it and try again. Fields already are {}".
+            format(path, ", ".join(unique_fields)))
         sys.exit(1)
     else:
         unique_fields.append(path)
@@ -52,7 +52,9 @@ def field_to_json(desc, path, output):
     }
     # find the kibana types based on the field type
     if "type" in desc:
-        if desc["type"] in ["half_float", "scaled_float", "float", "integer", "long"]:
+        if desc["type"] in [
+                "half_float", "scaled_float", "float", "integer", "long"
+        ]:
             field["type"] = "number"
         elif desc["type"] in ["text", "keyword"]:
             field["type"] = "string"
@@ -68,13 +70,10 @@ def field_to_json(desc, path, output):
     output["fields"].append(field)
 
     if "format" in desc:
-        output["fieldFormatMap"][path] = {
-            "id": desc["format"],
-        }
+        output["fieldFormatMap"][path] = {"id": desc["format"], }
 
 
 def fields_to_index_pattern(args, input):
-
     docs = yaml.load(input)
 
     if docs is None:
@@ -86,19 +85,69 @@ def fields_to_index_pattern(args, input):
         "fieldFormatMap": {},
         "timeFieldName": "@timestamp",
         "title": args.index,
-
     }
 
     for k, section in enumerate(docs["fields"]):
         fields_to_json(section, "", output)
 
+    output["fields"] = add_meta_fields(output["fields"])
     output["fields"] = json.dumps(output["fields"])
     output["fieldFormatMap"] = json.dumps(output["fieldFormatMap"])
     return output
 
 
-def get_index_pattern_name(index):
+def add_meta_fields(output):
+    meta_fields = [
+        {
+            "name": "_id",
+            "type": "string",
+            "count": 0,
+            "scripted": False,
+            "indexed": False,
+            "analyzed": False,
+            "doc_values": False,
+            "searchable": False,
+            "aggregatable": False,
+        },
+        {
+            "name": "_type",
+            "type": "string",
+            "count": 0,
+            "scripted": False,
+            "indexed": False,
+            "analyzed": False,
+            "doc_values": False,
+            "searchable": True,
+            "aggregatable": True,
+        },
+        {
+            "name": "_index",
+            "type": "string",
+            "count": 0,
+            "scripted": False,
+            "indexed": False,
+            "analyzed": False,
+            "doc_values": False,
+            "searchable": False,
+            "aggregatable": False,
+        },
+        {
+            "name": "_score",
+            "type": "number",
+            "count": 0,
+            "scripted": False,
+            "indexed": False,
+            "analyzed": False,
+            "doc_values": False,
+            "searchable": False,
+            "aggregatable": False,
+        },
+    ]
 
+    return output + meta_fields
+
+
+def get_index_pattern_name(index):
     allow = string.ascii_letters + string.digits + "_"
     return re.sub('[^%s]' % allow, '', index)
 
@@ -133,9 +182,10 @@ if __name__ == "__main__":
     # dump output to a json file
     fileName = get_index_pattern_name(args.index)
     target_dir = os.path.join(args.beat, "_meta", "kibana", "index-pattern")
-    target_file =os.path.join(target_dir, fileName + ".json")
+    target_file = os.path.join(target_dir, fileName + ".json")
 
-    try: os.makedirs(target_dir)
+    try:
+        os.makedirs(target_dir)
     except OSError as exception:
         if exception.errno != errno.EEXIST: raise
 
@@ -144,4 +194,4 @@ if __name__ == "__main__":
     with open(target_file, 'w') as f:
         f.write(output)
 
-    print ("The index pattern was created under {}".format(target_file))
+    print("The index pattern was created under {}".format(target_file))
