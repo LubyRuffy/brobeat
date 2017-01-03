@@ -24,10 +24,10 @@ $ ./brobeat -e -c brobeat.yml
 
 ### TODO
 
- - [ ] Fix logstash pattern file generation
- - [ ] Ask logstash people for help on ingest pipelines/grok patterns
- - [ ] Pull in filebeat code to watch a folder for `*.log` files
- - [ ] Create some cool dashboards
+-	[ ] Fix logstash pattern file generation
+-	[ ] Ask logstash people for help on ingest pipelines/grok patterns
+-	[ ] Pull in filebeat code to watch a folder for `*.log` files
+-	[ ] Create some cool dashboards
 
 ### Issues
 
