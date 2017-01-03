@@ -37,6 +37,7 @@ grouped in the following categories:
 * <<exported-fields-known_modbus>>
 * <<exported-fields-known_services>>
 * <<exported-fields-loaded_scripts>>
+* <<exported-fields-log>>
 * <<exported-fields-modbus>>
 * <<exported-fields-modbus_register_change>>
 * <<exported-fields-mysql>>
@@ -160,19 +161,11 @@ Count of logs that have been indexed by brobeat
 
 
 [float]
-=== created
-
-type: date
-
-Timestamp for when Bro created the log file.
-
-
-[float]
 === type
 
 type: keyword
 
-Event type.        
+Event type.
 
 
 [[exported-fields-capture_loss]]
@@ -2479,6 +2472,30 @@ Shows all scripts loaded by Bro
 type: keyword
 
 Name of the script loaded potentially with spaces included before the file name to indicate load depth.  The convention is two spaces per level of depth.
+
+
+[[exported-fields-log]]
+== Bro Log Fields
+
+Log file info
+
+
+
+
+[float]
+=== log.type
+
+type: keyword
+
+Event type.
+
+
+[float]
+=== log.created
+
+type: date
+
+Timestamp for when Bro created the log file.
 
 
 [[exported-fields-modbus]]

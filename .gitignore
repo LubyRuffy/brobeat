@@ -36,3 +36,5 @@ module/bro/*.log
 data/.state
 *.gz
 *.pcap
+
+_meta/fields.generated.yml

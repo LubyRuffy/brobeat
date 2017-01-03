@@ -51,11 +51,11 @@ func (bt *Brobeat) Run(b *beat.Beat) error {
 	for _, log := range bro.Logs {
 		fmt.Println(log)
 		event := common.MapStr{
-			"@timestamp": common.Time(time.Now()),
-			"type":       b.Name,
-			// "type":    log.Type,
-			"created": log.Created,
-			"counter": counter,
+			"@timestamp":  common.Time(time.Now()),
+			"type":        b.Name,
+			"log.type":    log.Type,
+			"log.created": log.Created,
+			"counter":     counter,
 		}
 		for _, field := range log.Fields {
 			// use ts field as @timestamp

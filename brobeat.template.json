@@ -214,9 +214,6 @@
         "counter": {
           "type": "long"
         },
-        "created": {
-          "type": "date"
-        },
         "dce_rpc": {
           "properties": {
             "endpoint": {
@@ -1118,6 +1115,17 @@
         "loaded_scripts": {
           "properties": {
             "name": {
+              "ignore_above": 1024,
+              "type": "keyword"
+            }
+          }
+        },
+        "log": {
+          "properties": {
+            "created": {
+              "type": "date"
+            },
+            "type": {
               "ignore_above": 1024,
               "type": "keyword"
             }
