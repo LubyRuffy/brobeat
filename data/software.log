@@ -3,7 +3,7 @@
 #empty_field	(empty)
 #unset_field	-
 #path	software
-#open	2016-12-28-16-25-43
+#open	2017-01-04-14-57-34
 #fields	ts	host	host_p	software_type	name	version.major	version.minor	version.minor2	version.minor3	version.addl	unparsed_version	url
 #types	time	addr	port	enum	string	count	count	count	count	string	string	string
 1258569169.320850	192.168.1.102	-	HTTP::BROWSER	Firefox	3	5	5	-	-	Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5	-
@@ -12,10 +12,10 @@
 1258570175.081093	192.168.1.105	-	HTTP::BROWSER	Google Update	1	2	183	13	winhttp	Google Update/1.2.183.13;winhttp	-
 1258571727.877010	192.168.1.102	-	HTTP::BROWSER	SCSDK	6	0	0	-	-	SCSDK-6.0.0	-
 1258571811.681164	192.168.1.104	-	HTTP::BROWSER	SCSDK	6	0	0	-	-	SCSDK-6.0.0	-
-1258574141.254026	192.168.1.104	-	SMTP::MAIL_CLIENT	Thunderbird	2	0	0	23	Windows/20090812	Thunderbird 2.0.0.23 (Windows/20090812)	-
 1258574143.446195	192.168.1.103	-	HTTP::BROWSER	SCSDK	6	0	0	-	-	SCSDK-6.0.0	-
+1258574146.944511	192.168.1.104	-	SMTP::MAIL_CLIENT	Thunderbird	2	0	0	23	Windows/20090812	Thunderbird 2.0.0.23 (Windows/20090812)	-
 1258577528.989042	192.168.1.104	-	HTTP::BROWSER	Thunderbird	2	0	0	23	-	Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.23) Gecko/20090812 Thunderbird/2.0.0.23	-
-1258577841.065398	192.168.1.104	-	SMTP::MAIL_CLIENT	Thunderbird	2	0	0	23	Windows/20090812	Thunderbird 2.0.0.23 (Windows/20090812)	-
+1258577853.914407	192.168.1.104	-	SMTP::MAIL_CLIENT	Thunderbird	2	0	0	23	Windows/20090812	Thunderbird 2.0.0.23 (Windows/20090812)	-
 1258577957.703227	192.168.1.104	-	HTTP::BROWSER	Thunderbird	2	0	0	23	-	Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.23) Gecko/20090812 Lightning/0.9 Thunderbird/2.0.0.23	-
 1258578115.974396	192.168.1.104	-	HTTP::BROWSER	Microsoft-CryptoAPI	5	131	2600	5512	-	Microsoft-CryptoAPI/5.131.2600.5512	-
 1258578191.074270	192.168.1.104	-	HTTP::BROWSER	Shockwave Flash	-	-	-	-	-	Shockwave Flash	-
@@ -28,7 +28,6 @@
 1258588975.777183	192.168.1.103	-	HTTP::BROWSER	Windows-Update-Agent	-	-	-	-	-	Windows-Update-Agent	-
 1258588989.337665	192.168.1.105	-	HTTP::BROWSER	AVGINET	9	-	-	-	WVSXX86	AVGINET9-WVSXX86 90 AVI=270.14.72/2511 BUILD=707 LOC=1033 LIC=9I-ASXNN-X4WGW-M0XFR-T84VX-3VX02 DIAG=51E OPF=0 PCA=	-
 1258589059.612316	192.168.1.105	-	HTTP::BROWSER	Microsoft-WebDAV-MiniRedir	6	0	6002	-	-	Microsoft-WebDAV-MiniRedir/6.0.6002	-
-1258589059.644358	192.168.1.1	80	HTTP::SERVER	Apache	2	2	13	-	Unix	Apache/2.2.13 (Unix) mod_ssl/2.2.13 OpenSSL/0.9.8k DAV/2 PHP/5.3.0 SVN/1.6.5 mod_python/3.3.1 Python/2.6.1	-
 1258589188.355781	192.168.1.105	-	HTTP::BROWSER	SCSDK	6	0	0	-	-	SCSDK-6.0.0	-
 1258589214.421932	192.168.1.105	-	HTTP::BROWSER	Microsoft-CryptoAPI	6	0	-	-	-	Microsoft-CryptoAPI/6.0	-
 1258589289.945278	192.168.1.105	-	HTTP::BROWSER	MSDW	-	-	-	-	-	MSDW	-
@@ -48,4 +47,4 @@
 1258608426.043846	192.168.1.104	-	HTTP::BROWSER	Windows-Update-Agent	-	-	-	-	-	Windows-Update-Agent	-
 1258618079.433228	192.168.1.102	-	HTTP::BROWSER	JNLP	6	0	-	-	javaws/1	JNLP/6.0 javaws/1.6.0_17 (b04) Java/1.6.0_17	-
 1258650924.227204	192.168.1.103	-	HTTP::BROWSER	Firefox	3	5	5	-	-	Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5	-
-#close	2016-12-28-16-26-00
+#close	2017-01-04-14-57-48

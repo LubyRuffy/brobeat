@@ -2,7 +2,11 @@ package beater
 
 import (
 	"fmt"
+	"log"
+	"os"
 	"time"
+
+	"github.com/fsnotify/fsnotify"
 
 	"github.com/elastic/beats/libbeat/beat"
 	"github.com/elastic/beats/libbeat/common"
@@ -39,44 +43,90 @@ func (bt *Brobeat) Run(b *beat.Beat) error {
 
 	bt.client = b.Publisher.Connect()
 	path := bt.config.Path
+
+	info, err := os.Stat(path)
+
+	// Check that folder exists
+	if os.IsNotExist(err) {
+		logp.Err("error: folder does not exist.")
+		return nil
+	}
+	// Check that path is a folder and not a file
+	if info.IsDir() {
+		watcher, err := fsnotify.NewWatcher()
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer watcher.Close()
+
+		// done := make(chan bool)
+
+		err = watcher.Add(path)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		for {
+			select {
+			case <-bt.done:
+				return nil
+			case event := <-watcher.Events:
+				// logp.Info("event:", event)
+				if event.Op&fsnotify.Write == fsnotify.Write {
+					logp.Info("modified file:", event.Name)
+					// Scan new sample in watch folder
+					// ScanSample(event.Name)
+				}
+				if event.Op&fsnotify.Chmod == fsnotify.Chmod {
+					logp.Info("Chmod file:", event.Name)
+					// Parse bro-log file
+					bro := ParseLogFile(event.Name)
+
+					for _, log := range bro.Logs {
+						fmt.Println(log)
+						event := common.MapStr{
+							"@timestamp":  common.Time(time.Now()),
+							"type":        b.Name,
+							"log.type":    log.Type,
+							"log.created": log.Created,
+						}
+						for _, field := range log.Fields {
+							// use ts field as @timestamp
+							if field.Name == log.Type+".ts" {
+								time, err := convertTs2Time(field.Value)
+								if err != nil {
+									return err
+								}
+								fmt.Println(time)
+								event["@timestamp"] = common.Time(time)
+							}
+							// don't output fields with '-' values
+							if field.Value != log.UnsetField {
+								event[field.Name] = field.Value
+							}
+						}
+
+						bt.client.PublishEvent(event)
+						logp.Info("Event sent")
+					}
+				}
+			case err = <-watcher.Errors:
+				logp.Err("error:", err)
+			}
+		}
+		// <-done
+	} else {
+		logp.Err("error: path is not a folder")
+	}
+
 	// ticker := time.NewTicker(bt.config.Period)
-	counter := 1
+	// counter := 1
 	// for {
 	// 	select {
 	// 	case <-bt.done:
 	// 		return nil
 	// 	case <-ticker.C:
 	// 	}
-	bro := ParseLogFile(path)
-	for _, log := range bro.Logs {
-		fmt.Println(log)
-		event := common.MapStr{
-			"@timestamp":  common.Time(time.Now()),
-			"type":        b.Name,
-			"log.type":    log.Type,
-			"log.created": log.Created,
-			"counter":     counter,
-		}
-		for _, field := range log.Fields {
-			// use ts field as @timestamp
-			if field.Name == log.Type+".ts" {
-				time, err := convertTs2Time(field.Value)
-				if err != nil {
-					return err
-				}
-				fmt.Println(time)
-				event["@timestamp"] = common.Time(time)
-			}
-			// don't output fields with '-' values
-			if field.Value != log.UnsetField {
-				event[field.Name] = field.Value
-			}
-		}
-
-		bt.client.PublishEvent(event)
-		logp.Info("Event sent")
-		counter++
-	}
 
 	// }
 	return nil
