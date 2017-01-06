@@ -59,8 +59,6 @@ func (bt *Brobeat) Run(b *beat.Beat) error {
 		}
 		defer watcher.Close()
 
-		// done := make(chan bool)
-
 		err = watcher.Add(path)
 		if err != nil {
 			log.Fatal(err)
@@ -68,17 +66,16 @@ func (bt *Brobeat) Run(b *beat.Beat) error {
 
 		for {
 			select {
-			case <-bt.done:
-				return nil
 			case event := <-watcher.Events:
-				// logp.Info("event:", event)
-				if event.Op&fsnotify.Write == fsnotify.Write {
-					logp.Info("modified file:", event.Name)
-					// Scan new sample in watch folder
-					// ScanSample(event.Name)
-				}
 				if event.Op&fsnotify.Chmod == fsnotify.Chmod {
 					logp.Info("Chmod file:", event.Name)
+
+					stat, err := os.Stat(event.Name)
+					if err != nil {
+						logp.Err("Stat Error: ", err)
+					}
+					logp.Info("%#v", stat)
+
 					// Parse bro-log file
 					bro := ParseLogFile(event.Name)
 
@@ -112,23 +109,14 @@ func (bt *Brobeat) Run(b *beat.Beat) error {
 				}
 			case err = <-watcher.Errors:
 				logp.Err("error:", err)
+			case <-bt.done:
+				return nil
 			}
 		}
-		// <-done
 	} else {
 		logp.Err("error: path is not a folder")
 	}
 
-	// ticker := time.NewTicker(bt.config.Period)
-	// counter := 1
-	// for {
-	// 	select {
-	// 	case <-bt.done:
-	// 		return nil
-	// 	case <-ticker.C:
-	// 	}
-
-	// }
 	return nil
 }
 

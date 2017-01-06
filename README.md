@@ -17,15 +17,16 @@ $ docker run -d --name elstack -p 80:80 -p 9200:9200 blacktop/elastic-stack
 $ git clone https://github.com/blacktop/brobeat.git
 $ cd brobeat
 $ make
+# change `path: ./data` in `brobeat.yml` to where your logs will be written
 $ ./brobeat -e -c brobeat.yml
 ```
 
-> **NOTE:** :construction: This is very **beta** software and it will only ingest a single bro log at this time :construction:
+> **NOTE:** :construction: This is very **beta** software and it may create duplicate logs in elasticsearch :construction:
 
 ### TODO
 
 -	[ ] Fix logstash pattern file generation
--	[ ] Ask logstash people for help on ingest pipelines/grok patterns
+-	[x] Ask logstash people for help on ingest pipelines/grok patterns
 -	[ ] Pull in filebeat code to watch a folder for `*.log` files
 -	[ ] Create some cool dashboards
 

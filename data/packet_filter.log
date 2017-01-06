@@ -3,8 +3,8 @@
 #empty_field	(empty)
 #unset_field	-
 #path	packet_filter
-#open	2017-01-04-14-57-34
+#open	2017-01-06-10-48-48
 #fields	ts	node	filter	init	success
 #types	time	string	string	bool	bool
-1483567054.408521	bro	ip or not ip	T	T
-#close	2017-01-04-14-57-48
+1483724928.881979	bro	ip or not ip	T	T
+#close	2017-01-06-10-49-02

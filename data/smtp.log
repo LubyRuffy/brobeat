@@ -3,10 +3,10 @@
 #empty_field	(empty)
 #unset_field	-
 #path	smtp
-#open	2017-01-04-14-57-35
+#open	2017-01-06-10-48-49
 #fields	ts	uid	id.orig_h	id.orig_p	id.resp_h	id.resp_p	trans_depth	helo	mailfrom	rcptto	date	from	to	cc	reply_to	msg_id	in_reply_to	subject	x_originating_ip	first_received	second_received	last_reply	path	user_agent	tls	fuids	is_webmail
 #types	time	string	addr	port	addr	port	count	string	string	set[string]	string	string	set[string]	set[string]	string	string	string	string	addr	string	string	string	vector[addr]	string	bool	vector[string]	bool
-1258574141.217351	CHH4yN2OYoKaCDD6ui	192.168.1.104	1572	192.168.1.1	25	1	[192.168.1.104]	charlie@m57.biz	pat@m57.biz	Wed, 18 Nov 2009 11:58:15 -0800	Charlie <charlie@m57.biz>	Pat McGoo <pat@m57.biz>	-	-	<4B0451D7.6080508@m57.biz>	<98CC40FE46EA4F9CB82A95B0E7634C9A@m57pat>	Re: COFFEE	-	-	-	-	192.168.1.1,192.168.1.104	Thunderbird 2.0.0.23 (Windows/20090812)	F	FbUS8R2oihxulRlvke	F
-1258577484.768048	CscaJR24a7UIK4OMk2	192.168.1.104	1604	192.168.1.1	25	1	[192.168.1.104]	charlie@m57.biz	pat@m57.biz	Wed, 18 Nov 2009 12:53:59 -0800	Charlie <charlie@m57.biz>	Pat McGoo <pat@m57.biz>	-	-	<4B045EE7.2000405@m57.biz>	<941C9DB33FCE45B7848E97D30E37ABD2@m57pat>	Re: Google patent	-	-	-	-	192.168.1.1,192.168.1.104	Thunderbird 2.0.0.23 (Windows/20090812)	F	Fgk3Xx2gwg7kWbUEv7	F
-1258577841.028713	ClDWDC4BrJoLLZHSHa	192.168.1.104	1665	192.168.1.1	25	1	[192.168.1.104]	charlie@m57.biz	alix.pery@yahoo.com	Wed, 18 Nov 2009 12:59:55 -0800	Charlie <charlie@m57.biz>	Alix Pery <alix.pery@yahoo.com>	-	-	<4B04604B.3070508@m57.biz>	-	Movie tonight???	-	-	-	-	192.168.1.1,192.168.1.104	Thunderbird 2.0.0.23 (Windows/20090812)	F	FCNK0F2MhRNdL6RCof	F
-#close	2017-01-04-14-57-48
+1258574141.217351	CMQtRa4IDwWqPuDQCi	192.168.1.104	1572	192.168.1.1	25	1	[192.168.1.104]	charlie@m57.biz	pat@m57.biz	Wed, 18 Nov 2009 11:58:15 -0800	Charlie <charlie@m57.biz>	Pat McGoo <pat@m57.biz>	-	-	<4B0451D7.6080508@m57.biz>	<98CC40FE46EA4F9CB82A95B0E7634C9A@m57pat>	Re: COFFEE	-	-	-	-	192.168.1.1,192.168.1.104	Thunderbird 2.0.0.23 (Windows/20090812)	F	FbUS8R2oihxulRlvke	F
+1258577484.768048	CWP80d3q0SEXtGN692	192.168.1.104	1604	192.168.1.1	25	1	[192.168.1.104]	charlie@m57.biz	pat@m57.biz	Wed, 18 Nov 2009 12:53:59 -0800	Charlie <charlie@m57.biz>	Pat McGoo <pat@m57.biz>	-	-	<4B045EE7.2000405@m57.biz>	<941C9DB33FCE45B7848E97D30E37ABD2@m57pat>	Re: Google patent	-	-	-	-	192.168.1.1,192.168.1.104	Thunderbird 2.0.0.23 (Windows/20090812)	F	Fgk3Xx2gwg7kWbUEv7	F
+1258577841.028713	C4YTtLRbwR0vjqwej	192.168.1.104	1665	192.168.1.1	25	1	[192.168.1.104]	charlie@m57.biz	alix.pery@yahoo.com	Wed, 18 Nov 2009 12:59:55 -0800	Charlie <charlie@m57.biz>	Alix Pery <alix.pery@yahoo.com>	-	-	<4B04604B.3070508@m57.biz>	-	Movie tonight???	-	-	-	-	192.168.1.1,192.168.1.104	Thunderbird 2.0.0.23 (Windows/20090812)	F	FCNK0F2MhRNdL6RCof	F
+#close	2017-01-06-10-49-02
