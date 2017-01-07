@@ -1,0 +1,25 @@
+{
+	"comment": "",
+	"ignore": "",
+	"package": [
+		{
+			"checksumSHA1": "74zwCNDSsh7NdJcEhgItnfU6d/E=",
+			"path": "github.com/fsnotify/fsnotify",
+			"revision": "fd9ec7deca8bf46ecd2a795baaacf2b3a9be1197",
+			"revisionTime": "2016-10-26T20:31:22Z"
+		},
+		{
+			"checksumSHA1": "N5zDlkYc/+g7EwjB3GyHkYfOJAI=",
+			"path": "golang.org/x/crypto/ssh/terminal",
+			"revision": "f3241ce8505855877cc8a9717bd61a0f7c4ea83c",
+			"revisionTime": "2016-06-10T10:58:35Z"
+		},
+		{
+			"checksumSHA1": "TIKAabyxwRgXmV7oKnak0zn0coM=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "b776ec39b3e54652e09028aaaaac9757f4f8211a",
+			"revisionTime": "2016-04-21T02:29:30Z"
+		}
+	],
+	"rootPath": "github.com/blacktop/brobeat"
+}
