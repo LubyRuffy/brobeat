@@ -43,6 +43,6 @@ before-build:
 # Collects all dependencies and then calls update
 .PHONY: collect
 collect:
-	rm _meta/fields.generated.yml
-	cat _meta/fields.yml >> _meta/fields.generated.yml	
+	# rm _meta/fields.generated.yml
+	cat _meta/fields.yml >> _meta/fields.generated.yml
 	cat modules/*/_meta/fields.yml >> _meta/fields.generated.yml
