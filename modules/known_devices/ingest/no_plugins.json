@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{DATA:ts}\t%{DATA:mac}\t%{DATA:dhcp_host_name}"
+        "%{NUMBER:ts}\t%{DATA:mac}\t%{DATA:dhcp_host_name}"
         ],
       "ignore_missing": true
     }

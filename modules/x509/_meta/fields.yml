@@ -7,30 +7,77 @@
       type: group
       fields:
         - name: ts
-          type: double
           description: >
             Current timestamp.
         - name: id
-          type: keyword
           description: >
             File id of this certificate.
-        - name: certificate
+        - name: certificate.version
           description: >
-            Basic information about the certificate.
+            Version number.
+        - name: certificate.serial
+          description: >
+            Serial number.
+        - name: certificate.subject
+          description: >
+            Subject.
+        - name: certificate.issuer
+          description: >
+            Issuer.
+        - name: certificate.cn
+          description: >
+            Last (most specific) common name.
+        - name: certificate.not_valid_before
+          description: >
+            Timestamp before when certificate is not valid.
+        - name: certificate.not_valid_after
+          description: >
+            Timestamp after when certificate is not valid.
+        - name: certificate.key_alg
+          description: >
+            Name of the key algorithm
+        - name: certificate.sig_alg
+          description: >
+            Name of the signature algorithm
+        - name: certificate.key_type
+          description: >
+            Key type, if key parseable by openssl (either rsa, dsa or ec)
+        - name: certificate.key_length
+          description: >
+            Key length in bits
+        - name: certificate.exponent
+          description: >
+            Exponent, if RSA-certificate
+        - name: certificate.curve
+          description: >
+            Curve, if EC-certificate
         - name: handle
           description: >
             The opaque wrapping the certificate. Mainly used for the verify operations.
         - name: extensions
           description: >
             All extensions that were encountered in the certificate.
-        - name: san
+        - name: san.dns
           description: >
-            Subject alternative name extension of the certificate.
-        - name: basic_constraints
+            List of DNS entries in SAN
+        - name: san.uri
           description: >
-            Basic constraints extension of the certificate.
+            List of URI entries in SAN
+        - name: san.email
+          description: >
+            List of email entries in SAN
+        - name: san.ip
+          description: >
+            List of IP entries in SAN
+        - name: san.other_fields
+          description: >
+            True if the certificate contained other, not recognized or parsed name fields
+        - name: basic_constraints.ca
+          description: >
+            CA flag set?
+        - name: basic_constraints.path_len
+          description: >
+            Maximum path length
         - name: logcert
-          type: boolean
           description: >
             (present if policy/protocols/ssl/log-hostcerts-only.bro is loaded)
-

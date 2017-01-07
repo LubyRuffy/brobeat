@@ -7,35 +7,26 @@
       type: group
       fields:
         - name: ts
-          type: double
           description: >
             Time at which the recorded activity occurred.
         - name: rule_id
-          type: keyword
           description: >
             ID of the rule; unique during each Bro run.
         - name: orig_h
-          type: ip
           description: >
             The originators IP address.
         - name: orig_p
-          type: integer
           description: >
             The originators port number.
         - name: resp_h
-          type: ip
           description: >
             The responders IP address.
         - name: resp_p
-          type: integer
           description: >
             The responders port number.
         - name: expire
-          type: double
           description: >
             Expiry time of the shunt.
         - name: location
-          type: keyword
           description: >
             Location where the underlying action was triggered.
-

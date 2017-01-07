@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:version_num}\t%{DATA:version}\t%{DATA:cipher}\t%{DATA:curve}\t%{DATA:server_name}\t%{DATA:session_id}\t%{DATA:resumed}\t%{DATA:client_ticket_empty_session_seen}\t%{DATA:client_key_exchange_seen}\t%{DATA:server_appdata}\t%{DATA:client_appdata}\t%{DATA:last_alert}\t%{DATA:next_protocol}\t%{DATA:analyzer_id}\t%{DATA:established}\t%{DATA:logged}"
+        "%{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:id.orig_h}\t%{INT:id.orig_p}\t%{IP:id.resp_h}\t%{INT:id.resp_p}\t%{INT:version_num}\t%{DATA:version}\t%{DATA:cipher}\t%{DATA:curve}\t%{DATA:server_name}\t%{DATA:session_id}\t%{DATA:resumed}\t%{DATA:client_ticket_empty_session_seen}\t%{DATA:client_key_exchange_seen}\t%{INT:server_appdata}\t%{DATA:client_appdata}\t%{DATA:last_alert}\t%{DATA:next_protocol}\t%{INT:analyzer_id}\t%{DATA:established}\t%{DATA:logged}"
         ],
       "ignore_missing": true
     }

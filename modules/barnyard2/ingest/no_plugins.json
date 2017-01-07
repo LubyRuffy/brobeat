@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{DATA:ts}\t%{DATA:pid}\t%{DATA:alert}"
+        "%{NUMBER:ts}\t%{IP:pid.src_ip}\t%{INT:pid.src_p}\t%{IP:pid.dst_ip}\t%{INT:pid.dst_p}\t%{INT:alert.sensor_id}\t%{NUMBER:alert.ts}\t%{INT:alert.signature_id}\t%{INT:alert.generator_id}\t%{INT:alert.signature_revision}\t%{INT:alert.classification_id}\t%{DATA:alert.classification}\t%{INT:alert.priority_id}\t%{INT:alert.event_id}"
         ],
       "ignore_missing": true
     }

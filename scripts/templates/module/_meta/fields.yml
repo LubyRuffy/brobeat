@@ -11,12 +11,11 @@
         {%- for field in fields %}
         - name: {{ field["field"]|string }}
           {%- if field.type %}
-          type: {{ field["type"]|string }}
+          type: {{ field["types"]["elastic"]|string }}
           {%- endif %}
           {%- if field.description %}
           description: >
             {{ field["description"]|string }}
           {%- endif %}
         {%- endfor %}
-
 

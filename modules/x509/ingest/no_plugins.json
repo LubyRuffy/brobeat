@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{DATA:ts}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{DATA:certificate}\t%{DATA:handle}\t%{DATA:extensions}\t%{DATA:san}\t%{DATA:basic_constraints}\t%{DATA:logcert}"
+        "%{NUMBER:ts}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{INT:certificate.version}\t%{DATA:certificate.serial}\t%{DATA:certificate.subject}\t%{DATA:certificate.issuer}\t%{DATA:certificate.cn}\t%{NUMBER:certificate.not_valid_before}\t%{NUMBER:certificate.not_valid_after}\t%{DATA:certificate.key_alg}\t%{DATA:certificate.sig_alg}\t%{DATA:certificate.key_type}\t%{INT:certificate.key_length}\t%{DATA:certificate.exponent}\t%{DATA:certificate.curve}\t%{DATA:handle}\t%{DATA:extensions}\t%{DATA:san.dns}\t%{DATA:san.uri}\t%{DATA:san.email}\t%{DATA:san.ip}\t%{DATA:san.other_fields}\t%{DATA:basic_constraints.ca}\t%{INT:basic_constraints.path_len}\t%{DATA:logcert}"
         ],
       "ignore_missing": true
     }

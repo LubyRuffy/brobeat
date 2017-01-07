@@ -68,13 +68,13 @@ func (bt *Brobeat) Run(b *beat.Beat) error {
 			select {
 			case event := <-watcher.Events:
 				if event.Op&fsnotify.Chmod == fsnotify.Chmod {
-					logp.Info("Chmod file:", event.Name)
+					logp.Info("Created file:", event.Name)
 
-					stat, err := os.Stat(event.Name)
-					if err != nil {
-						logp.Err("Stat Error: ", err)
-					}
-					logp.Info("%#v", stat)
+					// stat, err := os.Stat(event.Name)
+					// if err != nil {
+					// 	logp.Err("Stat Error: ", err)
+					// }
+					// logp.Info("%#v", stat)
 
 					// Parse bro-log file
 					bro := ParseLogFile(event.Name)

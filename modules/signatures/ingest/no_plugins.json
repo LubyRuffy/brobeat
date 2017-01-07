@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:src_addr}\t%{DATA:src_port}\t%{DATA:dst_addr}\t%{DATA:dst_port}\t%{DATA:note}\t%{DATA:sig_id}\t%{DATA:event_msg}\t%{DATA:sub_msg}\t%{DATA:sig_count}\t%{DATA:host_count}"
+        "%{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:src_addr}\t%{INT:src_port}\t%{IP:dst_addr}\t%{INT:dst_port}\t%{DATA:note}\t%{DATA:sig_id}\t%{DATA:event_msg}\t%{DATA:sub_msg}\t%{INT:sig_count}\t%{INT:host_count}"
         ],
       "ignore_missing": true
     }

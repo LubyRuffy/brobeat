@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{DATA:ts}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{DATA:machine}\t%{DATA:compile_ts}\t%{DATA:os}\t%{DATA:subsystem}\t%{DATA:is_exe}\t%{DATA:is_64bit}\t%{DATA:uses_aslr}\t%{DATA:uses_dep}\t%{DATA:uses_code_integrity}\t%{DATA:uses_seh}\t%{DATA:has_import_table}\t%{DATA:has_export_table}\t%{DATA:has_cert_table}\t%{DATA:has_debug_data}\t%{DATA:section_names}"
+        "%{NUMBER:ts}\t%{IP:orig_h}\t%{INT:orig_p}\t%{IP:resp_h}\t%{INT:resp_p}\t%{DATA:machine}\t%{NUMBER:compile_ts}\t%{DATA:os}\t%{DATA:subsystem}\t%{DATA:is_exe}\t%{DATA:is_64bit}\t%{DATA:uses_aslr}\t%{DATA:uses_dep}\t%{DATA:uses_code_integrity}\t%{DATA:uses_seh}\t%{DATA:has_import_table}\t%{DATA:has_export_table}\t%{DATA:has_cert_table}\t%{DATA:has_debug_data}\t%{DATA:section_names}"
         ],
       "ignore_missing": true
     }

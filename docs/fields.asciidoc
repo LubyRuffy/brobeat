@@ -85,13 +85,71 @@ Alerts received from Barnyard2
 [float]
 === barnyard2.ts
 
-type: double
+[float]
+=== barnyard2.pid.src_ip
 
 [float]
-=== barnyard2.pid
+=== barnyard2.pid.src_p
 
 [float]
-=== barnyard2.alert
+=== barnyard2.pid.dst_ip
+
+[float]
+=== barnyard2.pid.dst_p
+
+[float]
+=== barnyard2.alert.sensor_id
+
+Sensor that originated this event.
+
+
+[float]
+=== barnyard2.alert.ts
+
+Timestamp attached to the alert.
+
+
+[float]
+=== barnyard2.alert.signature_id
+
+Sig id for this generator.
+
+
+[float]
+=== barnyard2.alert.generator_id
+
+Which generator generated the alert?
+
+
+[float]
+=== barnyard2.alert.signature_revision
+
+Sig revision for this id.
+
+
+[float]
+=== barnyard2.alert.classification_id
+
+Event classification.
+
+
+[float]
+=== barnyard2.alert.classification
+
+Descriptive classification string.
+
+
+[float]
+=== barnyard2.alert.priority_id
+
+Event priority.
+
+
+[float]
+=== barnyard2.alert.event_id
+
+Event ID.
+
 
 [[exported-fields-beat]]
 == Beat Fields
@@ -179,15 +237,11 @@ Packet loss rate
 [float]
 === capture_loss.ts
 
-type: double
-
 Timestamp for when the measurement occurred.
 
 
 [float]
 === capture_loss.ts_delta
-
-type: double
 
 The time delay between this measurement and the last.
 
@@ -195,15 +249,11 @@ The time delay between this measurement and the last.
 [float]
 === capture_loss.peer
 
-type: keyword
-
 In the event that there are multiple Bro instances logging to the same host, this distinguishes each peer with its individual name.
 
 
 [float]
 === capture_loss.gaps
-
-type: integer
 
 Number of missed ACKs from the previous measurement interval.
 
@@ -211,15 +261,11 @@ Number of missed ACKs from the previous measurement interval.
 [float]
 === capture_loss.acks
 
-type: integer
-
 Total number of ACKs seen in the previous measurement interval.
 
 
 [float]
 === capture_loss.percent_lost
-
-type: double
 
 Percentage of ACKs seen where the data being ACKed wasnt seen.
 
@@ -286,15 +332,11 @@ Bro cluster messages
 [float]
 === cluster.ts
 
-type: double
-
 The time at which a cluster message was generated.
 
 
 [float]
 === cluster.message
-
-type: keyword
 
 A message indicating information about the clusters operation.
 
@@ -310,15 +352,11 @@ Communication events between Bro or Broccoli instances
 [float]
 === communication.ts
 
-type: double
-
 The network time at which a communication event occurred.
 
 
 [float]
 === communication.peer
-
-type: keyword
 
 The peer name (if any) with which a communication event is concerned.
 
@@ -326,15 +364,11 @@ The peer name (if any) with which a communication event is concerned.
 [float]
 === communication.src_name
 
-type: keyword
-
 Where the communication event message originated from, that is, either from the scripting layer or inside the Bro process.
 
 
 [float]
 === communication.connected_peer_desc
-
-type: keyword
 
 Todo
 
@@ -342,15 +376,11 @@ Todo
 [float]
 === communication.connected_peer_addr
 
-type: ip
-
 Todo
 
 
 [float]
 === communication.connected_peer_port
-
-type: integer
 
 Todo
 
@@ -358,15 +388,11 @@ Todo
 [float]
 === communication.level
 
-type: keyword
-
 The severity of the communication event message.
 
 
 [float]
 === communication.message
-
-type: keyword
 
 A message describing the communication event between Bro or Broccoli instances.
 
@@ -382,15 +408,11 @@ TCP/UDP/ICMP connections
 [float]
 === conn.ts
 
-type: double
-
 This is the time of the first packet.
 
 
 [float]
 === conn.uid
-
-type: text
 
 A unique identifier of the connection.
 
@@ -398,15 +420,11 @@ A unique identifier of the connection.
 [float]
 === conn.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === conn.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -414,15 +432,11 @@ The originators port number.
 [float]
 === conn.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === conn.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -430,15 +444,11 @@ The responders port number.
 [float]
 === conn.proto
 
-type: keyword
-
 The transport layer protocol of the connection.
 
 
 [float]
 === conn.service
-
-type: keyword
 
 An identification of an application protocol being sent over the connection.
 
@@ -446,15 +456,11 @@ An identification of an application protocol being sent over the connection.
 [float]
 === conn.duration
 
-type: double
-
 How long the connection lasted.  For 3-way or 4-way connection tear-downs, this will not include the final ACK.
 
 
 [float]
 === conn.orig_bytes
-
-type: integer
 
 The number of payload bytes the originator sent. For TCP this is taken from sequence numbers and might be inaccurate (e.g., due to large connections).
 
@@ -462,20 +468,14 @@ The number of payload bytes the originator sent. For TCP this is taken from sequ
 [float]
 === conn.resp_bytes
 
-type: integer
-
 The number of payload bytes the responder sent. See orig_bytes.
 
 
 [float]
 === conn.conn_state
 
-type: keyword
-
 [float]
 === conn.local_orig
-
-type: boolean
 
 If the connection is originated locally, this value will be T. If it was originated remotely it will be F.  In the case that the Site::local_nets variable is undefined, this field will be left empty at all times.
 
@@ -483,15 +483,11 @@ If the connection is originated locally, this value will be T. If it was origina
 [float]
 === conn.local_resp
 
-type: boolean
-
 If the connection is responded to locally, this value will be T. If it was responded to remotely it will be F.  In the case that the Site::local_nets variable is undefined, this field will be left empty at all times.
 
 
 [float]
 === conn.missed_bytes
-
-type: integer
 
 Indicates the number of bytes missed in content gaps, which is representative of packet loss.  A value other than zero will normally cause protocol analysis to fail but some analysis may have been completed prior to the packet loss.
 
@@ -499,15 +495,11 @@ Indicates the number of bytes missed in content gaps, which is representative of
 [float]
 === conn.history
 
-type: keyword
-
 Records the state history of connections as a string of letters.  The meaning of those letters is:
 
 
 [float]
 === conn.orig_pkts
-
-type: integer
 
 Number of packets that the originator sent. Only set if use_conn_size_analyzer = T.
 
@@ -515,23 +507,17 @@ Number of packets that the originator sent. Only set if use_conn_size_analyzer =
 [float]
 === conn.orig_ip_bytes
 
-type: integer
-
 Number of IP level bytes that the originator sent (as seen on the wire, taken from the IP total_length header field). Only set if use_conn_size_analyzer = T.
 
 
 [float]
 === conn.resp_pkts
 
-type: integer
-
 Number of packets that the responder sent. Only set if use_conn_size_analyzer = T.
 
 
 [float]
 === conn.resp_ip_bytes
-
-type: integer
 
 Number of IP level bytes that the responder sent (as seen on the wire, taken from the IP total_length header field). Only set if use_conn_size_analyzer = T.
 
@@ -545,15 +531,11 @@ If this connection was over a tunnel, indicate the uid values for any encapsulat
 [float]
 === conn.orig_l2_addr
 
-type: keyword
-
 (present if policy/protocols/conn/mac-logging.bro is loaded)
 
 
 [float]
 === conn.resp_l2_addr
-
-type: keyword
 
 (present if policy/protocols/conn/mac-logging.bro is loaded)
 
@@ -561,15 +543,11 @@ type: keyword
 [float]
 === conn.vlan
 
-type: integer
-
 (present if policy/protocols/conn/vlan-logging.bro is loaded)
 
 
 [float]
 === conn.inner_vlan
-
-type: integer
 
 (present if policy/protocols/conn/vlan-logging.bro is loaded)
 
@@ -585,15 +563,11 @@ Distributed Computing Environment/RPC
 [float]
 === dce_rpc.ts
 
-type: double
-
 Timestamp for when the event happened.
 
 
 [float]
 === dce_rpc.uid
-
-type: text
 
 Unique ID for the connection.
 
@@ -601,15 +575,11 @@ Unique ID for the connection.
 [float]
 === dce_rpc.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === dce_rpc.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -617,15 +587,11 @@ The originators port number.
 [float]
 === dce_rpc.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === dce_rpc.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -633,15 +599,11 @@ The responders port number.
 [float]
 === dce_rpc.rtt
 
-type: double
-
 Round trip time from the request to the response. If either the request or response wasnt seen, this will be null.
 
 
 [float]
 === dce_rpc.named_pipe
-
-type: keyword
 
 Remote pipe name.
 
@@ -649,15 +611,11 @@ Remote pipe name.
 [float]
 === dce_rpc.endpoint
 
-type: keyword
-
 Endpoint name looked up from the uuid.
 
 
 [float]
 === dce_rpc.operation
-
-type: keyword
 
 Operation seen in the call.
 
@@ -673,15 +631,11 @@ DHCP leases
 [float]
 === dhcp.ts
 
-type: double
-
 The earliest time at which a DHCP message over the associated connection is observed.
 
 
 [float]
 === dhcp.uid
-
-type: text
 
 A unique identifier of the connection over which DHCP is occurring.
 
@@ -689,15 +643,11 @@ A unique identifier of the connection over which DHCP is occurring.
 [float]
 === dhcp.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === dhcp.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -705,15 +655,11 @@ The originators port number.
 [float]
 === dhcp.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === dhcp.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -721,15 +667,11 @@ The responders port number.
 [float]
 === dhcp.mac
 
-type: keyword
-
 Clients hardware address.
 
 
 [float]
 === dhcp.assigned_ip
-
-type: ip
 
 Clients actual assigned IP address.
 
@@ -737,15 +679,11 @@ Clients actual assigned IP address.
 [float]
 === dhcp.lease_time
 
-type: double
-
 IP address lease interval.
 
 
 [float]
 === dhcp.trans_id
-
-type: integer
 
 A random number chosen by the client for this transaction.
 
@@ -761,15 +699,11 @@ DNP3 requests and replies
 [float]
 === dnp3.ts
 
-type: double
-
 Time of the request.
 
 
 [float]
 === dnp3.uid
-
-type: text
 
 Unique identifier for the connection.
 
@@ -777,15 +711,11 @@ Unique identifier for the connection.
 [float]
 === dnp3.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === dnp3.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -793,15 +723,11 @@ The originators port number.
 [float]
 === dnp3.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === dnp3.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -809,23 +735,17 @@ The responders port number.
 [float]
 === dnp3.fc_request
 
-type: keyword
-
 The name of the function message in the request.
 
 
 [float]
 === dnp3.fc_reply
 
-type: keyword
-
 The name of the function message in the reply.
 
 
 [float]
 === dnp3.iin
-
-type: integer
 
 The responses internal indication number.
 
@@ -841,15 +761,11 @@ DNS activity
 [float]
 === dns.ts
 
-type: double
-
 The earliest time at which a DNS protocol message over the associated connection is observed.
 
 
 [float]
 === dns.uid
-
-type: text
 
 A unique identifier of the connection over which DNS messages are being transferred.
 
@@ -857,15 +773,11 @@ A unique identifier of the connection over which DNS messages are being transfer
 [float]
 === dns.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === dns.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -873,15 +785,11 @@ The originators port number.
 [float]
 === dns.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === dns.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -889,15 +797,11 @@ The responders port number.
 [float]
 === dns.proto
 
-type: keyword
-
 The transport layer protocol of the connection.
 
 
 [float]
 === dns.trans_id
-
-type: integer
 
 A 16-bit identifier assigned by the program that generated the DNS query.  Also used in responses to match up replies to outstanding queries.
 
@@ -905,15 +809,11 @@ A 16-bit identifier assigned by the program that generated the DNS query.  Also 
 [float]
 === dns.rtt
 
-type: double
-
 Round trip time for the query and response. This indicates the delay between when the request was seen until the answer started.
 
 
 [float]
 === dns.query
-
-type: keyword
 
 The domain name that is the subject of the DNS query.
 
@@ -921,15 +821,11 @@ The domain name that is the subject of the DNS query.
 [float]
 === dns.qclass
 
-type: integer
-
 The QCLASS value specifying the class of the query.
 
 
 [float]
 === dns.qclass_name
-
-type: keyword
 
 A descriptive name for the class of the query.
 
@@ -937,15 +833,11 @@ A descriptive name for the class of the query.
 [float]
 === dns.qtype
 
-type: integer
-
 A QTYPE value specifying the type of the query.
 
 
 [float]
 === dns.qtype_name
-
-type: keyword
 
 A descriptive name for the type of the query.
 
@@ -953,15 +845,11 @@ A descriptive name for the type of the query.
 [float]
 === dns.rcode
 
-type: integer
-
 The response code value in DNS response messages.
 
 
 [float]
 === dns.rcode_name
-
-type: keyword
 
 A descriptive name for the response code value.
 
@@ -969,15 +857,11 @@ A descriptive name for the response code value.
 [float]
 === dns.AA
 
-type: boolean
-
 The Authoritative Answer bit for response messages specifies that the responding name server is an authority for the domain name in the question section.
 
 
 [float]
 === dns.TC
-
-type: boolean
 
 The Truncation bit specifies that the message was truncated.
 
@@ -985,23 +869,17 @@ The Truncation bit specifies that the message was truncated.
 [float]
 === dns.RD
 
-type: boolean
-
 The Recursion Desired bit in a request message indicates that the client wants recursive service for this query.
 
 
 [float]
 === dns.RA
 
-type: boolean
-
 The Recursion Available bit in a response message indicates that the name server supports recursive queries.
 
 
 [float]
 === dns.Z
-
-type: integer
 
 A reserved field that is usually zero in queries and responses.
 
@@ -1021,15 +899,11 @@ The caching intervals of the associated RRs described by the answers field.
 [float]
 === dns.rejected
 
-type: boolean
-
 The DNS query was rejected by the server.
 
 
 [float]
 === dns.total_answers
-
-type: integer
 
 The total number of resource records in a reply messages answer section.
 
@@ -1037,23 +911,17 @@ The total number of resource records in a reply messages answer section.
 [float]
 === dns.total_replies
 
-type: integer
-
 The total number of resource records in a reply messages answer, authority, and additional sections.
 
 
 [float]
 === dns.saw_query
 
-type: boolean
-
 Whether the full DNS query has been seen.
 
 
 [float]
 === dns.saw_reply
-
-type: boolean
 
 Whether the full DNS reply has been seen.
 
@@ -1081,15 +949,11 @@ Dynamic protocol detection failures
 [float]
 === dpd.ts
 
-type: double
-
 Timestamp for when protocol analysis failed.
 
 
 [float]
 === dpd.uid
-
-type: text
 
 Connection unique ID.
 
@@ -1097,15 +961,11 @@ Connection unique ID.
 [float]
 === dpd.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === dpd.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -1113,15 +973,11 @@ The originators port number.
 [float]
 === dpd.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === dpd.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -1129,23 +985,17 @@ The responders port number.
 [float]
 === dpd.proto
 
-type: keyword
-
 Transport protocol for the violation.
 
 
 [float]
 === dpd.analyzer
 
-type: keyword
-
 The analyzer that generated the violation.
 
 
 [float]
 === dpd.failure_reason
-
-type: keyword
 
 The textual reason for the analysis failure.
 
@@ -1158,8 +1008,6 @@ Disabled analyzer IDs.  This is only for internal tracking so as to not attempt 
 
 [float]
 === dpd.packet_segment
-
-type: keyword
 
 (present if policy/frameworks/dpd/packet-segment-logging.bro is loaded)
 
@@ -1175,15 +1023,11 @@ File analysis results
 [float]
 === files.ts
 
-type: double
-
 The time when the file was first seen.
 
 
 [float]
 === files.fuid
-
-type: text
 
 An identifier associated with a single file.
 
@@ -1203,23 +1047,17 @@ If this file was transferred over a network connection this should show the host
 [float]
 === files.conn_uids
 
-type: text
-
 Connection UIDs over which the file was transferred.
 
 
 [float]
 === files.source
 
-type: keyword
-
 An identification of the source of the file data.  E.g. it may be a network protocol over which it was transferred, or a local file path which was read, or some other input source.
 
 
 [float]
 === files.depth
-
-type: integer
 
 A value to represent the depth of this file in relation to its source.  In SMTP, it is the depth of the MIME attachment on the message.  In HTTP, it is the depth of the request within the TCP connection.
 
@@ -1233,15 +1071,11 @@ A set of analysis types done during the file analysis.
 [float]
 === files.mime_type
 
-type: keyword
-
 A mime type provided by the strongest file magic signature match against the bof_buffer field of fa_file, or in the cases where no buffering of the beginning of file occurs, an initial guess of the mime type based on the first data seen.
 
 
 [float]
 === files.filename
-
-type: keyword
 
 A filename for the file if one is available from the source for the file.  These will frequently come from Content-Disposition headers in network protocols.
 
@@ -1249,15 +1083,11 @@ A filename for the file if one is available from the source for the file.  These
 [float]
 === files.duration
 
-type: double
-
 The duration the file was analyzed for.
 
 
 [float]
 === files.local_orig
-
-type: boolean
 
 If the source of this file is a network connection, this field indicates if the data originated from the local network or not as determined by the configured Site::local_nets.
 
@@ -1265,15 +1095,11 @@ If the source of this file is a network connection, this field indicates if the 
 [float]
 === files.is_orig
 
-type: boolean
-
 If the source of this file is a network connection, this field indicates if the file is being sent by the originator of the connection or the responder.
 
 
 [float]
 === files.seen_bytes
-
-type: integer
 
 Number of bytes provided to the file analysis engine for the file.
 
@@ -1281,15 +1107,11 @@ Number of bytes provided to the file analysis engine for the file.
 [float]
 === files.total_bytes
 
-type: integer
-
 Total number of bytes that are supposed to comprise the full file.
 
 
 [float]
 === files.missing_bytes
-
-type: integer
 
 The number of bytes in the file stream that were completely missed during the process of analysis e.g. due to dropped packets.
 
@@ -1297,15 +1119,11 @@ The number of bytes in the file stream that were completely missed during the pr
 [float]
 === files.overflow_bytes
 
-type: integer
-
 The number of bytes in the file stream that were not delivered to stream file analyzers.  This could be overlapping bytes or bytes that couldnt be reassembled.
 
 
 [float]
 === files.timedout
-
-type: boolean
 
 Whether the file analysis timed out at least once for the file.
 
@@ -1313,15 +1131,11 @@ Whether the file analysis timed out at least once for the file.
 [float]
 === files.parent_fuid
 
-type: text
-
 Identifier associated with a container file from which this one was extracted as part of the file analysis.
 
 
 [float]
 === files.md5
-
-type: keyword
 
 (present if base/files/hash/main.bro is loaded)
 
@@ -1329,15 +1143,11 @@ type: keyword
 [float]
 === files.sha1
 
-type: keyword
-
 (present if base/files/hash/main.bro is loaded)
 
 
 [float]
 === files.sha256
-
-type: keyword
 
 (present if base/files/hash/main.bro is loaded)
 
@@ -1345,21 +1155,14 @@ type: keyword
 [float]
 === files.x509
 
-(present if base/files/x509/main.bro is loaded)
-
-
 [float]
 === files.extracted
-
-type: keyword
 
 (present if base/files/extract/main.bro is loaded)
 
 
 [float]
 === files.entropy
-
-type: double
 
 (present if policy/frameworks/files/entropy-test-all-files.bro is loaded)
 
@@ -1375,15 +1178,11 @@ FTP activity
 [float]
 === ftp.ts
 
-type: double
-
 Time when the command was sent.
 
 
 [float]
 === ftp.uid
-
-type: text
 
 Unique ID for the connection.
 
@@ -1391,15 +1190,11 @@ Unique ID for the connection.
 [float]
 === ftp.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === ftp.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -1407,15 +1202,11 @@ The originators port number.
 [float]
 === ftp.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === ftp.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -1423,15 +1214,11 @@ The responders port number.
 [float]
 === ftp.user
 
-type: keyword
-
 User name for the current FTP session.
 
 
 [float]
 === ftp.password
-
-type: keyword
 
 Password for the current FTP session if captured.
 
@@ -1439,15 +1226,11 @@ Password for the current FTP session if captured.
 [float]
 === ftp.command
 
-type: keyword
-
 Command given by the client.
 
 
 [float]
 === ftp.arg
-
-type: keyword
 
 Argument for the command if one is given.
 
@@ -1455,15 +1238,11 @@ Argument for the command if one is given.
 [float]
 === ftp.mime_type
 
-type: keyword
-
 Libmagic sniffed file type if the command indicates a file transfer.
 
 
 [float]
 === ftp.file_size
-
-type: integer
 
 Size of the file if the command indicates a file transfer.
 
@@ -1471,49 +1250,74 @@ Size of the file if the command indicates a file transfer.
 [float]
 === ftp.reply_code
 
-type: integer
-
 Reply code from the server in response to the command.
 
 
 [float]
 === ftp.reply_msg
 
-type: keyword
-
 Reply message from the server in response to the command.
 
 
 [float]
-=== ftp.data_channel
+=== ftp.data_channel.passive
 
-Expected FTP data channel.
+Whether PASV mode is toggled for control channel.
+
+
+[float]
+=== ftp.data_channel.orig_h
+
+The host that will be initiating the data connection.
+
+
+[float]
+=== ftp.data_channel.resp_h
+
+The host that will be accepting the data connection.
+
+
+[float]
+=== ftp.data_channel.resp_p
+
+The port at which the acceptor is listening for the data connection.
 
 
 [float]
 === ftp.cwd
 
-type: keyword
-
 Current working directory that this session is in.  By making the default value ., we can indicate that unless something more concrete is discovered that the existing but unknown directory is ok to use.
 
 
 [float]
-=== ftp.cmdarg
+=== ftp.cmdarg.ts
 
-Command that is currently waiting for a response.
+Time when the command was sent.
+
+
+[float]
+=== ftp.cmdarg.cmd
+
+Command.
+
+
+[float]
+=== ftp.cmdarg.arg
+
+Argument for the command if one was given.
+
+
+[float]
+=== ftp.cmdarg.seq
+
+Counter to track how many commands have been executed.
 
 
 [float]
 === ftp.pending_commands
 
-Queue for commands that have been sent but not yet responded to are tracked here.
-
-
 [float]
 === ftp.passive
-
-type: boolean
 
 Indicates if the session is in active or passive mode.
 
@@ -1521,23 +1325,17 @@ Indicates if the session is in active or passive mode.
 [float]
 === ftp.capture_password
 
-type: boolean
-
 Determines if the password will be captured for this request.
 
 
 [float]
 === ftp.fuid
 
-type: text
-
 (present if base/protocols/ftp/files.bro is loaded)
 
 
 [float]
 === ftp.last_auth_requested
-
-type: keyword
 
 (present if base/protocols/ftp/gridftp.bro is loaded)
 
@@ -1553,15 +1351,11 @@ HTTP requests and replies
 [float]
 === http.ts
 
-type: double
-
 Timestamp for when the request happened.
 
 
 [float]
 === http.uid
-
-type: text
 
 Unique ID for the connection.
 
@@ -1569,15 +1363,11 @@ Unique ID for the connection.
 [float]
 === http.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === http.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -1585,15 +1375,11 @@ The originators port number.
 [float]
 === http.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === http.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -1601,15 +1387,11 @@ The responders port number.
 [float]
 === http.trans_depth
 
-type: integer
-
 Represents the pipelined depth into the connection of this request/response transaction.
 
 
 [float]
 === http.method
-
-type: keyword
 
 Verb used in the HTTP request (GET, POST, HEAD, etc.).
 
@@ -1617,15 +1399,11 @@ Verb used in the HTTP request (GET, POST, HEAD, etc.).
 [float]
 === http.host
 
-type: keyword
-
 Value of the HOST header.
 
 
 [float]
 === http.uri
-
-type: keyword
 
 URI used in the request.
 
@@ -1633,15 +1411,11 @@ URI used in the request.
 [float]
 === http.referrer
 
-type: keyword
-
 Value of the referer header.  The comment is deliberately misspelled like the standard declares, but the name used here is referrer spelled correctly.
 
 
 [float]
 === http.version
-
-type: keyword
 
 Value of the version portion of the request.
 
@@ -1649,15 +1423,11 @@ Value of the version portion of the request.
 [float]
 === http.user_agent
 
-type: keyword
-
 Value of the User-Agent header from the client.
 
 
 [float]
 === http.request_body_len
-
-type: integer
 
 Actual uncompressed content size of the data transferred from the client.
 
@@ -1665,15 +1435,11 @@ Actual uncompressed content size of the data transferred from the client.
 [float]
 === http.response_body_len
 
-type: integer
-
 Actual uncompressed content size of the data transferred from the server.
 
 
 [float]
 === http.status_code
-
-type: integer
 
 Status code returned by the server.
 
@@ -1681,23 +1447,17 @@ Status code returned by the server.
 [float]
 === http.status_msg
 
-type: keyword
-
 Status message returned by the server.
 
 
 [float]
 === http.info_code
 
-type: integer
-
 Last seen 1xx informational reply code returned by the server.
 
 
 [float]
 === http.info_msg
-
-type: keyword
 
 Last seen 1xx informational reply message returned by the server.
 
@@ -1711,23 +1471,17 @@ A set of indicators of various attributes discovered and related to a particular
 [float]
 === http.username
 
-type: keyword
-
 Username if basic-auth is performed for the request.
 
 
 [float]
 === http.password
 
-type: keyword
-
 Password if basic-auth is performed for the request.
 
 
 [float]
 === http.capture_password
-
-type: boolean
 
 Determines if the password will be captured for this request.
 
@@ -1741,15 +1495,11 @@ All of the headers that may indicate if the request was proxied.
 [float]
 === http.range_request
 
-type: boolean
-
 Indicates if this request can assume 206 partial content in response.
 
 
 [float]
 === http.orig_fuids
-
-type: text
 
 (present if base/protocols/http/entities.bro is loaded)
 
@@ -1769,8 +1519,6 @@ type: text
 [float]
 === http.resp_fuids
 
-type: text
-
 (present if base/protocols/http/entities.bro is loaded)
 
 
@@ -1787,23 +1535,19 @@ type: text
 
 
 [float]
-=== http.current_entity
+=== http.current_entity.filename
 
-(present if base/protocols/http/entities.bro is loaded)
+Filename for the entity if discovered from a header.
 
 
 [float]
 === http.orig_mime_depth
-
-type: integer
 
 (present if base/protocols/http/entities.bro is loaded)
 
 
 [float]
 === http.resp_mime_depth
-
-type: integer
 
 (present if base/protocols/http/entities.bro is loaded)
 
@@ -1823,15 +1567,11 @@ type: integer
 [float]
 === http.omniture
 
-type: boolean
-
 (present if policy/protocols/http/software-browser-plugins.bro is loaded)
 
 
 [float]
 === http.flash_version
-
-type: keyword
 
 (present if policy/protocols/http/software-browser-plugins.bro is loaded)
 
@@ -1859,15 +1599,11 @@ Intelligence data matches
 [float]
 === intel.ts
 
-type: double
-
 Timestamp when the data was discovered.
 
 
 [float]
 === intel.uid
-
-type: text
 
 If a connection was associated with this intelligence hit, this is the uid for the connection
 
@@ -1875,15 +1611,11 @@ If a connection was associated with this intelligence hit, this is the uid for t
 [float]
 === intel.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === intel.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -1891,30 +1623,65 @@ The originators port number.
 [float]
 === intel.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === intel.id.resp_p
 
-type: integer
-
 The responders port number.
 
 
 [float]
-=== intel.seen
+=== intel.seen.indicator
 
-Where the data was seen.
+The string if the data is about a string.
+
+
+[float]
+=== intel.seen.indicator_type
+
+[float]
+=== intel.seen.host
+
+If the indicator type was Intel::ADDR, then this field will be present.
+
+
+[float]
+=== intel.seen.where
+
+[float]
+=== intel.seen.node
+
+The name of the node where the match was discovered.
+
+
+[float]
+=== intel.seen.conn
+
+If the data was discovered within a connection, the connection record should go here to give context to the data.
+
+
+[float]
+=== intel.seen.uid
+
+If the data was discovered within a connection, the connection uid should go here to give context to the data. If the conn field is provided, this will be automatically filled out.
+
+
+[float]
+=== intel.seen.f
+
+(present if base/frameworks/intel/files.bro is loaded)
+
+
+[float]
+=== intel.seen.fuid
+
+(present if base/frameworks/intel/files.bro is loaded)
 
 
 [float]
 === intel.matched
-
-Which indicator types matched.
-
 
 [float]
 === intel.sources
@@ -1925,23 +1692,17 @@ Sources which supplied data that resulted in this match.
 [float]
 === intel.fuid
 
-type: text
-
 (present if base/frameworks/intel/files.bro is loaded)
 
 
 [float]
 === intel.file_mime_type
 
-type: keyword
-
 (present if base/frameworks/intel/files.bro is loaded)
 
 
 [float]
 === intel.file_desc
-
-type: keyword
 
 (present if base/frameworks/intel/files.bro is loaded)
 
@@ -1957,15 +1718,11 @@ IRC commands and responses
 [float]
 === irc.ts
 
-type: double
-
 Timestamp when the command was seen.
 
 
 [float]
 === irc.uid
-
-type: text
 
 Unique ID for the connection.
 
@@ -1973,15 +1730,11 @@ Unique ID for the connection.
 [float]
 === irc.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === irc.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -1989,15 +1742,11 @@ The originators port number.
 [float]
 === irc.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === irc.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -2005,15 +1754,11 @@ The responders port number.
 [float]
 === irc.nick
 
-type: keyword
-
 Nickname given for the connection.
 
 
 [float]
 === irc.user
-
-type: keyword
 
 Username given for the connection.
 
@@ -2021,15 +1766,11 @@ Username given for the connection.
 [float]
 === irc.command
 
-type: keyword
-
 Command given by the client.
 
 
 [float]
 === irc.value
-
-type: keyword
 
 Value for the command given by the client.
 
@@ -2037,15 +1778,11 @@ Value for the command given by the client.
 [float]
 === irc.addl
 
-type: keyword
-
 Any additional data for the command.
 
 
 [float]
 === irc.dcc_file_name
-
-type: keyword
 
 (present if base/protocols/irc/dcc-send.bro is loaded)
 
@@ -2053,23 +1790,17 @@ type: keyword
 [float]
 === irc.dcc_file_size
 
-type: integer
-
 (present if base/protocols/irc/dcc-send.bro is loaded)
 
 
 [float]
 === irc.dcc_mime_type
 
-type: keyword
-
 (present if base/protocols/irc/dcc-send.bro is loaded)
 
 
 [float]
 === irc.fuid
-
-type: text
 
 (present if base/protocols/irc/files.bro is loaded)
 
@@ -2085,15 +1816,11 @@ Kerberos
 [float]
 === kerberos.ts
 
-type: double
-
 Timestamp for when the event happened.
 
 
 [float]
 === kerberos.uid
-
-type: text
 
 Unique ID for the connection.
 
@@ -2101,15 +1828,11 @@ Unique ID for the connection.
 [float]
 === kerberos.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === kerberos.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -2117,15 +1840,11 @@ The originators port number.
 [float]
 === kerberos.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === kerberos.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -2133,15 +1852,11 @@ The responders port number.
 [float]
 === kerberos.request_type
 
-type: keyword
-
 Request type - Authentication Service (AS) or Ticket Granting Service (TGS)
 
 
 [float]
 === kerberos.client
-
-type: keyword
 
 Client
 
@@ -2149,15 +1864,11 @@ Client
 [float]
 === kerberos.service
 
-type: keyword
-
 Service
 
 
 [float]
 === kerberos.success
-
-type: boolean
 
 Request result
 
@@ -2165,15 +1876,11 @@ Request result
 [float]
 === kerberos.error_code
 
-type: integer
-
 Error code
 
 
 [float]
 === kerberos.error_msg
-
-type: keyword
 
 Error message
 
@@ -2181,15 +1888,11 @@ Error message
 [float]
 === kerberos.from
 
-type: double
-
 Ticket valid from
 
 
 [float]
 === kerberos.till
-
-type: double
 
 Ticket valid till
 
@@ -2197,15 +1900,11 @@ Ticket valid till
 [float]
 === kerberos.cipher
 
-type: keyword
-
 Ticket encryption type
 
 
 [float]
 === kerberos.forwardable
-
-type: boolean
 
 Forwardable ticket requested
 
@@ -2213,15 +1912,11 @@ Forwardable ticket requested
 [float]
 === kerberos.renewable
 
-type: boolean
-
 Renewable ticket requested
 
 
 [float]
 === kerberos.logged
-
-type: boolean
 
 Weve already logged this
 
@@ -2229,13 +1924,8 @@ Weve already logged this
 [float]
 === kerberos.client_cert
 
-(present if base/protocols/krb/files.bro is loaded)
-
-
 [float]
 === kerberos.client_cert_subject
-
-type: keyword
 
 (present if base/protocols/krb/files.bro is loaded)
 
@@ -2243,29 +1933,20 @@ type: keyword
 [float]
 === kerberos.client_cert_fuid
 
-type: text
-
 (present if base/protocols/krb/files.bro is loaded)
 
 
 [float]
 === kerberos.server_cert
 
-(present if base/protocols/krb/files.bro is loaded)
-
-
 [float]
 === kerberos.server_cert_subject
-
-type: keyword
 
 (present if base/protocols/krb/files.bro is loaded)
 
 
 [float]
 === kerberos.server_cert_fuid
-
-type: text
 
 (present if base/protocols/krb/files.bro is loaded)
 
@@ -2281,15 +1962,11 @@ SSL certificates
 [float]
 === known_certs.ts
 
-type: double
-
 The timestamp when the certificate was detected.
 
 
 [float]
 === known_certs.host
-
-type: ip
 
 The address that offered the certificate.
 
@@ -2297,15 +1974,11 @@ The address that offered the certificate.
 [float]
 === known_certs.port_num
 
-type: integer
-
 If the certificate was handed out by a server, this is the port that the server was listening on.
 
 
 [float]
 === known_certs.subject
-
-type: keyword
 
 Certificate subject.
 
@@ -2313,15 +1986,11 @@ Certificate subject.
 [float]
 === known_certs.issuer_subject
 
-type: keyword
-
 Certificate issuer subject.
 
 
 [float]
 === known_certs.serial
-
-type: keyword
 
 Serial number for the certificate.
 
@@ -2337,23 +2006,17 @@ MAC addresses of devices on the network
 [float]
 === known_devices.ts
 
-type: double
-
 The timestamp at which the host was detected.
 
 
 [float]
 === known_devices.mac
 
-type: keyword
-
 The MAC address that was detected.
 
 
 [float]
 === known_devices.dhcp_host_name
-
-type: keyword
 
 (present if policy/protocols/dhcp/known-devices-and-hostnames.bro is loaded)
 
@@ -2369,15 +2032,11 @@ Hosts that have completed TCP handshakes
 [float]
 === known_hosts.ts
 
-type: double
-
 The timestamp at which the host was detected.
 
 
 [float]
 === known_hosts.host
-
-type: ip
 
 The address that was detected originating or responding to a TCP connection.
 
@@ -2393,24 +2052,17 @@ Modbus masters and slaves
 [float]
 === known_modbus.ts
 
-type: double
-
 The time the device was discovered.
 
 
 [float]
 === known_modbus.host
 
-type: ip
-
 The IP address of the host.
 
 
 [float]
 === known_modbus.device_type
-
-The type of device being tracked.
-
 
 [[exported-fields-known_services]]
 == known_services Fields
@@ -2423,15 +2075,11 @@ Services running on hosts
 [float]
 === known_services.ts
 
-type: double
-
 The time at which the service was detected.
 
 
 [float]
 === known_services.host
-
-type: ip
 
 The host address on which the service is running.
 
@@ -2439,15 +2087,11 @@ The host address on which the service is running.
 [float]
 === known_services.port_num
 
-type: integer
-
 The port number on which the service is running.
 
 
 [float]
 === known_services.port_proto
-
-type: keyword
 
 The transport-layer protocol which the service uses.
 
@@ -2468,8 +2112,6 @@ Shows all scripts loaded by Bro
 
 [float]
 === loaded_scripts.name
-
-type: keyword
 
 Name of the script loaded potentially with spaces included before the file name to indicate load depth.  The convention is two spaces per level of depth.
 
@@ -2509,15 +2151,11 @@ Modbus commands and responses
 [float]
 === modbus.ts
 
-type: double
-
 Time of the request.
 
 
 [float]
 === modbus.uid
-
-type: text
 
 Unique identifier for the connection.
 
@@ -2525,15 +2163,11 @@ Unique identifier for the connection.
 [float]
 === modbus.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === modbus.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -2541,15 +2175,11 @@ The originators port number.
 [float]
 === modbus.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === modbus.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -2557,23 +2187,17 @@ The responders port number.
 [float]
 === modbus.func
 
-type: keyword
-
 The name of the function message that was sent.
 
 
 [float]
 === modbus.exception
 
-type: keyword
-
 The exception if the response was a failure.
 
 
 [float]
 === modbus.track_address
-
-type: integer
 
 (present if policy/protocols/modbus/track-memmap.bro is loaded)
 
@@ -2589,15 +2213,11 @@ Tracks changes to Modbus holding registers
 [float]
 === modbus_register_change.ts
 
-type: double
-
 Timestamp for the detected register change.
 
 
 [float]
 === modbus_register_change.uid
-
-type: text
 
 Unique ID for the connection.
 
@@ -2605,15 +2225,11 @@ Unique ID for the connection.
 [float]
 === modbus_register_change.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === modbus_register_change.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -2621,15 +2237,11 @@ The originators port number.
 [float]
 === modbus_register_change.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === modbus_register_change.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -2637,15 +2249,11 @@ The responders port number.
 [float]
 === modbus_register_change.register
 
-type: integer
-
 The device memory offset.
 
 
 [float]
 === modbus_register_change.old_val
-
-type: integer
 
 The old value stored in the register.
 
@@ -2653,15 +2261,11 @@ The old value stored in the register.
 [float]
 === modbus_register_change.new_val
 
-type: integer
-
 The new value stored in the register.
 
 
 [float]
 === modbus_register_change.delta
-
-type: double
 
 The time delta between when the old_val and new_val were seen.
 
@@ -2677,15 +2281,11 @@ MySQL
 [float]
 === mysql.ts
 
-type: double
-
 Timestamp for when the event happened.
 
 
 [float]
 === mysql.uid
-
-type: text
 
 Unique ID for the connection.
 
@@ -2693,15 +2293,11 @@ Unique ID for the connection.
 [float]
 === mysql.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === mysql.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -2709,15 +2305,11 @@ The originators port number.
 [float]
 === mysql.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === mysql.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -2725,15 +2317,11 @@ The responders port number.
 [float]
 === mysql.cmd
 
-type: keyword
-
 The command that was issued
 
 
 [float]
 === mysql.arg
-
-type: keyword
 
 The argument issued to the command
 
@@ -2741,23 +2329,17 @@ The argument issued to the command
 [float]
 === mysql.success
 
-type: boolean
-
 Did the server tell us that the command succeeded?
 
 
 [float]
 === mysql.rows
 
-type: integer
-
 The number of affected rows, if any
 
 
 [float]
 === mysql.response
-
-type: keyword
 
 Server message, if any
 
@@ -2773,15 +2355,11 @@ NetControl actions
 [float]
 === netcontrol.ts
 
-type: double
-
 Time at which the recorded activity occurred.
 
 
 [float]
 === netcontrol.rule_id
-
-type: keyword
 
 ID of the rule; unique during each Bro run.
 
@@ -2789,13 +2367,8 @@ ID of the rule; unique during each Bro run.
 [float]
 === netcontrol.category
 
-Type of the log entry.
-
-
 [float]
 === netcontrol.cmd
-
-type: keyword
 
 The command the log entry is about.
 
@@ -2803,13 +2376,8 @@ The command the log entry is about.
 [float]
 === netcontrol.state
 
-State the log entry reflects.
-
-
 [float]
 === netcontrol.action
-
-type: keyword
 
 String describing an action the entry is about.
 
@@ -2817,13 +2385,8 @@ String describing an action the entry is about.
 [float]
 === netcontrol.target
 
-The target type of the action.
-
-
 [float]
 === netcontrol.entity_type
-
-type: keyword
 
 Type of the entity the log entry is about.
 
@@ -2831,15 +2394,11 @@ Type of the entity the log entry is about.
 [float]
 === netcontrol.entity
 
-type: keyword
-
 String describing the entity the log entry is about.
 
 
 [float]
 === netcontrol.mod
-
-type: keyword
 
 String describing the optional modification of the entry (e.h. redirect)
 
@@ -2847,15 +2406,11 @@ String describing the optional modification of the entry (e.h. redirect)
 [float]
 === netcontrol.msg
 
-type: keyword
-
 String with an additional message.
 
 
 [float]
 === netcontrol.priority
-
-type: integer
 
 Number describing the priority of the log entry.
 
@@ -2863,23 +2418,17 @@ Number describing the priority of the log entry.
 [float]
 === netcontrol.expire
 
-type: double
-
 Expiry time of the log entry.
 
 
 [float]
 === netcontrol.location
 
-type: keyword
-
 Location where the underlying action was triggered.
 
 
 [float]
 === netcontrol.plugin
-
-type: keyword
 
 Plugin triggering the log entry.
 
@@ -2895,15 +2444,11 @@ NetControl catch and release actions
 [float]
 === netcontrol_catch_release.ts
 
-type: double
-
 The absolute time indicating when the action for this log-line occured.
 
 
 [float]
 === netcontrol_catch_release.rule_id
-
-type: keyword
 
 The rule id that this log line refers to.
 
@@ -2911,21 +2456,14 @@ The rule id that this log line refers to.
 [float]
 === netcontrol_catch_release.ip
 
-type: ip
-
 The IP address that this line refers to.
 
 
 [float]
 === netcontrol_catch_release.action
 
-The action that was taken in this log-line.
-
-
 [float]
 === netcontrol_catch_release.block_interval
-
-type: double
 
 The current block_interaval (for how long the address is blocked).
 
@@ -2933,15 +2471,11 @@ The current block_interaval (for how long the address is blocked).
 [float]
 === netcontrol_catch_release.watch_interval
 
-type: double
-
 The current watch_interval (for how long the address will be watched and re-block if it reappears).
 
 
 [float]
 === netcontrol_catch_release.blocked_until
-
-type: double
 
 The absolute time until which the address is blocked.
 
@@ -2949,15 +2483,11 @@ The absolute time until which the address is blocked.
 [float]
 === netcontrol_catch_release.watched_until
 
-type: double
-
 The absolute time until which the address will be monitored.
 
 
 [float]
 === netcontrol_catch_release.num_blocked
-
-type: integer
 
 Number of times that this address was blocked in the current cycle.
 
@@ -2965,15 +2495,11 @@ Number of times that this address was blocked in the current cycle.
 [float]
 === netcontrol_catch_release.location
 
-type: keyword
-
 The user specified location string.
 
 
 [float]
 === netcontrol_catch_release.message
-
-type: keyword
 
 Additional informational string by the catch and release framework about this log-line.
 
@@ -2989,15 +2515,11 @@ NetControl actions
 [float]
 === netcontrol_drop.ts
 
-type: double
-
 Time at which the recorded activity occurred.
 
 
 [float]
 === netcontrol_drop.rule_id
-
-type: keyword
 
 ID of the rule; unique during each Bro run.
 
@@ -3005,15 +2527,11 @@ ID of the rule; unique during each Bro run.
 [float]
 === netcontrol_drop.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === netcontrol_drop.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -3021,15 +2539,11 @@ The originators port number.
 [float]
 === netcontrol_drop.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === netcontrol_drop.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -3037,15 +2551,11 @@ The responders port number.
 [float]
 === netcontrol_drop.expire
 
-type: double
-
 Expiry time of the shunt.
 
 
 [float]
 === netcontrol_drop.location
-
-type: keyword
 
 Location where the underlying action was triggered.
 
@@ -3061,15 +2571,11 @@ NetControl shunt actions
 [float]
 === netcontrol_shunt.ts
 
-type: double
-
 Time at which the recorded activity occurred.
 
 
 [float]
 === netcontrol_shunt.rule_id
-
-type: keyword
 
 ID of the rule; unique during each Bro run.
 
@@ -3083,15 +2589,11 @@ Flow ID of the shunted flow.
 [float]
 === netcontrol_shunt.expire
 
-type: double
-
 Expiry time of the shunt.
 
 
 [float]
 === netcontrol_shunt.location
-
-type: keyword
 
 Location where the underlying action was triggered.
 
@@ -3107,15 +2609,11 @@ Bro notices
 [float]
 === notice.ts
 
-type: double
-
 An absolute time indicating when the notice occurred, defaults to the current network time.
 
 
 [float]
 === notice.uid
-
-type: text
 
 A connection UID which uniquely identifies the endpoints concerned with the notice.
 
@@ -3123,15 +2621,11 @@ A connection UID which uniquely identifies the endpoints concerned with the noti
 [float]
 === notice.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === notice.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -3139,15 +2633,11 @@ The originators port number.
 [float]
 === notice.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === notice.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -3173,15 +2663,11 @@ A file record if the notice is related to a file.  The reference to the actual f
 [float]
 === notice.fuid
 
-type: text
-
 A file unique ID if this notice is related to a file.  If the f field is provided, this will be automatically filled out.
 
 
 [float]
 === notice.file_mime_type
-
-type: keyword
 
 A mime type if the notice is related to a file.  If the f field is provided, this will be automatically filled out.
 
@@ -3189,15 +2675,11 @@ A mime type if the notice is related to a file.  If the f field is provided, thi
 [float]
 === notice.file_desc
 
-type: keyword
-
 Frequently files can be described to give a bit more context.  This field will typically be automatically filled out from an fa_file record.  For example, if a notice was related to a file over HTTP, the URL of the request would be shown.
 
 
 [float]
 === notice.proto
-
-type: keyword
 
 The transport protocol. Filled automatically when either conn, iconn or p is specified.
 
@@ -3205,13 +2687,8 @@ The transport protocol. Filled automatically when either conn, iconn or p is spe
 [float]
 === notice.note
 
-The Notice::Type of the notice.
-
-
 [float]
 === notice.msg
-
-type: keyword
 
 The human readable message for the notice.
 
@@ -3219,15 +2696,11 @@ The human readable message for the notice.
 [float]
 === notice.sub
 
-type: keyword
-
 The human readable sub-message.
 
 
 [float]
 === notice.src
-
-type: ip
 
 Source address, if we dont have a conn_id.
 
@@ -3235,23 +2708,17 @@ Source address, if we dont have a conn_id.
 [float]
 === notice.dst
 
-type: ip
-
 Destination address.
 
 
 [float]
 === notice.p
 
-type: integer
-
 Associated port, if we dont have a conn_id.
 
 
 [float]
 === notice.n
-
-type: integer
 
 Associated count, or perhaps a status code.
 
@@ -3265,16 +2732,11 @@ Peer that raised this notice.
 [float]
 === notice.peer_descr
 
-type: keyword
-
 Textual description for the peer that raised this notice.
 
 
 [float]
 === notice.actions
-
-The actions which have been applied to this notice.
-
 
 [float]
 === notice.email_body_sections
@@ -3291,23 +2753,17 @@ Adding a string token to this set will cause the notice frameworks built-in emai
 [float]
 === notice.identifier
 
-type: keyword
-
 This field is to be provided when a notice is generated for the purpose of deduplicating notices.  The identifier string should be unique for a single instance of the notice.  This field should be filled out in almost all cases when generating notices to define when a notice is conceptually a duplicate of a previous notice.
 
 
 [float]
 === notice.suppress_for
 
-type: double
-
 This field indicates the length of time that this unique notice should be suppressed.
 
 
 [float]
 === notice.dropped
-
-type: boolean
 
 (present if base/frameworks/notice/actions/drop.bro is loaded)
 
@@ -3329,15 +2785,11 @@ NT LAN Manager (NTLM)
 [float]
 === ntlm.ts
 
-type: double
-
 Timestamp for when the event happened.
 
 
 [float]
 === ntlm.uid
-
-type: text
 
 Unique ID for the connection.
 
@@ -3345,15 +2797,11 @@ Unique ID for the connection.
 [float]
 === ntlm.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === ntlm.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -3361,15 +2809,11 @@ The originators port number.
 [float]
 === ntlm.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === ntlm.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -3377,15 +2821,11 @@ The responders port number.
 [float]
 === ntlm.username
 
-type: keyword
-
 Username given by the client.
 
 
 [float]
 === ntlm.hostname
-
-type: keyword
 
 Hostname given by the client.
 
@@ -3393,15 +2833,11 @@ Hostname given by the client.
 [float]
 === ntlm.domainname
 
-type: keyword
-
 Domainname given by the client.
 
 
 [float]
 === ntlm.success
-
-type: boolean
 
 Indicate whether or not the authentication was successful.
 
@@ -3409,15 +2845,11 @@ Indicate whether or not the authentication was successful.
 [float]
 === ntlm.status
 
-type: keyword
-
 A string representation of the status code that was returned in response to the authentication attempt.
 
 
 [float]
 === ntlm.done
-
-type: boolean
 
 Internally used field to indicate if the login attempt has already been logged.
 
@@ -3433,29 +2865,88 @@ OpenFlow debug log
 [float]
 === openflow.ts
 
-type: double
-
 Network time.
 
 
 [float]
 === openflow.dpid
 
-type: integer
-
 OpenFlow switch datapath id.
 
 
 [float]
-=== openflow.match
+=== openflow.match.in_port
 
-OpenFlow match fields.
+[float]
+=== openflow.match.dl_src
+
+[float]
+=== openflow.match.dl_dst
+
+[float]
+=== openflow.match.dl_vlan
+
+[float]
+=== openflow.match.dl_vlan_pcp
+
+[float]
+=== openflow.match.dl_type
+
+[float]
+=== openflow.match.nw_tos
+
+[float]
+=== openflow.match.nw_proto
+
+[float]
+=== openflow.match.nw_src
+
+[float]
+=== openflow.match.nw_dst
+
+[float]
+=== openflow.match.tp_src
+
+[float]
+=== openflow.match.tp_dst
+
+[float]
+=== openflow.flow_mod.cookie
+
+Opaque controller-issued identifier.
 
 
 [float]
-=== openflow.flow_mod
+=== openflow.flow_mod.table_id
 
-OpenFlow modify flow entry message.
+Table to put the flow in. OFPTT_ALL can be used for delete, to delete flows from all matching tables.
+
+
+[float]
+=== openflow.flow_mod.command
+
+[float]
+=== openflow.flow_mod.idle_timeout
+
+Idle time before discarding (seconds).
+
+
+[float]
+=== openflow.flow_mod.hard_timeout
+
+Max time before discarding (seconds).
+
+
+[float]
+=== openflow.flow_mod.priority
+
+Priority level of flow entry.
+
+
+[float]
+=== openflow.flow_mod.out_port
+
+For OFPFC_DELETE* commands, require matching entried to include this as an output port/group. OFPP_ANY/OFPG_ANY means no restrictions.
 
 
 [[exported-fields-packet_filter]]
@@ -3469,15 +2960,11 @@ List packet filters that were applied
 [float]
 === packet_filter.ts
 
-type: double
-
 The time at which the packet filter installation attempt was made.
 
 
 [float]
 === packet_filter.node
-
-type: keyword
 
 This is a string representation of the node that applied this packet filter.  Its mostly useful in the context of dynamically changing filters on clusters.
 
@@ -3485,23 +2972,17 @@ This is a string representation of the node that applied this packet filter.  It
 [float]
 === packet_filter.filter
 
-type: keyword
-
 The packet filter that is being set.
 
 
 [float]
 === packet_filter.init
 
-type: boolean
-
 Indicate if this is the filter set during initialization.
 
 
 [float]
 === packet_filter.success
-
-type: boolean
 
 Indicate if the filter was applied successfully.
 
@@ -3517,15 +2998,11 @@ Portable Executable (PE)
 [float]
 === pe.ts
 
-type: double
-
 Current timestamp.
 
 
 [float]
 === pe.id
-
-type: keyword
 
 File id of this portable executable file.
 
@@ -3533,15 +3010,11 @@ File id of this portable executable file.
 [float]
 === pe.machine
 
-type: keyword
-
 The target machine that the file was compiled for.
 
 
 [float]
 === pe.compile_ts
-
-type: double
 
 The time that the file was created at.
 
@@ -3549,15 +3022,11 @@ The time that the file was created at.
 [float]
 === pe.os
 
-type: keyword
-
 The required operating system.
 
 
 [float]
 === pe.subsystem
-
-type: keyword
 
 The subsystem that is required to run this file.
 
@@ -3565,15 +3034,11 @@ The subsystem that is required to run this file.
 [float]
 === pe.is_exe
 
-type: boolean
-
 Is the file an executable, or just an object file?
 
 
 [float]
 === pe.is_64bit
-
-type: boolean
 
 Is the file a 64-bit executable?
 
@@ -3581,15 +3046,11 @@ Is the file a 64-bit executable?
 [float]
 === pe.uses_aslr
 
-type: boolean
-
 Does the file support Address Space Layout Randomization?
 
 
 [float]
 === pe.uses_dep
-
-type: boolean
 
 Does the file support Data Execution Prevention?
 
@@ -3597,15 +3058,11 @@ Does the file support Data Execution Prevention?
 [float]
 === pe.uses_code_integrity
 
-type: boolean
-
 Does the file enforce code integrity checks?
 
 
 [float]
 === pe.uses_seh
-
-type: boolean
 
 Does the file use structured exception handing?
 
@@ -3613,15 +3070,11 @@ Does the file use structured exception handing?
 [float]
 === pe.has_import_table
 
-type: boolean
-
 Does the file have an import table?
 
 
 [float]
 === pe.has_export_table
-
-type: boolean
 
 Does the file have an export table?
 
@@ -3629,15 +3082,11 @@ Does the file have an export table?
 [float]
 === pe.has_cert_table
 
-type: boolean
-
 Does the file have an attribute certificate table?
 
 
 [float]
 === pe.has_debug_data
-
-type: boolean
 
 Does the file have a debug table?
 
@@ -3659,15 +3108,11 @@ RADIUS authentication attempts
 [float]
 === radius.ts
 
-type: double
-
 Timestamp for when the event happened.
 
 
 [float]
 === radius.uid
-
-type: text
 
 Unique ID for the connection.
 
@@ -3675,15 +3120,11 @@ Unique ID for the connection.
 [float]
 === radius.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === radius.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -3691,15 +3132,11 @@ The originators port number.
 [float]
 === radius.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === radius.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -3707,15 +3144,11 @@ The responders port number.
 [float]
 === radius.username
 
-type: keyword
-
 The username, if present.
 
 
 [float]
 === radius.mac
-
-type: keyword
 
 MAC address, if present.
 
@@ -3723,15 +3156,11 @@ MAC address, if present.
 [float]
 === radius.remote_ip
 
-type: ip
-
 Remote IP address, if present.
 
 
 [float]
 === radius.connect_info
-
-type: keyword
 
 Connect info, if present.
 
@@ -3739,15 +3168,11 @@ Connect info, if present.
 [float]
 === radius.result
 
-type: keyword
-
 Successful or failed authentication.
 
 
 [float]
 === radius.logged
-
-type: boolean
 
 Whether this has already been logged and can be ignored.
 
@@ -3763,15 +3188,11 @@ RDP
 [float]
 === rdp.ts
 
-type: double
-
 Timestamp for when the event happened.
 
 
 [float]
 === rdp.uid
-
-type: text
 
 Unique ID for the connection.
 
@@ -3779,15 +3200,11 @@ Unique ID for the connection.
 [float]
 === rdp.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === rdp.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -3795,15 +3212,11 @@ The originators port number.
 [float]
 === rdp.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === rdp.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -3811,15 +3224,11 @@ The responders port number.
 [float]
 === rdp.cookie
 
-type: keyword
-
 Cookie value used by the client machine. This is typically a username.
 
 
 [float]
 === rdp.result
-
-type: keyword
 
 Status result for the connection.  Its a mix between RDP negotation failure messages and GCC server create response messages.
 
@@ -3827,15 +3236,11 @@ Status result for the connection.  Its a mix between RDP negotation failure mess
 [float]
 === rdp.security_protocol
 
-type: keyword
-
 Security protocol chosen by the server.
 
 
 [float]
 === rdp.keyboard_layout
-
-type: keyword
 
 Keyboard layout (language) of the client machine.
 
@@ -3843,15 +3248,11 @@ Keyboard layout (language) of the client machine.
 [float]
 === rdp.client_build
 
-type: keyword
-
 RDP client version used by the client machine.
 
 
 [float]
 === rdp.client_name
-
-type: keyword
 
 Name of the client machine.
 
@@ -3859,15 +3260,11 @@ Name of the client machine.
 [float]
 === rdp.client_dig_product_id
 
-type: keyword
-
 Product ID of the client machine.
 
 
 [float]
 === rdp.desktop_width
-
-type: integer
 
 Desktop width of the client machine.
 
@@ -3875,15 +3272,11 @@ Desktop width of the client machine.
 [float]
 === rdp.desktop_height
 
-type: integer
-
 Desktop height of the client machine.
 
 
 [float]
 === rdp.requested_color_depth
-
-type: keyword
 
 The color depth requested by the client in the high_color_depth field.
 
@@ -3891,15 +3284,11 @@ The color depth requested by the client in the high_color_depth field.
 [float]
 === rdp.cert_type
 
-type: keyword
-
 If the connection is being encrypted with native RDP encryption, this is the type of cert being used.
 
 
 [float]
 === rdp.cert_count
-
-type: integer
 
 The number of certs seen.  X.509 can transfer an entire certificate chain.
 
@@ -3907,15 +3296,11 @@ The number of certs seen.  X.509 can transfer an entire certificate chain.
 [float]
 === rdp.cert_permanent
 
-type: boolean
-
 Indicates if the provided certificate or certificate chain is permanent or temporary.
 
 
 [float]
 === rdp.encryption_level
-
-type: keyword
 
 Encryption level of the connection.
 
@@ -3923,15 +3308,11 @@ Encryption level of the connection.
 [float]
 === rdp.encryption_method
 
-type: keyword
-
 Encryption method of the connection.
 
 
 [float]
 === rdp.analyzer_id
-
-type: integer
 
 The analyzer ID used for the analyzer instance attached to each connection.  It is not used for logging since its a meaningless arbitrary number.
 
@@ -3939,15 +3320,11 @@ The analyzer ID used for the analyzer instance attached to each connection.  It 
 [float]
 === rdp.done
 
-type: boolean
-
 Track status of logging RDP connections.
 
 
 [float]
 === rdp.ssl
-
-type: boolean
 
 (present if policy/protocols/rdp/indicate_ssl.bro is loaded)
 
@@ -3963,29 +3340,20 @@ Internal error/warning/info messages
 [float]
 === reporter.ts
 
-type: double
-
 The network time at which the reporter event was generated.
 
 
 [float]
 === reporter.level
 
-The severity of the reporter message. Levels are INFO for informational messages, not needing specific attention; WARNING for warning of a potential problem, and ERROR for a non-fatal error that should be addressed, but doesnt terminate program execution.
-
-
 [float]
 === reporter.message
-
-type: keyword
 
 An info/warning/error message that could have either been generated from the internal Bro core or at the scripting-layer.
 
 
 [float]
 === reporter.location
-
-type: keyword
 
 This is the location in a Bro script where the message originated. Not all reporter messages will have locations in them though.
 
@@ -4001,15 +3369,11 @@ Remote Framebuffer (RFB)
 [float]
 === rfb.ts
 
-type: double
-
 Timestamp for when the event happened.
 
 
 [float]
 === rfb.uid
-
-type: text
 
 Unique ID for the connection.
 
@@ -4017,15 +3381,11 @@ Unique ID for the connection.
 [float]
 === rfb.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === rfb.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -4033,15 +3393,11 @@ The originators port number.
 [float]
 === rfb.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === rfb.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -4049,15 +3405,11 @@ The responders port number.
 [float]
 === rfb.client_major_version
 
-type: keyword
-
 Major version of the client.
 
 
 [float]
 === rfb.client_minor_version
-
-type: keyword
 
 Minor version of the client.
 
@@ -4065,15 +3417,11 @@ Minor version of the client.
 [float]
 === rfb.server_major_version
 
-type: keyword
-
 Major version of the server.
 
 
 [float]
 === rfb.server_minor_version
-
-type: keyword
 
 Minor version of the server.
 
@@ -4081,15 +3429,11 @@ Minor version of the server.
 [float]
 === rfb.authentication_method
 
-type: keyword
-
 Identifier of authentication method used.
 
 
 [float]
 === rfb.auth
-
-type: boolean
 
 Whether or not authentication was successful.
 
@@ -4097,15 +3441,11 @@ Whether or not authentication was successful.
 [float]
 === rfb.share_flag
 
-type: boolean
-
 Whether the client has an exclusive or a shared session.
 
 
 [float]
 === rfb.desktop_name
-
-type: keyword
 
 Name of the screen that is being shared.
 
@@ -4113,23 +3453,17 @@ Name of the screen that is being shared.
 [float]
 === rfb.width
 
-type: integer
-
 Width of the screen that is being shared.
 
 
 [float]
 === rfb.height
 
-type: integer
-
 Height of the screen that is being shared.
 
 
 [float]
 === rfb.done
-
-type: boolean
 
 Internally used value to determine if this connection has already been logged.
 
@@ -4145,15 +3479,11 @@ Signature matches
 [float]
 === signatures.ts
 
-type: double
-
 The network time at which a signature matching type of event to be logged has occurred.
 
 
 [float]
 === signatures.uid
-
-type: text
 
 A unique identifier of the connection which triggered the signature match event.
 
@@ -4161,15 +3491,11 @@ A unique identifier of the connection which triggered the signature match event.
 [float]
 === signatures.src_addr
 
-type: ip
-
 The host which triggered the signature match event.
 
 
 [float]
 === signatures.src_port
-
-type: integer
 
 The host port on which the signature-matching activity occurred.
 
@@ -4177,15 +3503,11 @@ The host port on which the signature-matching activity occurred.
 [float]
 === signatures.dst_addr
 
-type: ip
-
 The destination host which was sent the payload that triggered the signature match.
 
 
 [float]
 === signatures.dst_port
-
-type: integer
 
 The destination host port which was sent the payload that triggered the signature match.
 
@@ -4193,13 +3515,8 @@ The destination host port which was sent the payload that triggered the signatur
 [float]
 === signatures.note
 
-Notice associated with signature event.
-
-
 [float]
 === signatures.sig_id
-
-type: keyword
 
 The name of the signature that matched.
 
@@ -4207,15 +3524,11 @@ The name of the signature that matched.
 [float]
 === signatures.event_msg
 
-type: keyword
-
 A more descriptive message of the signature-matching event.
 
 
 [float]
 === signatures.sub_msg
-
-type: keyword
 
 Extracted payload data or extra message.
 
@@ -4223,15 +3536,11 @@ Extracted payload data or extra message.
 [float]
 === signatures.sig_count
 
-type: integer
-
 Number of sigs, usually from summary count.
 
 
 [float]
 === signatures.host_count
-
-type: integer
 
 Number of hosts, from a summary count.
 
@@ -4247,15 +3556,11 @@ SIP
 [float]
 === sip.ts
 
-type: double
-
 Timestamp for when the request happened.
 
 
 [float]
 === sip.uid
-
-type: text
 
 Unique ID for the connection.
 
@@ -4263,15 +3568,11 @@ Unique ID for the connection.
 [float]
 === sip.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === sip.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -4279,15 +3580,11 @@ The originators port number.
 [float]
 === sip.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === sip.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -4295,15 +3592,11 @@ The responders port number.
 [float]
 === sip.trans_depth
 
-type: integer
-
 Represents the pipelined depth into the connection of this request/response transaction.
 
 
 [float]
 === sip.method
-
-type: keyword
 
 Verb used in the SIP request (INVITE, REGISTER etc.).
 
@@ -4311,15 +3604,11 @@ Verb used in the SIP request (INVITE, REGISTER etc.).
 [float]
 === sip.uri
 
-type: keyword
-
 URI used in the request.
 
 
 [float]
 === sip.date
-
-type: keyword
 
 Contents of the Date: header from the client
 
@@ -4327,15 +3616,11 @@ Contents of the Date: header from the client
 [float]
 === sip.request_from
 
-type: keyword
-
 Contents of the request From: header Note: The tag= value thats usually appended to the sender is stripped off and not logged.
 
 
 [float]
 === sip.request_to
-
-type: keyword
 
 Contents of the To: header
 
@@ -4343,15 +3628,11 @@ Contents of the To: header
 [float]
 === sip.response_from
 
-type: keyword
-
 Contents of the response From: header Note: The tag= value thats usually appended to the sender is stripped off and not logged.
 
 
 [float]
 === sip.response_to
-
-type: keyword
 
 Contents of the response To: header
 
@@ -4359,15 +3640,11 @@ Contents of the response To: header
 [float]
 === sip.reply_to
 
-type: keyword
-
 Contents of the Reply-To: header
 
 
 [float]
 === sip.call_id
-
-type: keyword
 
 Contents of the Call-ID: header from the client
 
@@ -4375,15 +3652,11 @@ Contents of the Call-ID: header from the client
 [float]
 === sip.seq
 
-type: keyword
-
 Contents of the CSeq: header from the client
 
 
 [float]
 === sip.subject
-
-type: keyword
 
 Contents of the Subject: header from the client
 
@@ -4403,15 +3676,11 @@ The server message transmission path, as extracted from the headers.
 [float]
 === sip.user_agent
 
-type: keyword
-
 Contents of the User-Agent: header from the client
 
 
 [float]
 === sip.status_code
-
-type: integer
 
 Status code returned by the server.
 
@@ -4419,15 +3688,11 @@ Status code returned by the server.
 [float]
 === sip.status_msg
 
-type: keyword
-
 Status message returned by the server.
 
 
 [float]
 === sip.warning
-
-type: keyword
 
 Contents of the Warning: header
 
@@ -4435,23 +3700,17 @@ Contents of the Warning: header
 [float]
 === sip.request_body_len
 
-type: integer
-
 Contents of the Content-Length: header from the client
 
 
 [float]
 === sip.response_body_len
 
-type: integer
-
 Contents of the Content-Length: header from the server
 
 
 [float]
 === sip.content_type
-
-type: keyword
 
 Contents of the Content-Type: header from the server
 
@@ -4467,15 +3726,11 @@ SMB commands
 [float]
 === smb_cmd.ts
 
-type: double
-
 Timestamp of the command request.
 
 
 [float]
 === smb_cmd.uid
-
-type: text
 
 Unique ID of the connection the request was sent over.
 
@@ -4483,15 +3738,11 @@ Unique ID of the connection the request was sent over.
 [float]
 === smb_cmd.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === smb_cmd.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -4499,15 +3750,11 @@ The originators port number.
 [float]
 === smb_cmd.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === smb_cmd.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -4515,15 +3762,11 @@ The responders port number.
 [float]
 === smb_cmd.command
 
-type: keyword
-
 The command sent by the client.
 
 
 [float]
 === smb_cmd.sub_command
-
-type: keyword
 
 The subcommand sent by the client, if present.
 
@@ -4531,15 +3774,11 @@ The subcommand sent by the client, if present.
 [float]
 === smb_cmd.argument
 
-type: keyword
-
 Command argument sent by the client, if any.
 
 
 [float]
 === smb_cmd.status
-
-type: keyword
 
 Server reply to the clients command.
 
@@ -4547,15 +3786,11 @@ Server reply to the clients command.
 [float]
 === smb_cmd.rtt
 
-type: double
-
 Round trip time from the request to the response.
 
 
 [float]
 === smb_cmd.version
-
-type: keyword
 
 Version of SMB for the command.
 
@@ -4563,15 +3798,11 @@ Version of SMB for the command.
 [float]
 === smb_cmd.username
 
-type: keyword
-
 Authenticated username, if available.
 
 
 [float]
 === smb_cmd.tree
-
-type: keyword
 
 If this is related to a tree, this is the tree that was used for the current command.
 
@@ -4579,21 +3810,136 @@ If this is related to a tree, this is the tree that was used for the current com
 [float]
 === smb_cmd.tree_service
 
-type: keyword
-
 The type of tree (disk share, printer share, named pipe, etc.).
 
 
 [float]
-=== smb_cmd.referenced_file
+=== smb_cmd.referenced_file.ts
 
-If the command referenced a file, store it here.
+Time when the file was first discovered.
 
 
 [float]
-=== smb_cmd.referenced_tree
+=== smb_cmd.referenced_file.uid
 
-If the command referenced a tree, store it here.
+Unique ID of the connection the file was sent over.
+
+
+[float]
+=== smb_cmd.referenced_file.id
+
+ID of the connection the file was sent over.
+
+
+[float]
+=== smb_cmd.referenced_file.fuid
+
+Unique ID of the file.
+
+
+[float]
+=== smb_cmd.referenced_file.action
+
+[float]
+=== smb_cmd.referenced_file.path
+
+Path pulled from the tree this file was transferred to or from.
+
+
+[float]
+=== smb_cmd.referenced_file.name
+
+Filename if one was seen.
+
+
+[float]
+=== smb_cmd.referenced_file.size
+
+Total size of the file.
+
+
+[float]
+=== smb_cmd.referenced_file.prev_name
+
+If the rename action was seen, this will be the files previous name.
+
+
+[float]
+=== smb_cmd.referenced_file.times.modified
+
+The time when data was last written to the file.
+
+
+[float]
+=== smb_cmd.referenced_file.times.accessed
+
+The time when the file was last accessed.
+
+
+[float]
+=== smb_cmd.referenced_file.times.created
+
+The time the file was created.
+
+
+[float]
+=== smb_cmd.referenced_file.times.changed
+
+The time when the file was last modified.
+
+
+[float]
+=== smb_cmd.referenced_file.fid
+
+ID referencing this file.
+
+
+[float]
+=== smb_cmd.referenced_file.uuid
+
+UUID referencing this file if DCE/RPC.
+
+
+[float]
+=== smb_cmd.referenced_tree.ts
+
+Time when the tree was mapped.
+
+
+[float]
+=== smb_cmd.referenced_tree.uid
+
+Unique ID of the connection the tree was mapped over.
+
+
+[float]
+=== smb_cmd.referenced_tree.id
+
+ID of the connection the tree was mapped over.
+
+
+[float]
+=== smb_cmd.referenced_tree.path
+
+Name of the tree path.
+
+
+[float]
+=== smb_cmd.referenced_tree.service
+
+The type of resource of the tree (disk share, printer share, named pipe, etc.).
+
+
+[float]
+=== smb_cmd.referenced_tree.native_file_system
+
+File system of the tree.
+
+
+[float]
+=== smb_cmd.referenced_tree.share_type
+
+If this is SMB2, a share type will be included.  For SMB1, the type of share will be deduced and included as well.
 
 
 [float]
@@ -4619,15 +3965,11 @@ SMB files
 [float]
 === smb_files.ts
 
-type: double
-
 Time when the file was first discovered.
 
 
 [float]
 === smb_files.uid
-
-type: text
 
 Unique ID of the connection the file was sent over.
 
@@ -4635,15 +3977,11 @@ Unique ID of the connection the file was sent over.
 [float]
 === smb_files.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === smb_files.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -4651,15 +3989,11 @@ The originators port number.
 [float]
 === smb_files.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === smb_files.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -4667,21 +4001,14 @@ The responders port number.
 [float]
 === smb_files.fuid
 
-type: text
-
 Unique ID of the file.
 
 
 [float]
 === smb_files.action
 
-Action this log record represents.
-
-
 [float]
 === smb_files.path
-
-type: keyword
 
 Path pulled from the tree this file was transferred to or from.
 
@@ -4689,15 +4016,11 @@ Path pulled from the tree this file was transferred to or from.
 [float]
 === smb_files.name
 
-type: keyword
-
 Filename if one was seen.
 
 
 [float]
 === smb_files.size
-
-type: integer
 
 Total size of the file.
 
@@ -4705,29 +4028,41 @@ Total size of the file.
 [float]
 === smb_files.prev_name
 
-type: keyword
-
 If the rename action was seen, this will be the files previous name.
 
 
 [float]
-=== smb_files.times
+=== smb_files.times.modified
 
-Last time this file was modified.
+The time when data was last written to the file.
+
+
+[float]
+=== smb_files.times.accessed
+
+The time when the file was last accessed.
+
+
+[float]
+=== smb_files.times.created
+
+The time the file was created.
+
+
+[float]
+=== smb_files.times.changed
+
+The time when the file was last modified.
 
 
 [float]
 === smb_files.fid
-
-type: integer
 
 ID referencing this file.
 
 
 [float]
 === smb_files.uuid
-
-type: text
 
 UUID referencing this file if DCE/RPC.
 
@@ -4743,15 +4078,11 @@ SMB trees
 [float]
 === smb_mapping.ts
 
-type: double
-
 Time when the tree was mapped.
 
 
 [float]
 === smb_mapping.uid
-
-type: text
 
 Unique ID of the connection the tree was mapped over.
 
@@ -4759,15 +4090,11 @@ Unique ID of the connection the tree was mapped over.
 [float]
 === smb_mapping.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === smb_mapping.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -4775,15 +4102,11 @@ The originators port number.
 [float]
 === smb_mapping.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === smb_mapping.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -4791,15 +4114,11 @@ The responders port number.
 [float]
 === smb_mapping.path
 
-type: keyword
-
 Name of the tree path.
 
 
 [float]
 === smb_mapping.service
-
-type: keyword
 
 The type of resource of the tree (disk share, printer share, named pipe, etc.).
 
@@ -4807,15 +4126,11 @@ The type of resource of the tree (disk share, printer share, named pipe, etc.).
 [float]
 === smb_mapping.native_file_system
 
-type: keyword
-
 File system of the tree.
 
 
 [float]
 === smb_mapping.share_type
-
-type: keyword
 
 If this is SMB2, a share type will be included.  For SMB1, the type of share will be deduced and included as well.
 
@@ -4831,15 +4146,11 @@ SMTP transactions
 [float]
 === smtp.ts
 
-type: double
-
 Time when the message was first seen.
 
 
 [float]
 === smtp.uid
-
-type: text
 
 Unique ID for the connection.
 
@@ -4847,15 +4158,11 @@ Unique ID for the connection.
 [float]
 === smtp.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === smtp.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -4863,15 +4170,11 @@ The originators port number.
 [float]
 === smtp.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === smtp.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -4879,23 +4182,17 @@ The responders port number.
 [float]
 === smtp.trans_depth
 
-type: integer
-
 A count to represent the depth of this message transaction in a single connection where multiple messages were transferred.
 
 
 [float]
 === smtp.helo
 
-type: keyword
-
 Contents of the Helo header.
 
 
 [float]
 === smtp.mailfrom
-
-type: keyword
 
 Email addresses found in the From header.
 
@@ -4909,15 +4206,11 @@ Email addresses found in the Rcpt header.
 [float]
 === smtp.date
 
-type: keyword
-
 Contents of the Date header.
 
 
 [float]
 === smtp.from
-
-type: keyword
 
 Contents of the From header.
 
@@ -4937,15 +4230,11 @@ Contents of the CC header.
 [float]
 === smtp.reply_to
 
-type: keyword
-
 Contents of the ReplyTo header.
 
 
 [float]
 === smtp.msg_id
-
-type: keyword
 
 Contents of the MsgID header.
 
@@ -4953,15 +4242,11 @@ Contents of the MsgID header.
 [float]
 === smtp.in_reply_to
 
-type: keyword
-
 Contents of the In-Reply-To header.
 
 
 [float]
 === smtp.subject
-
-type: keyword
 
 Contents of the Subject header.
 
@@ -4969,15 +4254,11 @@ Contents of the Subject header.
 [float]
 === smtp.x_originating_ip
 
-type: ip
-
 Contents of the X-Originating-IP header.
 
 
 [float]
 === smtp.first_received
-
-type: keyword
 
 Contents of the first Received header.
 
@@ -4985,15 +4266,11 @@ Contents of the first Received header.
 [float]
 === smtp.second_received
 
-type: keyword
-
 Contents of the second Received header.
 
 
 [float]
 === smtp.last_reply
-
-type: keyword
 
 The last message that the server sent to the client.
 
@@ -5007,15 +4284,11 @@ The message transmission path, as extracted from the headers.
 [float]
 === smtp.user_agent
 
-type: keyword
-
 Value of the User-Agent header from the client.
 
 
 [float]
 === smtp.tls
-
-type: boolean
 
 Indicates that the connection has switched to using TLS.
 
@@ -5023,37 +4296,35 @@ Indicates that the connection has switched to using TLS.
 [float]
 === smtp.process_received_from
 
-type: boolean
-
 Indicates if the Received: from headers should still be processed.
 
 
 [float]
 === smtp.has_client_activity
 
-type: boolean
-
 Indicates if client activity has been seen, but not yet logged.
 
 
 [float]
-=== smtp.entity
+=== smtp.entity.filename
 
-(present if base/protocols/smtp/entities.bro is loaded)
+Filename for the entity if discovered from a header.
+
+
+[float]
+=== smtp.entity.excerpt
+
+(present if policy/protocols/smtp/entities-excerpt.bro is loaded)
 
 
 [float]
 === smtp.fuids
-
-type: text
 
 (present if base/protocols/smtp/files.bro is loaded)
 
 
 [float]
 === smtp.is_webmail
-
-type: boolean
 
 (present if policy/protocols/smtp/software.bro is loaded)
 
@@ -5069,15 +4340,11 @@ SNMP messages
 [float]
 === snmp.ts
 
-type: double
-
 Timestamp of first packet belonging to the SNMP session.
 
 
 [float]
 === snmp.uid
-
-type: text
 
 The unique ID for the connection.
 
@@ -5085,15 +4352,11 @@ The unique ID for the connection.
 [float]
 === snmp.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === snmp.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -5101,15 +4364,11 @@ The originators port number.
 [float]
 === snmp.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === snmp.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -5117,15 +4376,11 @@ The responders port number.
 [float]
 === snmp.duration
 
-type: double
-
 The amount of time between the first packet beloning to the SNMP session and the latest one seen.
 
 
 [float]
 === snmp.version
-
-type: keyword
 
 The version of SNMP being used.
 
@@ -5133,15 +4388,11 @@ The version of SNMP being used.
 [float]
 === snmp.community
 
-type: keyword
-
 The community string of the first SNMP packet associated with the session.  This is used as part of SNMPs (v1 and v2c) administrative/security framework.  See RFC 1157 or RFC 1901.
 
 
 [float]
 === snmp.get_requests
-
-type: integer
 
 The number of variable bindings in GetRequest/GetNextRequest PDUs seen for the session.
 
@@ -5149,15 +4400,11 @@ The number of variable bindings in GetRequest/GetNextRequest PDUs seen for the s
 [float]
 === snmp.get_bulk_requests
 
-type: integer
-
 The number of variable bindings in GetBulkRequest PDUs seen for the session.
 
 
 [float]
 === snmp.get_responses
-
-type: integer
 
 The number of variable bindings in GetResponse/Response PDUs seen for the session.
 
@@ -5165,23 +4412,17 @@ The number of variable bindings in GetResponse/Response PDUs seen for the sessio
 [float]
 === snmp.set_requests
 
-type: integer
-
 The number of variable bindings in SetRequest PDUs seen for the session.
 
 
 [float]
 === snmp.display_string
 
-type: keyword
-
 A system description of the SNMP responder endpoint.
 
 
 [float]
 === snmp.up_since
-
-type: double
 
 The time at which the SNMP responder endpoint claims its been up since.
 
@@ -5197,15 +4438,11 @@ SOCKS proxy requests
 [float]
 === socks.ts
 
-type: double
-
 Time when the proxy connection was first detected.
 
 
 [float]
 === socks.uid
-
-type: text
 
 Unique ID for the tunnel - may correspond to connection uid or be non-existent.
 
@@ -5213,15 +4450,11 @@ Unique ID for the tunnel - may correspond to connection uid or be non-existent.
 [float]
 === socks.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === socks.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -5229,15 +4462,11 @@ The originators port number.
 [float]
 === socks.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === socks.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -5245,15 +4474,11 @@ The responders port number.
 [float]
 === socks.version
 
-type: integer
-
 Protocol version of SOCKS.
 
 
 [float]
 === socks.user
-
-type: keyword
 
 Username used to request a login to the proxy.
 
@@ -5261,43 +4486,35 @@ Username used to request a login to the proxy.
 [float]
 === socks.password
 
-type: keyword
-
 Password used to request a login to the proxy.
 
 
 [float]
 === socks.status
 
-type: keyword
-
 Server status for the attempt at using the proxy.
 
 
 [float]
-=== socks.request
+=== socks.request.host
 
-Client requested SOCKS address. Could be an address, a name or both.
-
+[float]
+=== socks.request.name
 
 [float]
 === socks.request_p
-
-type: integer
 
 Client requested port.
 
 
 [float]
-=== socks.bound
+=== socks.bound.host
 
-Server bound address. Could be an address, a name or both.
-
+[float]
+=== socks.bound.name
 
 [float]
 === socks.bound_p
-
-type: integer
 
 Server bound port.
 
@@ -5313,15 +4530,11 @@ Software being used on the network
 [float]
 === software.ts
 
-type: double
-
 The time at which the software was detected.
 
 
 [float]
 === software.host
-
-type: ip
 
 The IP address detected running the software.
 
@@ -5329,35 +4542,50 @@ The IP address detected running the software.
 [float]
 === software.host_p
 
-type: integer
-
 The port on which the software is running. Only sensible for server software.
 
 
 [float]
 === software.software_type
 
-The type of software detected (e.g. HTTP::SERVER).
-
-
 [float]
 === software.name
-
-type: keyword
 
 Name of the software (e.g. Apache).
 
 
 [float]
-=== software.version
+=== software.version.major
 
-Version of the software.
+Major version number.
+
+
+[float]
+=== software.version.minor
+
+Minor version number.
+
+
+[float]
+=== software.version.minor2
+
+Minor subversion number.
+
+
+[float]
+=== software.version.minor3
+
+Minor updates number.
+
+
+[float]
+=== software.version.addl
+
+Additional version string (e.g. beta42).
 
 
 [float]
 === software.unparsed_version
-
-type: keyword
 
 The full unparsed version string found because the version parsing doesnt always work reliably in all cases and this acts as a fallback in the logs.
 
@@ -5365,15 +4593,11 @@ The full unparsed version string found because the version parsing doesnt always
 [float]
 === software.force_log
 
-type: boolean
-
 This can indicate that this software being detected should definitely be sent onward to the logging framework.  By default, only software that is interesting due to a change in version or it being currently unknown is sent to the logging framework.  This can be set to T to force the record to be sent to the logging framework if some amount of this tracking needs to happen in a specific way to the software.
 
 
 [float]
 === software.url
-
-type: keyword
 
 (present if policy/protocols/http/detect-webapps.bro is loaded)
 
@@ -5389,15 +4613,11 @@ SSH connections
 [float]
 === ssh.ts
 
-type: double
-
 Time when the SSH connection began.
 
 
 [float]
 === ssh.uid
-
-type: text
 
 Unique ID for the connection.
 
@@ -5405,15 +4625,11 @@ Unique ID for the connection.
 [float]
 === ssh.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === ssh.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -5421,15 +4637,11 @@ The originators port number.
 [float]
 === ssh.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === ssh.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -5437,23 +4649,17 @@ The responders port number.
 [float]
 === ssh.version
 
-type: integer
-
 SSH major version (1 or 2)
 
 
 [float]
 === ssh.auth_success
 
-type: boolean
-
 Authentication result (T=success, F=failure, unset=unknown)
 
 
 [float]
 === ssh.auth_attempts
-
-type: integer
 
 The number of authentication attemps we observed. Theres always at least one, since some servers might support no authentication at all. Its important to note that not all of these are failures, since some servers require two-factor auth (e.g. password AND pubkey)
 
@@ -5467,15 +4673,11 @@ Direction of the connection. If the client was a local host logging into an exte
 [float]
 === ssh.client
 
-type: keyword
-
 The clients version string
 
 
 [float]
 === ssh.server
-
-type: keyword
 
 The servers version string
 
@@ -5483,15 +4685,11 @@ The servers version string
 [float]
 === ssh.cipher_alg
 
-type: keyword
-
 The encryption algorithm in use
 
 
 [float]
 === ssh.mac_alg
-
-type: keyword
 
 The signing (MAC) algorithm in use
 
@@ -5499,15 +4697,11 @@ The signing (MAC) algorithm in use
 [float]
 === ssh.compression_alg
 
-type: keyword
-
 The compression algorithm in use
 
 
 [float]
 === ssh.kex_alg
-
-type: keyword
 
 The key exchange algorithm in use
 
@@ -5515,15 +4709,11 @@ The key exchange algorithm in use
 [float]
 === ssh.host_key_alg
 
-type: keyword
-
 The server host keys algorithm
 
 
 [float]
 === ssh.host_key
-
-type: keyword
 
 The servers key fingerprint
 
@@ -5539,15 +4729,11 @@ SSL/TLS handshake info
 [float]
 === ssl.ts
 
-type: double
-
 Time when the SSL connection was first detected.
 
 
 [float]
 === ssl.uid
-
-type: text
 
 Unique ID for the connection.
 
@@ -5555,15 +4741,11 @@ Unique ID for the connection.
 [float]
 === ssl.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === ssl.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -5571,15 +4753,11 @@ The originators port number.
 [float]
 === ssl.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === ssl.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -5587,15 +4765,11 @@ The responders port number.
 [float]
 === ssl.version_num
 
-type: integer
-
 Numeric SSL/TLS version that the server chose.
 
 
 [float]
 === ssl.version
-
-type: keyword
 
 SSL/TLS version that the server chose.
 
@@ -5603,15 +4777,11 @@ SSL/TLS version that the server chose.
 [float]
 === ssl.cipher
 
-type: keyword
-
 SSL/TLS cipher suite that the server chose.
 
 
 [float]
 === ssl.curve
-
-type: keyword
 
 Elliptic curve the server chose when using ECDH/ECDHE.
 
@@ -5619,15 +4789,11 @@ Elliptic curve the server chose when using ECDH/ECDHE.
 [float]
 === ssl.server_name
 
-type: keyword
-
 Value of the Server Name Indicator SSL/TLS extension.  It indicates the server name that the client was requesting.
 
 
 [float]
 === ssl.session_id
-
-type: keyword
 
 Session ID offered by the client for session resumption. Not used for logging.
 
@@ -5635,15 +4801,11 @@ Session ID offered by the client for session resumption. Not used for logging.
 [float]
 === ssl.resumed
 
-type: boolean
-
 Flag to indicate if the session was resumed reusing the key material exchanged in an earlier connection.
 
 
 [float]
 === ssl.client_ticket_empty_session_seen
-
-type: boolean
 
 Flag to indicate if we saw a non-empty session ticket being sent by the client using an empty session ID. This value is used to determine if a session is being resumed. Its not logged.
 
@@ -5651,15 +4813,11 @@ Flag to indicate if we saw a non-empty session ticket being sent by the client u
 [float]
 === ssl.client_key_exchange_seen
 
-type: boolean
-
 Flag to indicate if we saw a client key exchange message sent by the client. This value is used to determine if a session is being resumed. Its not logged.
 
 
 [float]
 === ssl.server_appdata
-
-type: integer
 
 Count to track if the server already sent an application data packet for TLS 1.3. Used to track when a session was established.
 
@@ -5667,15 +4825,11 @@ Count to track if the server already sent an application data packet for TLS 1.3
 [float]
 === ssl.client_appdata
 
-type: boolean
-
 Flag to track if the client already sent an application data packet for TLS 1.3. Used to track when a session was established.
 
 
 [float]
 === ssl.last_alert
-
-type: keyword
 
 Last alert that was seen during the connection.
 
@@ -5683,15 +4837,11 @@ Last alert that was seen during the connection.
 [float]
 === ssl.next_protocol
 
-type: keyword
-
 Next protocol the server chose using the application layer next protocol extension, if present.
 
 
 [float]
 === ssl.analyzer_id
-
-type: integer
 
 The analyzer ID used for the analyzer instance attached to each connection.  It is not used for logging since its a meaningless arbitrary number.
 
@@ -5699,15 +4849,11 @@ The analyzer ID used for the analyzer instance attached to each connection.  It 
 [float]
 === ssl.established
 
-type: boolean
-
 Flag to indicate if this ssl session has been established successfully, or if it was aborted during the handshake.
 
 
 [float]
 === ssl.logged
-
-type: boolean
 
 Flag to indicate if this record already has been logged, to prevent duplicates.
 
@@ -5723,15 +4869,11 @@ Memory/event/packet/lag statistics
 [float]
 === stats.ts
 
-type: double
-
 Timestamp for the measurement.
 
 
 [float]
 === stats.peer
-
-type: keyword
 
 Peer that generated this log.  Mostly for clusters.
 
@@ -5739,15 +4881,11 @@ Peer that generated this log.  Mostly for clusters.
 [float]
 === stats.mem
 
-type: integer
-
 Amount of memory currently in use in MB.
 
 
 [float]
 === stats.pkts_proc
-
-type: integer
 
 Number of packets processed since the last stats interval.
 
@@ -5755,15 +4893,11 @@ Number of packets processed since the last stats interval.
 [float]
 === stats.bytes_recv
 
-type: integer
-
 Number of bytes received since the last stats interval if reading live traffic.
 
 
 [float]
 === stats.pkts_dropped
-
-type: integer
 
 Number of packets dropped since the last stats interval if reading live traffic.
 
@@ -5771,15 +4905,11 @@ Number of packets dropped since the last stats interval if reading live traffic.
 [float]
 === stats.pkts_link
 
-type: integer
-
 Number of packets seen on the link since the last stats interval if reading live traffic.
 
 
 [float]
 === stats.pkt_lag
-
-type: double
 
 Lag between the wall clock and packet timestamps if reading live traffic.
 
@@ -5787,15 +4917,11 @@ Lag between the wall clock and packet timestamps if reading live traffic.
 [float]
 === stats.events_proc
 
-type: integer
-
 Number of events processed since the last stats interval.
 
 
 [float]
 === stats.events_queued
-
-type: integer
 
 Number of events that have been queued since the last stats interval.
 
@@ -5803,15 +4929,11 @@ Number of events that have been queued since the last stats interval.
 [float]
 === stats.active_tcp_conns
 
-type: integer
-
 TCP connections currently in memory.
 
 
 [float]
 === stats.active_udp_conns
-
-type: integer
 
 UDP connections currently in memory.
 
@@ -5819,15 +4941,11 @@ UDP connections currently in memory.
 [float]
 === stats.active_icmp_conns
 
-type: integer
-
 ICMP connections currently in memory.
 
 
 [float]
 === stats.tcp_conns
-
-type: integer
 
 TCP connections seen since last stats interval.
 
@@ -5835,15 +4953,11 @@ TCP connections seen since last stats interval.
 [float]
 === stats.udp_conns
 
-type: integer
-
 UDP connections seen since last stats interval.
 
 
 [float]
 === stats.icmp_conns
-
-type: integer
 
 ICMP connections seen since last stats interval.
 
@@ -5851,15 +4965,11 @@ ICMP connections seen since last stats interval.
 [float]
 === stats.timers
 
-type: integer
-
 Number of timers scheduled since last stats interval.
 
 
 [float]
 === stats.active_timers
-
-type: integer
 
 Current number of scheduled timers.
 
@@ -5867,15 +4977,11 @@ Current number of scheduled timers.
 [float]
 === stats.files
 
-type: integer
-
 Number of files seen since last stats interval.
 
 
 [float]
 === stats.active_files
-
-type: integer
 
 Current number of files actively being seen.
 
@@ -5883,15 +4989,11 @@ Current number of files actively being seen.
 [float]
 === stats.dns_requests
 
-type: integer
-
 Number of DNS requests seen since last stats interval.
 
 
 [float]
 === stats.active_dns_requests
-
-type: integer
 
 Current number of DNS requests awaiting a reply.
 
@@ -5899,15 +5001,11 @@ Current number of DNS requests awaiting a reply.
 [float]
 === stats.reassem_tcp_size
 
-type: integer
-
 Current size of TCP data in reassembly.
 
 
 [float]
 === stats.reassem_file_size
-
-type: integer
 
 Current size of File data in reassembly.
 
@@ -5915,15 +5013,11 @@ Current size of File data in reassembly.
 [float]
 === stats.reassem_frag_size
 
-type: integer
-
 Current size of packet fragment data in reassembly.
 
 
 [float]
 === stats.reassem_unknown_size
-
-type: integer
 
 Current size of unknown data in reassembly (this is only PIA buffer right now).
 
@@ -5939,15 +5033,11 @@ Syslog messages
 [float]
 === syslog.ts
 
-type: double
-
 Timestamp when the syslog message was seen.
 
 
 [float]
 === syslog.uid
-
-type: text
 
 Unique ID for the connection.
 
@@ -5955,15 +5045,11 @@ Unique ID for the connection.
 [float]
 === syslog.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === syslog.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -5971,15 +5057,11 @@ The originators port number.
 [float]
 === syslog.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === syslog.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -5987,15 +5069,11 @@ The responders port number.
 [float]
 === syslog.proto
 
-type: keyword
-
 Protocol over which the message was seen.
 
 
 [float]
 === syslog.facility
-
-type: keyword
 
 Syslog facility for the message.
 
@@ -6003,15 +5081,11 @@ Syslog facility for the message.
 [float]
 === syslog.severity
 
-type: keyword
-
 Syslog severity for the message.
 
 
 [float]
 === syslog.message
-
-type: keyword
 
 The plain text message.
 
@@ -6027,15 +5101,11 @@ Traceroute detection
 [float]
 === traceroute.ts
 
-type: double
-
 Timestamp
 
 
 [float]
 === traceroute.src
-
-type: ip
 
 Address initiating the traceroute.
 
@@ -6043,15 +5113,11 @@ Address initiating the traceroute.
 [float]
 === traceroute.dst
 
-type: ip
-
 Destination address of the traceroute.
 
 
 [float]
 === traceroute.proto
-
-type: keyword
 
 Protocol used for the traceroute.
 
@@ -6067,15 +5133,11 @@ Tunneling protocol events
 [float]
 === tunnel.ts
 
-type: double
-
 Time at which some tunnel activity occurred.
 
 
 [float]
 === tunnel.uid
-
-type: text
 
 The unique identifier for the tunnel, which may correspond to a connections uid field for non-IP-in-IP tunnels. This is optional because there could be numerous connections for payload proxies like SOCKS but we should treat it as a single tunnel.
 
@@ -6083,15 +5145,11 @@ The unique identifier for the tunnel, which may correspond to a connections uid 
 [float]
 === tunnel.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === tunnel.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -6099,15 +5157,11 @@ The originators port number.
 [float]
 === tunnel.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === tunnel.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -6115,14 +5169,8 @@ The responders port number.
 [float]
 === tunnel.tunnel_type
 
-The type of tunnel.
-
-
 [float]
 === tunnel.action
-
-The type of activity that occurred.
-
 
 [[exported-fields-unified2]]
 == unified2 Fields
@@ -6135,21 +5183,23 @@ Interprets Snorts unified output
 [float]
 === unified2.ts
 
-type: double
-
 Timestamp attached to the alert.
 
 
 [float]
-=== unified2.id
+=== unified2.id.src_ip
 
-Addresses and ports for the connection.
+[float]
+=== unified2.id.src_p
 
+[float]
+=== unified2.id.dst_ip
+
+[float]
+=== unified2.id.dst_p
 
 [float]
 === unified2.sensor_id
-
-type: integer
 
 Sensor that originated this event.
 
@@ -6157,15 +5207,11 @@ Sensor that originated this event.
 [float]
 === unified2.signature_id
 
-type: integer
-
 Sig id for this generator.
 
 
 [float]
 === unified2.signature
-
-type: keyword
 
 A string representation of the signature_id field if a sid_msg.map file was loaded.
 
@@ -6173,15 +5219,11 @@ A string representation of the signature_id field if a sid_msg.map file was load
 [float]
 === unified2.generator_id
 
-type: integer
-
 Which generator generated the alert?
 
 
 [float]
 === unified2.generator
-
-type: keyword
 
 A string representation of the generator_id field if a gen_msg.map file was loaded.
 
@@ -6189,15 +5231,11 @@ A string representation of the generator_id field if a gen_msg.map file was load
 [float]
 === unified2.signature_revision
 
-type: integer
-
 Sig revision for this id.
 
 
 [float]
 === unified2.classification_id
-
-type: integer
 
 Event classification.
 
@@ -6205,15 +5243,11 @@ Event classification.
 [float]
 === unified2.classification
 
-type: keyword
-
 Descriptive classification string.
 
 
 [float]
 === unified2.priority_id
-
-type: integer
 
 Event priority.
 
@@ -6221,15 +5255,11 @@ Event priority.
 [float]
 === unified2.event_id
 
-type: integer
-
 Event ID.
 
 
 [float]
 === unified2.packet
-
-type: keyword
 
 Some of the packet data.
 
@@ -6245,15 +5275,11 @@ Unexpected network-level activity
 [float]
 === weird.ts
 
-type: double
-
 The time when the weird occurred.
 
 
 [float]
 === weird.uid
-
-type: text
 
 If a connection is associated with this weird, this will be the connections unique ID.
 
@@ -6261,15 +5287,11 @@ If a connection is associated with this weird, this will be the connections uniq
 [float]
 === weird.id.orig_h
 
-type: ip
-
 The originators IP address.
 
 
 [float]
 === weird.id.orig_p
-
-type: integer
 
 The originators port number.
 
@@ -6277,15 +5299,11 @@ The originators port number.
 [float]
 === weird.id.resp_h
 
-type: ip
-
 The responders IP address.
 
 
 [float]
 === weird.id.resp_p
-
-type: integer
 
 The responders port number.
 
@@ -6299,15 +5317,11 @@ A shorthand way of giving the uid and id to a weird.
 [float]
 === weird.name
 
-type: keyword
-
 The name of the weird that occurred.
 
 
 [float]
 === weird.addl
-
-type: keyword
 
 Additional information accompanying the weird if any.
 
@@ -6315,23 +5329,17 @@ Additional information accompanying the weird if any.
 [float]
 === weird.notice
 
-type: boolean
-
 Indicate if this weird was also turned into a notice.
 
 
 [float]
 === weird.peer
 
-type: keyword
-
 The peer that originated this weird.  This is helpful in cluster deployments if a particular cluster node is having trouble to help identify which node is having trouble.
 
 
 [float]
 === weird.identifier
-
-type: keyword
 
 This field is to be provided when a weird is generated for the purpose of deduplicating weirds. The identifier string should be unique for a single instance of the weird. This field is used to define when a weird is conceptually a duplicate of a previous weird.
 
@@ -6347,23 +5355,91 @@ X.509 certificate info
 [float]
 === x509.ts
 
-type: double
-
 Current timestamp.
 
 
 [float]
 === x509.id
 
-type: keyword
-
 File id of this certificate.
 
 
 [float]
-=== x509.certificate
+=== x509.certificate.version
 
-Basic information about the certificate.
+Version number.
+
+
+[float]
+=== x509.certificate.serial
+
+Serial number.
+
+
+[float]
+=== x509.certificate.subject
+
+Subject.
+
+
+[float]
+=== x509.certificate.issuer
+
+Issuer.
+
+
+[float]
+=== x509.certificate.cn
+
+Last (most specific) common name.
+
+
+[float]
+=== x509.certificate.not_valid_before
+
+Timestamp before when certificate is not valid.
+
+
+[float]
+=== x509.certificate.not_valid_after
+
+Timestamp after when certificate is not valid.
+
+
+[float]
+=== x509.certificate.key_alg
+
+Name of the key algorithm
+
+
+[float]
+=== x509.certificate.sig_alg
+
+Name of the signature algorithm
+
+
+[float]
+=== x509.certificate.key_type
+
+Key type, if key parseable by openssl (either rsa, dsa or ec)
+
+
+[float]
+=== x509.certificate.key_length
+
+Key length in bits
+
+
+[float]
+=== x509.certificate.exponent
+
+Exponent, if RSA-certificate
+
+
+[float]
+=== x509.certificate.curve
+
+Curve, if EC-certificate
 
 
 [float]
@@ -6379,21 +5455,49 @@ All extensions that were encountered in the certificate.
 
 
 [float]
-=== x509.san
+=== x509.san.dns
 
-Subject alternative name extension of the certificate.
+List of DNS entries in SAN
 
 
 [float]
-=== x509.basic_constraints
+=== x509.san.uri
 
-Basic constraints extension of the certificate.
+List of URI entries in SAN
+
+
+[float]
+=== x509.san.email
+
+List of email entries in SAN
+
+
+[float]
+=== x509.san.ip
+
+List of IP entries in SAN
+
+
+[float]
+=== x509.san.other_fields
+
+True if the certificate contained other, not recognized or parsed name fields
+
+
+[float]
+=== x509.basic_constraints.ca
+
+CA flag set?
+
+
+[float]
+=== x509.basic_constraints.path_len
+
+Maximum path length
 
 
 [float]
 === x509.logcert
-
-type: boolean
 
 (present if policy/protocols/ssl/log-hostcerts-only.bro is loaded)
 

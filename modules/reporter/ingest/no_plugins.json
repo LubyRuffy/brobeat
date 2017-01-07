@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{DATA:ts}\t%{DATA:level}\t%{DATA:message}\t%{DATA:location}"
+        "%{NUMBER:ts}\t%{DATA:level}\t%{DATA:message}\t%{DATA:location}"
         ],
       "ignore_missing": true
     }

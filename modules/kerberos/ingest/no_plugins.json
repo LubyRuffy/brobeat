@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:request_type}\t%{DATA:client}\t%{DATA:service}\t%{DATA:success}\t%{DATA:error_code}\t%{DATA:error_msg}\t%{DATA:from}\t%{DATA:till}\t%{DATA:cipher}\t%{DATA:forwardable}\t%{DATA:renewable}\t%{DATA:logged}\t%{DATA:client_cert}\t%{DATA:client_cert_subject}\t%{NOTSPACE:client_cert_fuid}\t%{DATA:server_cert}\t%{DATA:server_cert_subject}\t%{NOTSPACE:server_cert_fuid}"
+        "%{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:id.orig_h}\t%{INT:id.orig_p}\t%{IP:id.resp_h}\t%{INT:id.resp_p}\t%{DATA:request_type}\t%{DATA:client}\t%{DATA:service}\t%{DATA:success}\t%{INT:error_code}\t%{DATA:error_msg}\t%{NUMBER:from}\t%{NUMBER:till}\t%{DATA:cipher}\t%{DATA:forwardable}\t%{DATA:renewable}\t%{DATA:logged}\t%{DATA:client_cert}\t%{DATA:client_cert_subject}\t%{NOTSPACE:client_cert_fuid}\t%{DATA:server_cert}\t%{DATA:server_cert_subject}\t%{NOTSPACE:server_cert_fuid}"
         ],
       "ignore_missing": true
     }

@@ -7,60 +7,41 @@
       type: group
       fields:
         - name: ts
-          type: double
           description: >
             Time at which the recorded activity occurred.
         - name: rule_id
-          type: keyword
           description: >
             ID of the rule; unique during each Bro run.
         - name: category
-          description: >
-            Type of the log entry.
         - name: cmd
-          type: keyword
           description: >
             The command the log entry is about.
         - name: state
-          description: >
-            State the log entry reflects.
         - name: action
-          type: keyword
           description: >
             String describing an action the entry is about.
         - name: target
-          description: >
-            The target type of the action.
         - name: entity_type
-          type: keyword
           description: >
             Type of the entity the log entry is about.
         - name: entity
-          type: keyword
           description: >
             String describing the entity the log entry is about.
         - name: mod
-          type: keyword
           description: >
             String describing the optional modification of the entry (e.h. redirect)
         - name: msg
-          type: keyword
           description: >
             String with an additional message.
         - name: priority
-          type: integer
           description: >
             Number describing the priority of the log entry.
         - name: expire
-          type: double
           description: >
             Expiry time of the log entry.
         - name: location
-          type: keyword
           description: >
             Location where the underlying action was triggered.
         - name: plugin
-          type: keyword
           description: >
             Plugin triggering the log entry.
-

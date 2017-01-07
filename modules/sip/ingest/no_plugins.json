@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:trans_depth}\t%{DATA:method}\t%{DATA:uri}\t%{DATA:date}\t%{DATA:request_from}\t%{DATA:request_to}\t%{DATA:response_from}\t%{DATA:response_to}\t%{DATA:reply_to}\t%{DATA:call_id}\t%{DATA:seq}\t%{DATA:subject}\t%{DATA:request_path}\t%{DATA:response_path}\t%{DATA:user_agent}\t%{DATA:status_code}\t%{DATA:status_msg}\t%{DATA:warning}\t%{DATA:request_body_len}\t%{DATA:response_body_len}\t%{DATA:content_type}"
+        "%{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:id.orig_h}\t%{INT:id.orig_p}\t%{IP:id.resp_h}\t%{INT:id.resp_p}\t%{INT:trans_depth}\t%{DATA:method}\t%{DATA:uri}\t%{DATA:date}\t%{DATA:request_from}\t%{DATA:request_to}\t%{DATA:response_from}\t%{DATA:response_to}\t%{DATA:reply_to}\t%{DATA:call_id}\t%{DATA:seq}\t%{DATA:subject}\t%{DATA:request_path}\t%{DATA:response_path}\t%{DATA:user_agent}\t%{INT:status_code}\t%{DATA:status_msg}\t%{DATA:warning}\t%{INT:request_body_len}\t%{INT:response_body_len}\t%{DATA:content_type}"
         ],
       "ignore_missing": true
     }

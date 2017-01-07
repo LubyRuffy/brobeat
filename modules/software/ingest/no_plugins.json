@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{DATA:ts}\t%{DATA:host}\t%{DATA:host_p}\t%{DATA:software_type}\t%{DATA:name}\t%{DATA:version}\t%{DATA:unparsed_version}\t%{DATA:force_log}\t%{DATA:url}"
+        "%{NUMBER:ts}\t%{IP:host}\t%{INT:host_p}\t%{DATA:software_type}\t%{DATA:name}\t%{INT:version.major}\t%{INT:version.minor}\t%{INT:version.minor2}\t%{INT:version.minor3}\t%{DATA:version.addl}\t%{DATA:unparsed_version}\t%{DATA:force_log}\t%{DATA:url}"
         ],
       "ignore_missing": true
     }

@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{DATA:ts}\t%{DATA:peer}\t%{DATA:mem}\t%{DATA:pkts_proc}\t%{DATA:bytes_recv}\t%{DATA:pkts_dropped}\t%{DATA:pkts_link}\t%{DATA:pkt_lag}\t%{DATA:events_proc}\t%{DATA:events_queued}\t%{DATA:active_tcp_conns}\t%{DATA:active_udp_conns}\t%{DATA:active_icmp_conns}\t%{DATA:tcp_conns}\t%{DATA:udp_conns}\t%{DATA:icmp_conns}\t%{DATA:timers}\t%{DATA:active_timers}\t%{DATA:files}\t%{DATA:active_files}\t%{DATA:dns_requests}\t%{DATA:active_dns_requests}\t%{DATA:reassem_tcp_size}\t%{DATA:reassem_file_size}\t%{DATA:reassem_frag_size}\t%{DATA:reassem_unknown_size}"
+        "%{NUMBER:ts}\t%{DATA:peer}\t%{INT:mem}\t%{INT:pkts_proc}\t%{INT:bytes_recv}\t%{INT:pkts_dropped}\t%{INT:pkts_link}\t%{DATA:pkt_lag}\t%{INT:events_proc}\t%{INT:events_queued}\t%{INT:active_tcp_conns}\t%{INT:active_udp_conns}\t%{INT:active_icmp_conns}\t%{INT:tcp_conns}\t%{INT:udp_conns}\t%{INT:icmp_conns}\t%{INT:timers}\t%{INT:active_timers}\t%{INT:files}\t%{INT:active_files}\t%{INT:dns_requests}\t%{INT:active_dns_requests}\t%{INT:reassem_tcp_size}\t%{INT:reassem_file_size}\t%{INT:reassem_frag_size}\t%{INT:reassem_unknown_size}"
         ],
       "ignore_missing": true
     }

@@ -7,88 +7,84 @@
       type: group
       fields:
         - name: ts
-          type: double
           description: >
             Time when the command was sent.
         - name: uid
-          type: text
           description: >
             Unique ID for the connection.
         - name: id.orig_h
-          type: ip
           description: >
             The originators IP address.
         - name: id.orig_p
-          type: integer
           description: >
             The originators port number.
         - name: id.resp_h
-          type: ip
           description: >
             The responders IP address.
         - name: id.resp_p
-          type: integer
           description: >
             The responders port number.
         - name: user
-          type: keyword
           description: >
             User name for the current FTP session.
         - name: password
-          type: keyword
           description: >
             Password for the current FTP session if captured.
         - name: command
-          type: keyword
           description: >
             Command given by the client.
         - name: arg
-          type: keyword
           description: >
             Argument for the command if one is given.
         - name: mime_type
-          type: keyword
           description: >
             Libmagic sniffed file type if the command indicates a file transfer.
         - name: file_size
-          type: integer
           description: >
             Size of the file if the command indicates a file transfer.
         - name: reply_code
-          type: integer
           description: >
             Reply code from the server in response to the command.
         - name: reply_msg
-          type: keyword
           description: >
             Reply message from the server in response to the command.
-        - name: data_channel
+        - name: data_channel.passive
           description: >
-            Expected FTP data channel.
+            Whether PASV mode is toggled for control channel.
+        - name: data_channel.orig_h
+          description: >
+            The host that will be initiating the data connection.
+        - name: data_channel.resp_h
+          description: >
+            The host that will be accepting the data connection.
+        - name: data_channel.resp_p
+          description: >
+            The port at which the acceptor is listening for the data connection.
         - name: cwd
-          type: keyword
           description: >
             Current working directory that this session is in.  By making the default value ., we can indicate that unless something more concrete is discovered that the existing but unknown directory is ok to use.
-        - name: cmdarg
+        - name: cmdarg.ts
           description: >
-            Command that is currently waiting for a response.
+            Time when the command was sent.
+        - name: cmdarg.cmd
+          description: >
+            Command.
+        - name: cmdarg.arg
+          description: >
+            Argument for the command if one was given.
+        - name: cmdarg.seq
+          description: >
+            Counter to track how many commands have been executed.
         - name: pending_commands
-          description: >
-            Queue for commands that have been sent but not yet responded to are tracked here.
         - name: passive
-          type: boolean
           description: >
             Indicates if the session is in active or passive mode.
         - name: capture_password
-          type: boolean
           description: >
             Determines if the password will be captured for this request.
         - name: fuid
-          type: text
           description: >
             (present if base/protocols/ftp/files.bro is loaded)
         - name: last_auth_requested
-          type: keyword
           description: >
             (present if base/protocols/ftp/gridftp.bro is loaded)
-

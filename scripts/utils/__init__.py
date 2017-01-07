@@ -2,16 +2,16 @@ import re
 from requests.compat import urljoin
 
 conn_id = [{'field': u'id.orig_h',
-            'type': 'ip',
+            'types': dict(bro='addr', elastic='ip', grok='IP'),
             'description': 'The originators IP address.'},
            {'field': u'id.orig_p',
-            'type': 'integer',
+            'types': dict(bro='port', elastic='integer', grok='INT'),
             'description': 'The originators port number.'},
            {'field': u'id.resp_h',
-            'type': 'ip',
+            'types': dict(bro='addr', elastic='ip', grok='IP'),
             'description': 'The responders IP address.'},
            {'field': u'id.resp_p',
-            'type': 'integer',
+            'types': dict(bro='port', elastic='integer', grok='INT'),
             'description': 'The responders port number.'}]
 
 
@@ -33,7 +33,15 @@ def build_url(current_url, next_url):
         return urljoin(current_url, next_url)
 
 
-def field_type_2_grok_lookup(ftype, field):
+def get_filed_types(fname, ftype):
+    return {
+        'bro': ftype,
+        'elastic': field_type_2_elastic_lookup(fname, ftype),
+        'grok': field_type_2_grok_lookup(fname, ftype),
+    }
+
+
+def field_type_2_grok_lookup(fname, ftype):
     type2grok = {
         'time': 'NUMBER',
         'count': 'INT',
@@ -50,12 +58,12 @@ def field_type_2_grok_lookup(ftype, field):
         'set': 'DATA',
         'vector': 'DATA',
     }
-    if 'uid' in field:
-        return 'NOTSPACE', field
-    return type2grok.get(ftype, 'DATA'), field
+    if 'uid' in fname:
+        return 'NOTSPACE'
+    return type2grok.get(ftype, 'DATA')
 
 
-def field_type_2_elastic_lookup(ftype, field):
+def field_type_2_elastic_lookup(fname, ftype):
     type2es = {
         'time': 'double',
         'count': 'integer',
@@ -72,7 +80,7 @@ def field_type_2_elastic_lookup(ftype, field):
         # 'set': 'DATA',
         # 'vector': 'DATA',
     }
-    if 'uid' in field:
+    if 'uid' in fname:
         return 'text'
     return type2es.get(ftype, None)
 
@@ -83,12 +91,19 @@ def doc2grok(fields):
         if field['field'] == 'id':
             converted.append('%{IP:orig_h}\\t%{INT:orig_p}\\t%{IP:resp_h}\\t%{INT:resp_p}')
         else:
-            converted.append('%%{%s:%s}' % field_type_2_grok_lookup(field['type'], field['field']))
+            converted.append('%%{%s:%s}' % (field['types']['grok'], field['field']))
     return '\\t'.join(converted)
 
 
+def get_log_grok_pattern(logtype):
+    return dict(name='BRO_' + logtype['type'].upper(), pattern=doc2grok(logtype.get('fields')))
+
+
 def is_enum(soup, dt_text):
-    p = soup.find("dt", id=dt_text).parent.find("p", {"class": "first"})
+    try:
+        p = soup.find("dt", id=dt_text).parent.find("p", {"class": "first"})
+    except:
+        p = None
     if p is not None and 'enum' in p.text:
         return True
     else:

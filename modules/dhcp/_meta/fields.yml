@@ -7,43 +7,32 @@
       type: group
       fields:
         - name: ts
-          type: double
           description: >
             The earliest time at which a DHCP message over the associated connection is observed.
         - name: uid
-          type: text
           description: >
             A unique identifier of the connection over which DHCP is occurring.
         - name: id.orig_h
-          type: ip
           description: >
             The originators IP address.
         - name: id.orig_p
-          type: integer
           description: >
             The originators port number.
         - name: id.resp_h
-          type: ip
           description: >
             The responders IP address.
         - name: id.resp_p
-          type: integer
           description: >
             The responders port number.
         - name: mac
-          type: keyword
           description: >
             Clients hardware address.
         - name: assigned_ip
-          type: ip
           description: >
             Clients actual assigned IP address.
         - name: lease_time
-          type: double
           description: >
             IP address lease interval.
         - name: trans_id
-          type: integer
           description: >
             A random number chosen by the client for this transaction.
-

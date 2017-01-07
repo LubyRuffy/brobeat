@@ -7,7 +7,34 @@
       type: group
       fields:
         - name: ts
-          type: double
-        - name: pid
-        - name: alert
-
+        - name: pid.src_ip
+        - name: pid.src_p
+        - name: pid.dst_ip
+        - name: pid.dst_p
+        - name: alert.sensor_id
+          description: >
+            Sensor that originated this event.
+        - name: alert.ts
+          description: >
+            Timestamp attached to the alert.
+        - name: alert.signature_id
+          description: >
+            Sig id for this generator.
+        - name: alert.generator_id
+          description: >
+            Which generator generated the alert?
+        - name: alert.signature_revision
+          description: >
+            Sig revision for this id.
+        - name: alert.classification_id
+          description: >
+            Event classification.
+        - name: alert.classification
+          description: >
+            Descriptive classification string.
+        - name: alert.priority_id
+          description: >
+            Event priority.
+        - name: alert.event_id
+          description: >
+            Event ID.

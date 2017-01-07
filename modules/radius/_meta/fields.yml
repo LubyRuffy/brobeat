@@ -7,51 +7,38 @@
       type: group
       fields:
         - name: ts
-          type: double
           description: >
             Timestamp for when the event happened.
         - name: uid
-          type: text
           description: >
             Unique ID for the connection.
         - name: id.orig_h
-          type: ip
           description: >
             The originators IP address.
         - name: id.orig_p
-          type: integer
           description: >
             The originators port number.
         - name: id.resp_h
-          type: ip
           description: >
             The responders IP address.
         - name: id.resp_p
-          type: integer
           description: >
             The responders port number.
         - name: username
-          type: keyword
           description: >
             The username, if present.
         - name: mac
-          type: keyword
           description: >
             MAC address, if present.
         - name: remote_ip
-          type: ip
           description: >
             Remote IP address, if present.
         - name: connect_info
-          type: keyword
           description: >
             Connect info, if present.
         - name: result
-          type: keyword
           description: >
             Successful or failed authentication.
         - name: logged
-          type: boolean
           description: >
             Whether this has already been logged and can be ignored.
-

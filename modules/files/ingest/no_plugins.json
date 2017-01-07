@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{DATA:ts}\t%{NOTSPACE:fuid}\t%{DATA:tx_hosts}\t%{DATA:rx_hosts}\t%{NOTSPACE:conn_uids}\t%{DATA:source}\t%{DATA:depth}\t%{DATA:analyzers}\t%{DATA:mime_type}\t%{DATA:filename}\t%{DATA:duration}\t%{DATA:local_orig}\t%{DATA:is_orig}\t%{DATA:seen_bytes}\t%{DATA:total_bytes}\t%{DATA:missing_bytes}\t%{DATA:overflow_bytes}\t%{DATA:timedout}\t%{NOTSPACE:parent_fuid}\t%{DATA:md5}\t%{DATA:sha1}\t%{DATA:sha256}\t%{DATA:x509}\t%{DATA:extracted}\t%{DATA:entropy}"
+        "%{NUMBER:ts}\t%{NOTSPACE:fuid}\t%{DATA:tx_hosts}\t%{DATA:rx_hosts}\t%{NOTSPACE:conn_uids}\t%{DATA:source}\t%{INT:depth}\t%{DATA:analyzers}\t%{DATA:mime_type}\t%{DATA:filename}\t%{DATA:duration}\t%{DATA:local_orig}\t%{DATA:is_orig}\t%{INT:seen_bytes}\t%{INT:total_bytes}\t%{INT:missing_bytes}\t%{INT:overflow_bytes}\t%{DATA:timedout}\t%{NOTSPACE:parent_fuid}\t%{DATA:md5}\t%{DATA:sha1}\t%{DATA:sha256}\t%{DATA:x509}\t%{DATA:extracted}\t%{DATA:entropy}"
         ],
       "ignore_missing": true
     }

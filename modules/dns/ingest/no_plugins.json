@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:proto}\t%{DATA:trans_id}\t%{DATA:rtt}\t%{DATA:query}\t%{DATA:qclass}\t%{DATA:qclass_name}\t%{DATA:qtype}\t%{DATA:qtype_name}\t%{DATA:rcode}\t%{DATA:rcode_name}\t%{DATA:AA}\t%{DATA:TC}\t%{DATA:RD}\t%{DATA:RA}\t%{DATA:Z}\t%{DATA:answers}\t%{DATA:TTLs}\t%{DATA:rejected}\t%{DATA:total_answers}\t%{DATA:total_replies}\t%{DATA:saw_query}\t%{DATA:saw_reply}\t%{DATA:auth}\t%{DATA:addl}"
+        "%{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:id.orig_h}\t%{INT:id.orig_p}\t%{IP:id.resp_h}\t%{INT:id.resp_p}\t%{WORD:proto}\t%{INT:trans_id}\t%{DATA:rtt}\t%{DATA:query}\t%{INT:qclass}\t%{DATA:qclass_name}\t%{INT:qtype}\t%{DATA:qtype_name}\t%{INT:rcode}\t%{DATA:rcode_name}\t%{DATA:AA}\t%{DATA:TC}\t%{DATA:RD}\t%{DATA:RA}\t%{INT:Z}\t%{DATA:answers}\t%{DATA:TTLs}\t%{DATA:rejected}\t%{INT:total_answers}\t%{INT:total_replies}\t%{DATA:saw_query}\t%{DATA:saw_reply}\t%{DATA:auth}\t%{DATA:addl}"
         ],
       "ignore_missing": true
     }

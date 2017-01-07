@@ -7,57 +7,42 @@
       type: group
       fields:
         - name: ts
-          type: double
           description: >
             Time when the proxy connection was first detected.
         - name: uid
-          type: text
           description: >
             Unique ID for the tunnel - may correspond to connection uid or be non-existent.
         - name: id.orig_h
-          type: ip
           description: >
             The originators IP address.
         - name: id.orig_p
-          type: integer
           description: >
             The originators port number.
         - name: id.resp_h
-          type: ip
           description: >
             The responders IP address.
         - name: id.resp_p
-          type: integer
           description: >
             The responders port number.
         - name: version
-          type: integer
           description: >
             Protocol version of SOCKS.
         - name: user
-          type: keyword
           description: >
             Username used to request a login to the proxy.
         - name: password
-          type: keyword
           description: >
             Password used to request a login to the proxy.
         - name: status
-          type: keyword
           description: >
             Server status for the attempt at using the proxy.
-        - name: request
-          description: >
-            Client requested SOCKS address. Could be an address, a name or both.
+        - name: request.host
+        - name: request.name
         - name: request_p
-          type: integer
           description: >
             Client requested port.
-        - name: bound
-          description: >
-            Server bound address. Could be an address, a name or both.
+        - name: bound.host
+        - name: bound.name
         - name: bound_p
-          type: integer
           description: >
             Server bound port.
-

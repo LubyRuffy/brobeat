@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{DATA:ts}\t%{NOTSPACE:uid}\t%{DATA:id.orig_h}\t%{DATA:id.orig_p}\t%{DATA:id.resp_h}\t%{DATA:id.resp_p}\t%{DATA:duration}\t%{DATA:version}\t%{DATA:community}\t%{DATA:get_requests}\t%{DATA:get_bulk_requests}\t%{DATA:get_responses}\t%{DATA:set_requests}\t%{DATA:display_string}\t%{DATA:up_since}"
+        "%{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:id.orig_h}\t%{INT:id.orig_p}\t%{IP:id.resp_h}\t%{INT:id.resp_p}\t%{DATA:duration}\t%{DATA:version}\t%{DATA:community}\t%{INT:get_requests}\t%{INT:get_bulk_requests}\t%{INT:get_responses}\t%{INT:set_requests}\t%{DATA:display_string}\t%{NUMBER:up_since}"
         ],
       "ignore_missing": true
     }

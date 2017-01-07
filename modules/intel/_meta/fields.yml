@@ -7,48 +7,56 @@
       type: group
       fields:
         - name: ts
-          type: double
           description: >
             Timestamp when the data was discovered.
         - name: uid
-          type: text
           description: >
             If a connection was associated with this intelligence hit, this is the uid for the connection
         - name: id.orig_h
-          type: ip
           description: >
             The originators IP address.
         - name: id.orig_p
-          type: integer
           description: >
             The originators port number.
         - name: id.resp_h
-          type: ip
           description: >
             The responders IP address.
         - name: id.resp_p
-          type: integer
           description: >
             The responders port number.
-        - name: seen
+        - name: seen.indicator
           description: >
-            Where the data was seen.
+            The string if the data is about a string.
+        - name: seen.indicator_type
+        - name: seen.host
+          description: >
+            If the indicator type was Intel::ADDR, then this field will be present.
+        - name: seen.where
+        - name: seen.node
+          description: >
+            The name of the node where the match was discovered.
+        - name: seen.conn
+          description: >
+            If the data was discovered within a connection, the connection record should go here to give context to the data.
+        - name: seen.uid
+          description: >
+            If the data was discovered within a connection, the connection uid should go here to give context to the data. If the conn field is provided, this will be automatically filled out.
+        - name: seen.f
+          description: >
+            (present if base/frameworks/intel/files.bro is loaded)
+        - name: seen.fuid
+          description: >
+            (present if base/frameworks/intel/files.bro is loaded)
         - name: matched
-          description: >
-            Which indicator types matched.
         - name: sources
           description: >
             Sources which supplied data that resulted in this match.
         - name: fuid
-          type: text
           description: >
             (present if base/frameworks/intel/files.bro is loaded)
         - name: file_mime_type
-          type: keyword
           description: >
             (present if base/frameworks/intel/files.bro is loaded)
         - name: file_desc
-          type: keyword
           description: >
             (present if base/frameworks/intel/files.bro is loaded)
-

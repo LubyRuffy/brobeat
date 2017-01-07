@@ -7,11 +7,8 @@
       type: group
       fields:
         - name: ts
-          type: double
           description: >
             The time at which a cluster message was generated.
         - name: message
-          type: keyword
           description: >
             A message indicating information about the clusters operation.
-

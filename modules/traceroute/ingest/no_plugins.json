@@ -4,7 +4,7 @@
     "grok": {
       "field": "message",
       "patterns":[
-        "%{DATA:ts}\t%{DATA:src}\t%{DATA:dst}\t%{DATA:proto}"
+        "%{NUMBER:ts}\t%{IP:src}\t%{IP:dst}\t%{DATA:proto}"
         ],
       "ignore_missing": true
     }
