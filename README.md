@@ -26,7 +26,7 @@ $ ./brobeat -e -c brobeat.yml
 ### TODO
 
 -	[ ] Fix logstash pattern file generation
--	[x] Ask logstash people for help on ingest pipelines/grok patterns
+-	[x] Ask logstash people for help on ingest pipelines/grok patterns [LINK](https://discuss.elastic.co/t/logstash-patterns-core-bro--not-working/70595?u=blacktop)
 -	[ ] Pull in filebeat code to watch a folder for `*.log` files
 -	[ ] Create some cool dashboards
 
