@@ -38,3 +38,6 @@ data/.state
 *.pcap
 
 _meta/fields.generated.yml
+data/completed
+
+nohup.out

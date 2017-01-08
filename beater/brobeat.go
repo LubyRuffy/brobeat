@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 	"time"
 
 	"github.com/fsnotify/fsnotify"
@@ -51,8 +52,18 @@ func (bt *Brobeat) Run(b *beat.Beat) error {
 		logp.Err("error: folder does not exist.")
 		return nil
 	}
+
 	// Check that path is a folder and not a file
 	if info.IsDir() {
+
+		// Create completed directory in path if it doesn't exist
+		if _, err := os.Stat(filepath.Join(path, "completed")); os.IsNotExist(err) {
+			err := os.Mkdir(filepath.Join(path, "completed"), os.ModePerm)
+			if err != nil {
+				log.Fatal(err)
+			}
+		}
+
 		watcher, err := fsnotify.NewWatcher()
 		if err != nil {
 			log.Fatal(err)
@@ -66,6 +77,8 @@ func (bt *Brobeat) Run(b *beat.Beat) error {
 
 		for {
 			select {
+			case <-bt.done:
+				return nil
 			case event := <-watcher.Events:
 				if event.Op&fsnotify.Chmod == fsnotify.Chmod {
 					logp.Info("Created file:", event.Name)
@@ -80,7 +93,7 @@ func (bt *Brobeat) Run(b *beat.Beat) error {
 					bro := ParseLogFile(event.Name)
 
 					for _, log := range bro.Logs {
-						fmt.Println(log)
+						logp.Debug("beater", "log: %#v", log)
 						event := common.MapStr{
 							"@timestamp":  common.Time(time.Now()),
 							"type":        b.Name,
@@ -94,7 +107,7 @@ func (bt *Brobeat) Run(b *beat.Beat) error {
 								if err != nil {
 									return err
 								}
-								fmt.Println(time)
+								logp.Debug("beater", "time: %s", time)
 								event["@timestamp"] = common.Time(time)
 							}
 							// don't output fields with '-' values
@@ -109,8 +122,6 @@ func (bt *Brobeat) Run(b *beat.Beat) error {
 				}
 			case err = <-watcher.Errors:
 				logp.Err("error:", err)
-			case <-bt.done:
-				return nil
 			}
 		}
 	} else {

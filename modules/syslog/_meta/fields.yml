@@ -7,32 +7,42 @@
       type: group
       fields:
         - name: ts
+          type: double
           description: >
             Timestamp when the syslog message was seen.
         - name: uid
+          type: text
           description: >
             Unique ID for the connection.
         - name: id.orig_h
+          type: ip
           description: >
             The originators IP address.
         - name: id.orig_p
+          type: integer
           description: >
             The originators port number.
         - name: id.resp_h
+          type: ip
           description: >
             The responders IP address.
         - name: id.resp_p
+          type: integer
           description: >
             The responders port number.
         - name: proto
+          type: keyword
           description: >
             Protocol over which the message was seen.
         - name: facility
+          type: keyword
           description: >
             Syslog facility for the message.
         - name: severity
+          type: keyword
           description: >
             Syslog severity for the message.
         - name: message
+          type: keyword
           description: >
             The plain text message.

@@ -7,9 +7,11 @@
       type: group
       fields:
         - name: ts
+          type: double
           description: >
             The time the device was discovered.
         - name: host
+          type: ip
           description: >
             The IP address of the host.
         - name: device_type

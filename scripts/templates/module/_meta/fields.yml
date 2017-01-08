@@ -10,8 +10,8 @@
       fields:
         {%- for field in fields %}
         - name: {{ field["field"]|string }}
-          {%- if field.type %}
-          type: {{ field["types"]["elastic"]|string }}
+          {%- if field["types"].elastic %}
+          type: {{ field["types"].elastic|string }}
           {%- endif %}
           {%- if field.description %}
           description: >

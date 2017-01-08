@@ -1,18 +1,34 @@
 import re
 from requests.compat import urljoin
 
-conn_id = [{'field': u'id.orig_h',
-            'types': dict(bro='addr', elastic='ip', grok='IP'),
-            'description': 'The originators IP address.'},
-           {'field': u'id.orig_p',
-            'types': dict(bro='port', elastic='integer', grok='INT'),
-            'description': 'The originators port number.'},
-           {'field': u'id.resp_h',
-            'types': dict(bro='addr', elastic='ip', grok='IP'),
-            'description': 'The responders IP address.'},
-           {'field': u'id.resp_p',
-            'types': dict(bro='port', elastic='integer', grok='INT'),
-            'description': 'The responders port number.'}]
+
+def add_conn_id(prefix=None):
+    if prefix is None:
+        return [{'field': u'id.orig_h',
+                 'types': dict(bro='addr', elastic='ip', grok='IP'),
+                 'description': 'The originators IP address.'},
+                {'field': u'id.orig_p',
+                 'types': dict(bro='port', elastic='integer', grok='INT'),
+                 'description': 'The originators port number.'},
+                {'field': u'id.resp_h',
+                 'types': dict(bro='addr', elastic='ip', grok='IP'),
+                 'description': 'The responders IP address.'},
+                {'field': u'id.resp_p',
+                 'types': dict(bro='port', elastic='integer', grok='INT'),
+                 'description': 'The responders port number.'}]
+    else:
+        return [{'field': prefix + '.id.orig_h',
+                 'types': dict(bro='addr', elastic='ip', grok='IP'),
+                 'description': 'The originators IP address.'},
+                {'field': prefix + '.id.orig_p',
+                 'types': dict(bro='port', elastic='integer', grok='INT'),
+                 'description': 'The originators port number.'},
+                {'field': prefix + '.id.resp_h',
+                 'types': dict(bro='addr', elastic='ip', grok='IP'),
+                 'description': 'The responders IP address.'},
+                {'field': prefix + '.id.resp_p',
+                 'types': dict(bro='port', elastic='integer', grok='INT'),
+                 'description': 'The responders port number.'}]
 
 
 def is_url(url):

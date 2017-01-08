@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 	"strconv"
 	"strings"
 	"time"
@@ -190,5 +191,14 @@ func ParseLogFile(filePath string) BroLogs {
 		}
 		logs.Logs = append(logs.Logs, broLine)
 	}
+
+	// move parsed log to the completed folder
+	basePath := filepath.Dir(filePath)
+	fileName := filepath.Base(filePath)
+	err = os.Rename(filePath, filepath.Join(basePath, "completed", fileName))
+	if err != nil {
+		log.Fatalf("error moving completed log: %v", err)
+	}
+
 	return logs
 }

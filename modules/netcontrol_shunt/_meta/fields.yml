@@ -7,17 +7,21 @@
       type: group
       fields:
         - name: ts
+          type: double
           description: >
             Time at which the recorded activity occurred.
         - name: rule_id
+          type: keyword
           description: >
             ID of the rule; unique during each Bro run.
         - name: f
           description: >
             Flow ID of the shunted flow.
         - name: expire
+          type: double
           description: >
             Expiry time of the shunt.
         - name: location
+          type: keyword
           description: >
             Location where the underlying action was triggered.

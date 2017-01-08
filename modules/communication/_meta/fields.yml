@@ -7,26 +7,34 @@
       type: group
       fields:
         - name: ts
+          type: double
           description: >
             The network time at which a communication event occurred.
         - name: peer
+          type: keyword
           description: >
             The peer name (if any) with which a communication event is concerned.
         - name: src_name
+          type: keyword
           description: >
             Where the communication event message originated from, that is, either from the scripting layer or inside the Bro process.
         - name: connected_peer_desc
+          type: keyword
           description: >
             Todo
         - name: connected_peer_addr
+          type: ip
           description: >
             Todo
         - name: connected_peer_port
+          type: integer
           description: >
             Todo
         - name: level
+          type: keyword
           description: >
             The severity of the communication event message.
         - name: message
+          type: keyword
           description: >
             A message describing the communication event between Bro or Broccoli instances.

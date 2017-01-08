@@ -1,5 +1,4 @@
 # BRO-DOC-GENERATED patterns
-# license: Apache License (Version 2.0)
 # author: blacktop
 # https://www.bro.org/sphinx/script-reference/log-files.html
 
@@ -55,7 +54,7 @@ BRO_RFB %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:id.orig_h}\t%{INT:id.orig_p}\t%{IP:i
 BRO_SIP %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:id.orig_h}\t%{INT:id.orig_p}\t%{IP:id.resp_h}\t%{INT:id.resp_p}\t%{INT:trans_depth}\t%{DATA:method}\t%{DATA:uri}\t%{DATA:date}\t%{DATA:request_from}\t%{DATA:request_to}\t%{DATA:response_from}\t%{DATA:response_to}\t%{DATA:reply_to}\t%{DATA:call_id}\t%{DATA:seq}\t%{DATA:subject}\t%{DATA:request_path}\t%{DATA:response_path}\t%{DATA:user_agent}\t%{INT:status_code}\t%{DATA:status_msg}\t%{DATA:warning}\t%{INT:request_body_len}\t%{INT:response_body_len}\t%{DATA:content_type}
 
 # smb_cmd.log
-BRO_SMB_CMD %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:id.orig_h}\t%{INT:id.orig_p}\t%{IP:id.resp_h}\t%{INT:id.resp_p}\t%{DATA:command}\t%{DATA:sub_command}\t%{DATA:argument}\t%{DATA:status}\t%{DATA:rtt}\t%{DATA:version}\t%{DATA:username}\t%{DATA:tree}\t%{DATA:tree_service}\t%{NUMBER:referenced_file.ts}\t%{NOTSPACE:referenced_file.uid}\t%{NOTSPACE:referenced_file.id}\t%{NOTSPACE:referenced_file.fuid}\t%{DATA:referenced_file.action}\t%{DATA:referenced_file.path}\t%{DATA:referenced_file.name}\t%{INT:referenced_file.size}\t%{DATA:referenced_file.prev_name}\t%{NUMBER:referenced_file.times.modified}\t%{NUMBER:referenced_file.times.accessed}\t%{NUMBER:referenced_file.times.created}\t%{NUMBER:referenced_file.times.changed}\t%{INT:referenced_file.fid}\t%{NOTSPACE:referenced_file.uuid}\t%{NUMBER:referenced_tree.ts}\t%{NOTSPACE:referenced_tree.uid}\t%{NOTSPACE:referenced_tree.id}\t%{DATA:referenced_tree.path}\t%{DATA:referenced_tree.service}\t%{DATA:referenced_tree.native_file_system}\t%{DATA:referenced_tree.share_type}\t%{DATA:smb1_offered_dialects}\t%{DATA:smb2_offered_dialects}
+BRO_SMB_CMD %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:id.orig_h}\t%{INT:id.orig_p}\t%{IP:id.resp_h}\t%{INT:id.resp_p}\t%{DATA:command}\t%{DATA:sub_command}\t%{DATA:argument}\t%{DATA:status}\t%{DATA:rtt}\t%{DATA:version}\t%{DATA:username}\t%{DATA:tree}\t%{DATA:tree_service}\t%{NUMBER:referenced_file.ts}\t%{NOTSPACE:referenced_file.uid}\t%{IP:referenced_file.id.orig_h}\t%{INT:referenced_file.id.orig_p}\t%{IP:referenced_file.id.resp_h}\t%{INT:referenced_file.id.resp_p}\t%{NOTSPACE:referenced_file.fuid}\t%{DATA:referenced_file.action}\t%{DATA:referenced_file.path}\t%{DATA:referenced_file.name}\t%{INT:referenced_file.size}\t%{DATA:referenced_file.prev_name}\t%{NUMBER:referenced_file.times.modified}\t%{NUMBER:referenced_file.times.accessed}\t%{NUMBER:referenced_file.times.created}\t%{NUMBER:referenced_file.times.changed}\t%{INT:referenced_file.fid}\t%{NOTSPACE:referenced_file.uuid}\t%{NUMBER:referenced_tree.ts}\t%{NOTSPACE:referenced_tree.uid}\t%{IP:referenced_tree.id.orig_h}\t%{INT:referenced_tree.id.orig_p}\t%{IP:referenced_tree.id.resp_h}\t%{INT:referenced_tree.id.resp_p}\t%{DATA:referenced_tree.path}\t%{DATA:referenced_tree.service}\t%{DATA:referenced_tree.native_file_system}\t%{DATA:referenced_tree.share_type}\t%{DATA:smb1_offered_dialects}\t%{DATA:smb2_offered_dialects}
 
 # smb_files.log
 BRO_SMB_FILES %{NUMBER:ts}\t%{NOTSPACE:uid}\t%{IP:id.orig_h}\t%{INT:id.orig_p}\t%{IP:id.resp_h}\t%{INT:id.resp_p}\t%{NOTSPACE:fuid}\t%{DATA:action}\t%{DATA:path}\t%{DATA:name}\t%{INT:size}\t%{DATA:prev_name}\t%{NUMBER:times.modified}\t%{NUMBER:times.accessed}\t%{NUMBER:times.created}\t%{NUMBER:times.changed}\t%{INT:fid}\t%{NOTSPACE:uuid}
@@ -181,3 +180,5 @@ BRO_STATS %{NUMBER:ts}\t%{DATA:peer}\t%{INT:mem}\t%{INT:pkts_proc}\t%{INT:bytes_
 
 
 # stdout.log
+
+

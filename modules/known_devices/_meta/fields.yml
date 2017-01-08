@@ -7,11 +7,14 @@
       type: group
       fields:
         - name: ts
+          type: double
           description: >
             The timestamp at which the host was detected.
         - name: mac
+          type: keyword
           description: >
             The MAC address that was detected.
         - name: dhcp_host_name
+          type: keyword
           description: >
             (present if policy/protocols/dhcp/known-devices-and-hostnames.bro is loaded)

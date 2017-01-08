@@ -7,8 +7,10 @@
       type: group
       fields:
         - name: ts
+          type: double
           description: >
             The timestamp at which the host was detected.
         - name: host
+          type: ip
           description: >
             The address that was detected originating or responding to a TCP connection.
