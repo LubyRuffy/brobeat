@@ -38,3 +38,9 @@ data/.state
 *.pcap
 
 _meta/fields.generated.yml
+
+debug
+
+.vscode
+
+logs/brobeat*
