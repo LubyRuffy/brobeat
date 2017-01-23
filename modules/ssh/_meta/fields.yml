@@ -7,56 +7,73 @@
       type: group
       fields:
         - name: ts
+          type: double
           description: >
             Time when the SSH connection began.
         - name: uid
+          type: text
           description: >
             Unique ID for the connection.
         - name: id.orig_h
+          type: ip
           description: >
             The originators IP address.
         - name: id.orig_p
+          type: integer
           description: >
             The originators port number.
         - name: id.resp_h
+          type: ip
           description: >
             The responders IP address.
         - name: id.resp_p
+          type: integer
           description: >
             The responders port number.
         - name: version
+          type: integer
           description: >
             SSH major version (1 or 2)
         - name: auth_success
+          type: boolean
           description: >
             Authentication result (T=success, F=failure, unset=unknown)
         - name: auth_attempts
+          type: integer
           description: >
             The number of authentication attemps we observed. Theres always at least one, since some servers might support no authentication at all. Its important to note that not all of these are failures, since some servers require two-factor auth (e.g. password AND pubkey)
         - name: direction
           description: >
             Direction of the connection. If the client was a local host logging into an external host, this would be OUTBOUND. INBOUND would be set for the opposite situation.
         - name: client
+          type: keyword
           description: >
             The clients version string
         - name: server
+          type: keyword
           description: >
             The servers version string
         - name: cipher_alg
+          type: keyword
           description: >
             The encryption algorithm in use
         - name: mac_alg
+          type: keyword
           description: >
             The signing (MAC) algorithm in use
         - name: compression_alg
+          type: keyword
           description: >
             The compression algorithm in use
         - name: kex_alg
+          type: keyword
           description: >
             The key exchange algorithm in use
         - name: host_key_alg
+          type: keyword
           description: >
             The server host keys algorithm
         - name: host_key
+          type: keyword
           description: >
             The servers key fingerprint

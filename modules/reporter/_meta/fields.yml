@@ -7,12 +7,15 @@
       type: group
       fields:
         - name: ts
+          type: double
           description: >
             The network time at which the reporter event was generated.
         - name: level
         - name: message
+          type: keyword
           description: >
             An info/warning/error message that could have either been generated from the internal Bro core or at the scripting-layer.
         - name: location
+          type: keyword
           description: >
             This is the location in a Bro script where the message originated. Not all reporter messages will have locations in them though.

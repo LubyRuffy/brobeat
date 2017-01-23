@@ -7,47 +7,62 @@
       type: group
       fields:
         - name: ts
+          type: double
           description: >
             Timestamp when the command was seen.
         - name: uid
+          type: text
           description: >
             Unique ID for the connection.
         - name: id.orig_h
+          type: ip
           description: >
             The originators IP address.
         - name: id.orig_p
+          type: integer
           description: >
             The originators port number.
         - name: id.resp_h
+          type: ip
           description: >
             The responders IP address.
         - name: id.resp_p
+          type: integer
           description: >
             The responders port number.
         - name: nick
+          type: keyword
           description: >
             Nickname given for the connection.
         - name: user
+          type: keyword
           description: >
             Username given for the connection.
         - name: command
+          type: keyword
           description: >
             Command given by the client.
         - name: value
+          type: keyword
           description: >
             Value for the command given by the client.
         - name: addl
+          type: keyword
           description: >
             Any additional data for the command.
         - name: dcc_file_name
+          type: keyword
           description: >
             (present if base/protocols/irc/dcc-send.bro is loaded)
         - name: dcc_file_size
+          type: integer
           description: >
             (present if base/protocols/irc/dcc-send.bro is loaded)
         - name: dcc_mime_type
+          type: keyword
           description: >
             (present if base/protocols/irc/dcc-send.bro is loaded)
         - name: fuid
+          type: text
           description: >
             (present if base/protocols/irc/files.bro is loaded)

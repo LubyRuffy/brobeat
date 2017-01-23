@@ -7,70 +7,92 @@
       type: group
       fields:
         - name: ts
+          type: double
           description: >
             Timestamp for when the event happened.
         - name: uid
+          type: text
           description: >
             Unique ID for the connection.
         - name: id.orig_h
+          type: ip
           description: >
             The originators IP address.
         - name: id.orig_p
+          type: integer
           description: >
             The originators port number.
         - name: id.resp_h
+          type: ip
           description: >
             The responders IP address.
         - name: id.resp_p
+          type: integer
           description: >
             The responders port number.
         - name: request_type
+          type: keyword
           description: >
             Request type - Authentication Service (AS) or Ticket Granting Service (TGS)
         - name: client
+          type: keyword
           description: >
             Client
         - name: service
+          type: keyword
           description: >
             Service
         - name: success
+          type: boolean
           description: >
             Request result
         - name: error_code
+          type: integer
           description: >
             Error code
         - name: error_msg
+          type: keyword
           description: >
             Error message
         - name: from
+          type: double
           description: >
             Ticket valid from
         - name: till
+          type: double
           description: >
             Ticket valid till
         - name: cipher
+          type: keyword
           description: >
             Ticket encryption type
         - name: forwardable
+          type: boolean
           description: >
             Forwardable ticket requested
         - name: renewable
+          type: boolean
           description: >
             Renewable ticket requested
         - name: logged
+          type: boolean
           description: >
             Weve already logged this
         - name: client_cert
         - name: client_cert_subject
+          type: keyword
           description: >
             (present if base/protocols/krb/files.bro is loaded)
         - name: client_cert_fuid
+          type: text
           description: >
             (present if base/protocols/krb/files.bro is loaded)
         - name: server_cert
         - name: server_cert_subject
+          type: keyword
           description: >
             (present if base/protocols/krb/files.bro is loaded)
         - name: server_cert_fuid
+          type: text
           description: >
             (present if base/protocols/krb/files.bro is loaded)

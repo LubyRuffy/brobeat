@@ -7,54 +7,71 @@
       type: group
       fields:
         - name: ts
+          type: double
           description: >
             Time when the file was first discovered.
         - name: uid
+          type: text
           description: >
             Unique ID of the connection the file was sent over.
         - name: id.orig_h
+          type: ip
           description: >
             The originators IP address.
         - name: id.orig_p
+          type: integer
           description: >
             The originators port number.
         - name: id.resp_h
+          type: ip
           description: >
             The responders IP address.
         - name: id.resp_p
+          type: integer
           description: >
             The responders port number.
         - name: fuid
+          type: text
           description: >
             Unique ID of the file.
         - name: action
         - name: path
+          type: keyword
           description: >
             Path pulled from the tree this file was transferred to or from.
         - name: name
+          type: keyword
           description: >
             Filename if one was seen.
         - name: size
+          type: integer
           description: >
             Total size of the file.
         - name: prev_name
+          type: keyword
           description: >
             If the rename action was seen, this will be the files previous name.
         - name: times.modified
+          type: double
           description: >
             The time when data was last written to the file.
         - name: times.accessed
+          type: double
           description: >
             The time when the file was last accessed.
         - name: times.created
+          type: double
           description: >
             The time the file was created.
         - name: times.changed
+          type: double
           description: >
             The time when the file was last modified.
         - name: fid
+          type: integer
           description: >
             ID referencing this file.
         - name: uuid
+          type: text
           description: >
             UUID referencing this file if DCE/RPC.

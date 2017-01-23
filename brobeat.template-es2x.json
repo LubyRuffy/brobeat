@@ -35,44 +35,28 @@
                   "type": "string"
                 },
                 "classification_id": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "event_id": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "generator_id": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "priority_id": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "sensor_id": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "signature_id": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "signature_revision": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "ts": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "double"
                 }
               }
             },
@@ -84,9 +68,7 @@
                   "type": "string"
                 },
                 "dst_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "src_ip": {
                   "ignore_above": 1024,
@@ -94,16 +76,12 @@
                   "type": "string"
                 },
                 "src_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             }
           }
         },
@@ -129,14 +107,10 @@
         "capture_loss": {
           "properties": {
             "acks": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "gaps": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "peer": {
               "ignore_above": 1024,
@@ -144,19 +118,13 @@
               "type": "string"
             },
             "percent_lost": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "ts_delta": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             }
           }
         },
@@ -168,9 +136,7 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             }
           }
         },
@@ -187,9 +153,7 @@
               "type": "string"
             },
             "connected_peer_port": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "level": {
               "ignore_above": 1024,
@@ -212,9 +176,7 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             }
           }
         },
@@ -226,9 +188,7 @@
               "type": "string"
             },
             "duration": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "history": {
               "ignore_above": 1024,
@@ -243,9 +203,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -253,41 +211,27 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
             "inner_vlan": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "local_orig": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "local_resp": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "missed_bytes": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "orig_bytes": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "orig_ip_bytes": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "orig_l2_addr": {
               "ignore_above": 1024,
@@ -295,9 +239,7 @@
               "type": "string"
             },
             "orig_pkts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "proto": {
               "ignore_above": 1024,
@@ -305,14 +247,10 @@
               "type": "string"
             },
             "resp_bytes": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "resp_ip_bytes": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "resp_l2_addr": {
               "ignore_above": 1024,
@@ -320,9 +258,7 @@
               "type": "string"
             },
             "resp_pkts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "service": {
               "ignore_above": 1024,
@@ -330,9 +266,7 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "tunnel_parents": {
               "ignore_above": 1024,
@@ -340,14 +274,14 @@
               "type": "string"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "vlan": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             }
           }
         },
@@ -369,9 +303,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -379,9 +311,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -396,18 +326,16 @@
               "type": "string"
             },
             "rtt": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             }
           }
@@ -427,9 +355,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -437,16 +363,12 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
             "lease_time": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "mac": {
               "ignore_above": 1024,
@@ -454,18 +376,16 @@
               "type": "string"
             },
             "trans_id": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             }
           }
@@ -490,9 +410,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -500,25 +418,21 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
             "iin": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             }
           }
@@ -526,24 +440,16 @@
         "dns": {
           "properties": {
             "AA": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "RA": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "RD": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "TC": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "TTLs": {
               "ignore_above": 1024,
@@ -551,9 +457,7 @@
               "type": "string"
             },
             "Z": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "addl": {
               "ignore_above": 1024,
@@ -578,9 +482,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -588,9 +490,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -600,9 +500,7 @@
               "type": "string"
             },
             "qclass": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "qclass_name": {
               "ignore_above": 1024,
@@ -610,9 +508,7 @@
               "type": "string"
             },
             "qtype": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "qtype_name": {
               "ignore_above": 1024,
@@ -625,9 +521,7 @@
               "type": "string"
             },
             "rcode": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "rcode_name": {
               "ignore_above": 1024,
@@ -635,48 +529,34 @@
               "type": "string"
             },
             "rejected": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "rtt": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "saw_query": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "saw_reply": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "total_answers": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "total_replies": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "trans_id": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             }
           }
@@ -706,9 +586,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -716,9 +594,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -733,13 +609,13 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             }
           }
@@ -752,24 +628,20 @@
               "type": "string"
             },
             "conn_uids": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "depth": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "duration": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "entropy": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "extracted": {
               "ignore_above": 1024,
@@ -782,19 +654,17 @@
               "type": "string"
             },
             "fuid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "is_orig": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "local_orig": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "md5": {
               "ignore_above": 1024,
@@ -807,18 +677,16 @@
               "type": "string"
             },
             "missing_bytes": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "overflow_bytes": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "parent_fuid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "rx_hosts": {
@@ -827,9 +695,7 @@
               "type": "string"
             },
             "seen_bytes": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "sha1": {
               "ignore_above": 1024,
@@ -847,19 +713,13 @@
               "type": "string"
             },
             "timedout": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "total_bytes": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "tx_hosts": {
               "ignore_above": 1024,
@@ -881,9 +741,7 @@
               "type": "string"
             },
             "capture_password": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "cmdarg": {
               "properties": {
@@ -898,14 +756,10 @@
                   "type": "string"
                 },
                 "seq": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "ts": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "double"
                 }
               }
             },
@@ -927,9 +781,7 @@
                   "type": "string"
                 },
                 "passive": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "boolean"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -937,20 +789,18 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
             "file_size": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "fuid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "id": {
@@ -961,9 +811,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -971,9 +819,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -988,9 +834,7 @@
               "type": "string"
             },
             "passive": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "password": {
               "ignore_above": 1024,
@@ -1003,9 +847,7 @@
               "type": "string"
             },
             "reply_code": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "reply_msg": {
               "ignore_above": 1024,
@@ -1013,13 +855,13 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "user": {
@@ -1032,9 +874,7 @@
         "http": {
           "properties": {
             "capture_password": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "client_header_names": {
               "ignore_above": 1024,
@@ -1073,9 +913,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -1083,16 +921,12 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
             "info_code": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "info_msg": {
               "ignore_above": 1024,
@@ -1105,9 +939,7 @@
               "type": "string"
             },
             "omniture": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "orig_filenames": {
               "ignore_above": 1024,
@@ -1115,14 +947,14 @@
               "type": "string"
             },
             "orig_fuids": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "orig_mime_depth": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "orig_mime_types": {
               "ignore_above": 1024,
@@ -1140,9 +972,7 @@
               "type": "string"
             },
             "range_request": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "referrer": {
               "ignore_above": 1024,
@@ -1150,9 +980,7 @@
               "type": "string"
             },
             "request_body_len": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "resp_filenames": {
               "ignore_above": 1024,
@@ -1160,14 +988,14 @@
               "type": "string"
             },
             "resp_fuids": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "resp_mime_depth": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "resp_mime_types": {
               "ignore_above": 1024,
@@ -1175,9 +1003,7 @@
               "type": "string"
             },
             "response_body_len": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "server_header_names": {
               "ignore_above": 1024,
@@ -1185,9 +1011,7 @@
               "type": "string"
             },
             "status_code": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "status_msg": {
               "ignore_above": 1024,
@@ -1200,18 +1024,16 @@
               "type": "string"
             },
             "trans_depth": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "uri": {
@@ -1254,8 +1076,10 @@
               "type": "string"
             },
             "fuid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "id": {
@@ -1266,9 +1090,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -1276,9 +1098,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -1300,8 +1120,10 @@
                   "type": "string"
                 },
                 "fuid": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
+                  "index": "analyzed",
+                  "norms": {
+                    "enabled": false
+                  },
                   "type": "string"
                 },
                 "host": {
@@ -1325,8 +1147,10 @@
                   "type": "string"
                 },
                 "uid": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
+                  "index": "analyzed",
+                  "norms": {
+                    "enabled": false
+                  },
                   "type": "string"
                 },
                 "where": {
@@ -1342,13 +1166,13 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             }
           }
@@ -1371,9 +1195,7 @@
               "type": "string"
             },
             "dcc_file_size": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "dcc_mime_type": {
               "ignore_above": 1024,
@@ -1381,8 +1203,10 @@
               "type": "string"
             },
             "fuid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "id": {
@@ -1393,9 +1217,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -1403,9 +1225,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -1415,13 +1235,13 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "user": {
@@ -1454,8 +1274,10 @@
               "type": "string"
             },
             "client_cert_fuid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "client_cert_subject": {
@@ -1464,9 +1286,7 @@
               "type": "string"
             },
             "error_code": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "error_msg": {
               "ignore_above": 1024,
@@ -1474,14 +1294,10 @@
               "type": "string"
             },
             "forwardable": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "from": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "id": {
               "properties": {
@@ -1491,9 +1307,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -1501,21 +1315,15 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
             "logged": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "renewable": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "request_type": {
               "ignore_above": 1024,
@@ -1528,8 +1336,10 @@
               "type": "string"
             },
             "server_cert_fuid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "server_cert_subject": {
@@ -1543,23 +1353,19 @@
               "type": "string"
             },
             "success": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "till": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             }
           }
@@ -1577,9 +1383,7 @@
               "type": "string"
             },
             "port_num": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "serial": {
               "ignore_above": 1024,
@@ -1592,9 +1396,7 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             }
           }
         },
@@ -1611,9 +1413,7 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             }
           }
         },
@@ -1625,9 +1425,7 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             }
           }
         },
@@ -1644,9 +1442,7 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             }
           }
         },
@@ -1658,9 +1454,7 @@
               "type": "string"
             },
             "port_num": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "port_proto": {
               "ignore_above": 1024,
@@ -1673,9 +1467,7 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             }
           }
         },
@@ -1758,9 +1550,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -1768,25 +1558,21 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
             "track_address": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             }
           }
@@ -1794,9 +1580,7 @@
         "modbus_register_change": {
           "properties": {
             "delta": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "id": {
               "properties": {
@@ -1806,9 +1590,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -1816,35 +1598,27 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
             "new_val": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "old_val": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "register": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             }
           }
@@ -1869,9 +1643,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -1879,9 +1651,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -1891,23 +1661,19 @@
               "type": "string"
             },
             "rows": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "success": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             }
           }
@@ -1940,9 +1706,7 @@
               "type": "string"
             },
             "expire": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "location": {
               "ignore_above": 1024,
@@ -1965,9 +1729,7 @@
               "type": "string"
             },
             "priority": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "rule_id": {
               "ignore_above": 1024,
@@ -1985,9 +1747,7 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             }
           }
         },
@@ -1999,14 +1759,10 @@
               "type": "string"
             },
             "block_interval": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "blocked_until": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "ip": {
               "ignore_above": 1024,
@@ -2024,9 +1780,7 @@
               "type": "string"
             },
             "num_blocked": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "rule_id": {
               "ignore_above": 1024,
@@ -2034,28 +1788,20 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "watch_interval": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "watched_until": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             }
           }
         },
         "netcontrol_drop": {
           "properties": {
             "expire": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "location": {
               "ignore_above": 1024,
@@ -2068,9 +1814,7 @@
               "type": "string"
             },
             "orig_p": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "resp_h": {
               "ignore_above": 1024,
@@ -2078,9 +1822,7 @@
               "type": "string"
             },
             "resp_p": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "rule_id": {
               "ignore_above": 1024,
@@ -2088,18 +1830,14 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             }
           }
         },
         "netcontrol_shunt": {
           "properties": {
             "expire": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "f": {
               "ignore_above": 1024,
@@ -2117,9 +1855,7 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             }
           }
         },
@@ -2136,9 +1872,7 @@
               "type": "string"
             },
             "dropped": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "dst": {
               "ignore_above": 1024,
@@ -2171,8 +1905,10 @@
               "type": "string"
             },
             "fuid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "iconn": {
@@ -2188,9 +1924,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -2198,9 +1932,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -2215,9 +1947,7 @@
               "type": "string"
             },
             "n": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "note": {
               "ignore_above": 1024,
@@ -2225,9 +1955,7 @@
               "type": "string"
             },
             "p": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "peer_descr": {
               "ignore_above": 1024,
@@ -2260,18 +1988,16 @@
               "type": "string"
             },
             "suppress_for": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             }
           }
@@ -2284,9 +2010,7 @@
               "type": "string"
             },
             "done": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "hostname": {
               "ignore_above": 1024,
@@ -2301,9 +2025,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -2311,9 +2033,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -2323,18 +2043,16 @@
               "type": "string"
             },
             "success": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "username": {
@@ -2347,9 +2065,7 @@
         "openflow": {
           "properties": {
             "dpid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "flow_mod": {
               "properties": {
@@ -2359,34 +2075,22 @@
                   "type": "string"
                 },
                 "cookie": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "hard_timeout": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "idle_timeout": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "out_port": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "priority": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "table_id": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -2403,24 +2107,16 @@
                   "type": "string"
                 },
                 "dl_type": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "dl_vlan": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "dl_vlan_pcp": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "in_port": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "nw_dst": {
                   "ignore_above": 1024,
@@ -2428,9 +2124,7 @@
                   "type": "string"
                 },
                 "nw_proto": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "nw_src": {
                   "ignore_above": 1024,
@@ -2438,26 +2132,18 @@
                   "type": "string"
                 },
                 "nw_tos": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "tp_dst": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "tp_src": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             }
           }
         },
@@ -2469,9 +2155,7 @@
               "type": "string"
             },
             "init": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "node": {
               "ignore_above": 1024,
@@ -2479,43 +2163,29 @@
               "type": "string"
             },
             "success": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             }
           }
         },
         "pe": {
           "properties": {
             "compile_ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "has_cert_table": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "has_debug_data": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "has_export_table": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "has_import_table": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "id": {
               "ignore_above": 1024,
@@ -2523,14 +2193,10 @@
               "type": "string"
             },
             "is_64bit": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "is_exe": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "machine": {
               "ignore_above": 1024,
@@ -2553,29 +2219,19 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uses_aslr": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "uses_code_integrity": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "uses_dep": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "uses_seh": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             }
           }
         },
@@ -2594,9 +2250,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -2604,16 +2258,12 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
             "logged": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "mac": {
               "ignore_above": 1024,
@@ -2631,13 +2281,13 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "username": {
@@ -2650,19 +2300,13 @@
         "rdp": {
           "properties": {
             "analyzer_id": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "cert_count": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "cert_permanent": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "cert_type": {
               "ignore_above": 1024,
@@ -2690,19 +2334,13 @@
               "type": "string"
             },
             "desktop_height": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "desktop_width": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "done": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "encryption_level": {
               "ignore_above": 1024,
@@ -2722,9 +2360,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -2732,9 +2368,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -2759,18 +2393,16 @@
               "type": "string"
             },
             "ssl": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             }
           }
@@ -2793,18 +2425,14 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             }
           }
         },
         "rfb": {
           "properties": {
             "auth": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "authentication_method": {
               "ignore_above": 1024,
@@ -2827,14 +2455,10 @@
               "type": "string"
             },
             "done": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "height": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "id": {
               "properties": {
@@ -2844,9 +2468,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -2854,9 +2476,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -2871,24 +2491,20 @@
               "type": "string"
             },
             "share_flag": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "width": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             }
           }
         },
@@ -2900,9 +2516,7 @@
               "type": "string"
             },
             "dst_port": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "event_msg": {
               "ignore_above": 1024,
@@ -2910,9 +2524,7 @@
               "type": "string"
             },
             "host_count": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "note": {
               "ignore_above": 1024,
@@ -2920,9 +2532,7 @@
               "type": "string"
             },
             "sig_count": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "sig_id": {
               "ignore_above": 1024,
@@ -2935,9 +2545,7 @@
               "type": "string"
             },
             "src_port": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "sub_msg": {
               "ignore_above": 1024,
@@ -2945,13 +2553,13 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             }
           }
@@ -2981,9 +2589,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -2991,9 +2597,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -3008,9 +2612,7 @@
               "type": "string"
             },
             "request_body_len": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "request_from": {
               "ignore_above": 1024,
@@ -3028,9 +2630,7 @@
               "type": "string"
             },
             "response_body_len": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "response_from": {
               "ignore_above": 1024,
@@ -3053,9 +2653,7 @@
               "type": "string"
             },
             "status_code": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "status_msg": {
               "ignore_above": 1024,
@@ -3068,18 +2666,16 @@
               "type": "string"
             },
             "trans_depth": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "uri": {
@@ -3119,9 +2715,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -3129,9 +2723,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -3143,19 +2735,34 @@
                   "type": "string"
                 },
                 "fid": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "fuid": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
+                  "index": "analyzed",
+                  "norms": {
+                    "enabled": false
+                  },
                   "type": "string"
                 },
                 "id": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "properties": {
+                    "orig_h": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "orig_p": {
+                      "type": "long"
+                    },
+                    "resp_h": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "resp_p": {
+                      "type": "long"
+                    }
+                  }
                 },
                 "name": {
                   "ignore_above": 1024,
@@ -3173,47 +2780,39 @@
                   "type": "string"
                 },
                 "size": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "times": {
                   "properties": {
                     "accessed": {
-                      "ignore_above": 1024,
-                      "index": "not_analyzed",
-                      "type": "string"
+                      "type": "double"
                     },
                     "changed": {
-                      "ignore_above": 1024,
-                      "index": "not_analyzed",
-                      "type": "string"
+                      "type": "double"
                     },
                     "created": {
-                      "ignore_above": 1024,
-                      "index": "not_analyzed",
-                      "type": "string"
+                      "type": "double"
                     },
                     "modified": {
-                      "ignore_above": 1024,
-                      "index": "not_analyzed",
-                      "type": "string"
+                      "type": "double"
                     }
                   }
                 },
                 "ts": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "double"
                 },
                 "uid": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
+                  "index": "analyzed",
+                  "norms": {
+                    "enabled": false
+                  },
                   "type": "string"
                 },
                 "uuid": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
+                  "index": "analyzed",
+                  "norms": {
+                    "enabled": false
+                  },
                   "type": "string"
                 }
               }
@@ -3221,9 +2820,24 @@
             "referenced_tree": {
               "properties": {
                 "id": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "properties": {
+                    "orig_h": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "orig_p": {
+                      "type": "long"
+                    },
+                    "resp_h": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "resp_p": {
+                      "type": "long"
+                    }
+                  }
                 },
                 "native_file_system": {
                   "ignore_above": 1024,
@@ -3246,21 +2860,19 @@
                   "type": "string"
                 },
                 "ts": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "double"
                 },
                 "uid": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
+                  "index": "analyzed",
+                  "norms": {
+                    "enabled": false
+                  },
                   "type": "string"
                 }
               }
             },
             "rtt": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "smb1_offered_dialects": {
               "ignore_above": 1024,
@@ -3293,13 +2905,13 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "username": {
@@ -3322,13 +2934,13 @@
               "type": "string"
             },
             "fid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "fuid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "id": {
@@ -3339,9 +2951,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -3349,9 +2959,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -3371,47 +2979,39 @@
               "type": "string"
             },
             "size": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "times": {
               "properties": {
                 "accessed": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "double"
                 },
                 "changed": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "double"
                 },
                 "created": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "double"
                 },
                 "modified": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "double"
                 }
               }
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "uuid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             }
           }
@@ -3426,9 +3026,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -3436,9 +3034,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -3463,13 +3059,13 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             }
           }
@@ -3511,14 +3107,14 @@
               "type": "string"
             },
             "fuids": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "has_client_activity": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "helo": {
               "ignore_above": 1024,
@@ -3533,9 +3129,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -3543,9 +3137,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -3555,9 +3147,7 @@
               "type": "string"
             },
             "is_webmail": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "last_reply": {
               "ignore_above": 1024,
@@ -3580,9 +3170,7 @@
               "type": "string"
             },
             "process_received_from": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "rcptto": {
               "ignore_above": 1024,
@@ -3605,9 +3193,7 @@
               "type": "string"
             },
             "tls": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "to": {
               "ignore_above": 1024,
@@ -3615,18 +3201,16 @@
               "type": "string"
             },
             "trans_depth": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "user_agent": {
@@ -3654,24 +3238,16 @@
               "type": "string"
             },
             "duration": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "get_bulk_requests": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "get_requests": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "get_responses": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "id": {
               "properties": {
@@ -3681,9 +3257,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -3691,31 +3265,25 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
             "set_requests": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "up_since": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "version": {
               "ignore_above": 1024,
@@ -3741,9 +3309,7 @@
               }
             },
             "bound_p": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "id": {
               "properties": {
@@ -3753,9 +3319,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -3763,9 +3327,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -3789,9 +3351,7 @@
               }
             },
             "request_p": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "status": {
               "ignore_above": 1024,
@@ -3799,13 +3359,13 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "user": {
@@ -3814,18 +3374,14 @@
               "type": "string"
             },
             "version": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             }
           }
         },
         "software": {
           "properties": {
             "force_log": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "host": {
               "ignore_above": 1024,
@@ -3833,9 +3389,7 @@
               "type": "string"
             },
             "host_p": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "name": {
               "ignore_above": 1024,
@@ -3848,9 +3402,7 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "unparsed_version": {
               "ignore_above": 1024,
@@ -3870,24 +3422,16 @@
                   "type": "string"
                 },
                 "major": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "minor": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "minor2": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "minor3": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             }
@@ -3896,14 +3440,10 @@
         "ssh": {
           "properties": {
             "auth_attempts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "auth_success": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "cipher_alg": {
               "ignore_above": 1024,
@@ -3943,9 +3483,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -3953,9 +3491,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -3975,28 +3511,24 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "version": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             }
           }
         },
         "ssl": {
           "properties": {
             "analyzer_id": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "cipher": {
               "ignore_above": 1024,
@@ -4004,19 +3536,13 @@
               "type": "string"
             },
             "client_appdata": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "client_key_exchange_seen": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "client_ticket_empty_session_seen": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "curve": {
               "ignore_above": 1024,
@@ -4024,9 +3550,7 @@
               "type": "string"
             },
             "established": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "id": {
               "properties": {
@@ -4036,9 +3560,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -4046,9 +3568,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -4058,9 +3578,7 @@
               "type": "string"
             },
             "logged": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "next_protocol": {
               "ignore_above": 1024,
@@ -4068,14 +3586,10 @@
               "type": "string"
             },
             "resumed": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "server_appdata": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "server_name": {
               "ignore_above": 1024,
@@ -4088,13 +3602,13 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             },
             "version": {
@@ -4103,78 +3617,50 @@
               "type": "string"
             },
             "version_num": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             }
           }
         },
         "stats": {
           "properties": {
             "active_dns_requests": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "active_files": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "active_icmp_conns": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "active_tcp_conns": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "active_timers": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "active_udp_conns": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "bytes_recv": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "dns_requests": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "events_proc": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "events_queued": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "files": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "icmp_conns": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "mem": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "peer": {
               "ignore_above": 1024,
@@ -4182,64 +3668,40 @@
               "type": "string"
             },
             "pkt_lag": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "pkts_dropped": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "pkts_link": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "pkts_proc": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "reassem_file_size": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "reassem_frag_size": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "reassem_tcp_size": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "reassem_unknown_size": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "tcp_conns": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "timers": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "udp_conns": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             }
           }
         },
@@ -4258,9 +3720,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -4268,9 +3728,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -4290,13 +3748,13 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             }
           }
@@ -4324,9 +3782,7 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             }
           }
         },
@@ -4345,9 +3801,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -4355,16 +3809,12 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "tunnel_type": {
               "ignore_above": 1024,
@@ -4372,8 +3822,10 @@
               "type": "string"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             }
           }
@@ -4391,14 +3843,10 @@
               "type": "string"
             },
             "classification_id": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "event_id": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "generator": {
               "ignore_above": 1024,
@@ -4406,9 +3854,7 @@
               "type": "string"
             },
             "generator_id": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "id": {
               "properties": {
@@ -4418,9 +3864,7 @@
                   "type": "string"
                 },
                 "dst_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "src_ip": {
                   "ignore_above": 1024,
@@ -4428,9 +3872,7 @@
                   "type": "string"
                 },
                 "src_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -4440,14 +3882,10 @@
               "type": "string"
             },
             "priority_id": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "sensor_id": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "signature": {
               "ignore_above": 1024,
@@ -4455,19 +3893,13 @@
               "type": "string"
             },
             "signature_id": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "signature_revision": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "long"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             }
           }
         },
@@ -4491,9 +3923,7 @@
                   "type": "string"
                 },
                 "orig_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "resp_h": {
                   "ignore_above": 1024,
@@ -4501,9 +3931,7 @@
                   "type": "string"
                 },
                 "resp_p": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -4518,9 +3946,7 @@
               "type": "string"
             },
             "notice": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "peer": {
               "ignore_above": 1024,
@@ -4528,13 +3954,13 @@
               "type": "string"
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             },
             "uid": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
+              "index": "analyzed",
+              "norms": {
+                "enabled": false
+              },
               "type": "string"
             }
           }
@@ -4544,14 +3970,10 @@
             "basic_constraints": {
               "properties": {
                 "ca": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "boolean"
                 },
                 "path_len": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -4583,9 +4005,7 @@
                   "type": "string"
                 },
                 "key_length": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 },
                 "key_type": {
                   "ignore_above": 1024,
@@ -4593,14 +4013,10 @@
                   "type": "string"
                 },
                 "not_valid_after": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "double"
                 },
                 "not_valid_before": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "double"
                 },
                 "serial": {
                   "ignore_above": 1024,
@@ -4618,9 +4034,7 @@
                   "type": "string"
                 },
                 "version": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "long"
                 }
               }
             },
@@ -4640,9 +4054,7 @@
               "type": "string"
             },
             "logcert": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "boolean"
             },
             "san": {
               "properties": {
@@ -4662,9 +4074,7 @@
                   "type": "string"
                 },
                 "other_fields": {
-                  "ignore_above": 1024,
-                  "index": "not_analyzed",
-                  "type": "string"
+                  "type": "boolean"
                 },
                 "uri": {
                   "ignore_above": 1024,
@@ -4674,9 +4084,7 @@
               }
             },
             "ts": {
-              "ignore_above": 1024,
-              "index": "not_analyzed",
-              "type": "string"
+              "type": "double"
             }
           }
         }

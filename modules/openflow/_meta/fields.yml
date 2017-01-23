@@ -7,39 +7,57 @@
       type: group
       fields:
         - name: ts
+          type: double
           description: >
             Network time.
         - name: dpid
+          type: integer
           description: >
             OpenFlow switch datapath id.
         - name: match.in_port
+          type: integer
         - name: match.dl_src
+          type: keyword
         - name: match.dl_dst
+          type: keyword
         - name: match.dl_vlan
+          type: integer
         - name: match.dl_vlan_pcp
+          type: integer
         - name: match.dl_type
+          type: integer
         - name: match.nw_tos
+          type: integer
         - name: match.nw_proto
+          type: integer
         - name: match.nw_src
         - name: match.nw_dst
         - name: match.tp_src
+          type: integer
         - name: match.tp_dst
+          type: integer
         - name: flow_mod.cookie
+          type: integer
           description: >
             Opaque controller-issued identifier.
         - name: flow_mod.table_id
+          type: integer
           description: >
             Table to put the flow in. OFPTT_ALL can be used for delete, to delete flows from all matching tables.
         - name: flow_mod.command
         - name: flow_mod.idle_timeout
+          type: integer
           description: >
             Idle time before discarding (seconds).
         - name: flow_mod.hard_timeout
+          type: integer
           description: >
             Max time before discarding (seconds).
         - name: flow_mod.priority
+          type: integer
           description: >
             Priority level of flow entry.
         - name: flow_mod.out_port
+          type: integer
           description: >
             For OFPFC_DELETE* commands, require matching entried to include this as an output port/group. OFPP_ANY/OFPG_ANY means no restrictions.

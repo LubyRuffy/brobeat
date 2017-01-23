@@ -7,80 +7,106 @@
       type: group
       fields:
         - name: ts
+          type: double
           description: >
             Timestamp for the measurement.
         - name: peer
+          type: keyword
           description: >
             Peer that generated this log.  Mostly for clusters.
         - name: mem
+          type: integer
           description: >
             Amount of memory currently in use in MB.
         - name: pkts_proc
+          type: integer
           description: >
             Number of packets processed since the last stats interval.
         - name: bytes_recv
+          type: integer
           description: >
             Number of bytes received since the last stats interval if reading live traffic.
         - name: pkts_dropped
+          type: integer
           description: >
             Number of packets dropped since the last stats interval if reading live traffic.
         - name: pkts_link
+          type: integer
           description: >
             Number of packets seen on the link since the last stats interval if reading live traffic.
         - name: pkt_lag
+          type: double
           description: >
             Lag between the wall clock and packet timestamps if reading live traffic.
         - name: events_proc
+          type: integer
           description: >
             Number of events processed since the last stats interval.
         - name: events_queued
+          type: integer
           description: >
             Number of events that have been queued since the last stats interval.
         - name: active_tcp_conns
+          type: integer
           description: >
             TCP connections currently in memory.
         - name: active_udp_conns
+          type: integer
           description: >
             UDP connections currently in memory.
         - name: active_icmp_conns
+          type: integer
           description: >
             ICMP connections currently in memory.
         - name: tcp_conns
+          type: integer
           description: >
             TCP connections seen since last stats interval.
         - name: udp_conns
+          type: integer
           description: >
             UDP connections seen since last stats interval.
         - name: icmp_conns
+          type: integer
           description: >
             ICMP connections seen since last stats interval.
         - name: timers
+          type: integer
           description: >
             Number of timers scheduled since last stats interval.
         - name: active_timers
+          type: integer
           description: >
             Current number of scheduled timers.
         - name: files
+          type: integer
           description: >
             Number of files seen since last stats interval.
         - name: active_files
+          type: integer
           description: >
             Current number of files actively being seen.
         - name: dns_requests
+          type: integer
           description: >
             Number of DNS requests seen since last stats interval.
         - name: active_dns_requests
+          type: integer
           description: >
             Current number of DNS requests awaiting a reply.
         - name: reassem_tcp_size
+          type: integer
           description: >
             Current size of TCP data in reassembly.
         - name: reassem_file_size
+          type: integer
           description: >
             Current size of File data in reassembly.
         - name: reassem_frag_size
+          type: integer
           description: >
             Current size of packet fragment data in reassembly.
         - name: reassem_unknown_size
+          type: integer
           description: >
             Current size of unknown data in reassembly (this is only PIA buffer right now).

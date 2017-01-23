@@ -44,3 +44,7 @@ debug
 .vscode
 
 logs/brobeat*
+
+data/completed
+
+nohup.out

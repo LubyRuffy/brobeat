@@ -7,7 +7,7 @@ import json
 import os
 import logging
 
-from utils import is_enum, build_url, conn_id, get_filed_types, get_log_grok_pattern
+from utils import is_enum, build_url, add_conn_id, get_filed_types, get_log_grok_pattern
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -89,7 +89,7 @@ def parse_log_info(url, log_file):
                         field_description = ""
 
                     if 'conn_id' in field_types.get('bro'):
-                        log_fields += conn_id
+                        log_fields += add_conn_id()
                     elif '::' in field_types.get('bro'):
                         logger.info(' * parsing nested log in {}, field: {}'.format(log_file, field_types.get('bro')))
                         log_fields += get_nested_fields(field_name, field_types, build_url(url, dfield[0].a['href']))
@@ -139,7 +139,9 @@ def get_nested_fields(field_name, field_types, url):
                             # convert field type to elasticsearch type
                             nfield_types = get_filed_types(nfield_name, nfield[0].contents[1].text)
 
-                            if '::' in nfield_types.get('bro'):
+                            if 'conn_id' in nfield_types.get('bro'):
+                                nested += add_conn_id(prefix=field_name)
+                            elif '::' in nfield_types.get('bro'):
                                 # recursively call get_nested_fields to get next layer of nested fields
                                 logger.info(' ** parsing nested field: {}'.format(nfield_types.get('bro')))
                                 nested += get_nested_fields(field_name + '.' + nfield_name, nfield_types,

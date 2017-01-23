@@ -7,15 +7,19 @@
       type: group
       fields:
         - name: ts
+          type: double
           description: >
             The time at which the service was detected.
         - name: host
+          type: ip
           description: >
             The host address on which the service is running.
         - name: port_num
+          type: integer
           description: >
             The port number on which the service is running.
         - name: port_proto
+          type: keyword
           description: >
             The transport-layer protocol which the service uses.
         - name: service

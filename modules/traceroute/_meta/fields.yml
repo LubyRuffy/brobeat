@@ -7,14 +7,18 @@
       type: group
       fields:
         - name: ts
+          type: double
           description: >
             Timestamp
         - name: src
+          type: ip
           description: >
             Address initiating the traceroute.
         - name: dst
+          type: ip
           description: >
             Destination address of the traceroute.
         - name: proto
+          type: keyword
           description: >
             Protocol used for the traceroute.
