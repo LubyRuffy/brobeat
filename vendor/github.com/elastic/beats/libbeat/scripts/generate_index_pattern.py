@@ -18,6 +18,10 @@ unique_fields = []
 
 
 def fields_to_json(section, path, output):
+
+    if not section["fields"]:
+        return
+
     for field in section["fields"]:
         if path == "":
             newpath = field["name"]
@@ -33,12 +37,12 @@ def fields_to_json(section, path, output):
 def field_to_json(desc, path, output,
                   indexed=True, analyzed=False, doc_values=True,
                   searchable=True, aggregatable=True):
+
     global unique_fields
 
     if path in unique_fields:
-        print("ERROR: Field {} is duplicated. Please delete it and try again. Fields already are {}".format(path,
-                                                                                                            ", ".join(
-                                                                                                                unique_fields)))
+        print("ERROR: Field {} is duplicated. Please delete it and try again. Fields already are {}".format(
+            path, ", ".join(unique_fields)))
         sys.exit(1)
     else:
         unique_fields.append(path)
@@ -55,7 +59,7 @@ def field_to_json(desc, path, output,
     }
     # find the kibana types based on the field type
     if "type" in desc:
-        if desc["type"] in ["half_float", "scaled_float", "float", "integer", "long"]:
+        if desc["type"] in ["half_float", "scaled_float", "float", "integer", "long", "short", "byte"]:
             field["type"] = "number"
         elif desc["type"] in ["text", "keyword"]:
             field["type"] = "string"
@@ -77,6 +81,7 @@ def field_to_json(desc, path, output,
 
 
 def fields_to_index_pattern(args, input):
+
     docs = yaml.load(input)
 
     if docs is None:
@@ -118,6 +123,7 @@ def fields_to_index_pattern(args, input):
 
 
 def get_index_pattern_name(index):
+
     allow = string.ascii_letters + string.digits + "_"
     return re.sub('[^%s]' % allow, '', index)
 
@@ -157,11 +163,12 @@ if __name__ == "__main__":
     try:
         os.makedirs(target_dir)
     except OSError as exception:
-        if exception.errno != errno.EEXIST: raise
+        if exception.errno != errno.EEXIST:
+            raise
 
     output = json.dumps(output, indent=2)
 
     with open(target_file, 'w') as f:
         f.write(output)
 
-    print ("The index pattern was created under {}".format(target_file))
+    print("The index pattern was created under {}".format(target_file))

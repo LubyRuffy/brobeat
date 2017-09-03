@@ -7,11 +7,14 @@ include::../../libbeat/docs/version.asciidoc[]
 :metricbeat: http://www.elastic.co/guide/en/beats/metricbeat/{doc-branch}
 :filebeat: http://www.elastic.co/guide/en/beats/filebeat/{doc-branch}
 :winlogbeat: http://www.elastic.co/guide/en/beats/winlogbeat/{doc-branch}
+:logstashdoc: https://www.elastic.co/guide/en/logstash/{doc-branch}
 :elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/{doc-branch}
-:securitydoc: https://www.elastic.co/guide/en/x-pack/5.0
+:securitydoc: https://www.elastic.co/guide/en/x-pack/5.2
 :version: {stack-version}
 :beatname_lc: winlogbeat
 :beatname_uc: Winlogbeat
+:directory-layout: http://www.elastic.co/guide/en/beats/{beatname_lc}/{doc-branch}/directory-layout.html
+:setup-repositories: http://www.elastic.co/guide/en/beats/{beatname_lc}/{doc-branch}/setup-repositories.html
 :security: X-Pack Security
 
 include::./overview.asciidoc[]
@@ -30,8 +33,10 @@ include::./winlogbeat-filtering.asciidoc[]
 
 include::../../libbeat/docs/shared-config-ingest.asciidoc[]
 
+:standalone:
 include::../../libbeat/docs/shared-env-vars.asciidoc[]
 
+:standalone:
 :win:
 include::../../libbeat/docs/yaml.asciidoc[]
 

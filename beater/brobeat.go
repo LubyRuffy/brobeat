@@ -2,12 +2,7 @@ package beater
 
 import (
 	"fmt"
-	"log"
-	"os"
-	"path/filepath"
 	"time"
-
-	"github.com/fsnotify/fsnotify"
 
 	"github.com/elastic/beats/libbeat/beat"
 	"github.com/elastic/beats/libbeat/common"
@@ -17,14 +12,13 @@ import (
 	"github.com/blacktop/brobeat/config"
 )
 
-// Brobeat beat struct
 type Brobeat struct {
 	done   chan struct{}
 	config config.Config
 	client publisher.Client
 }
 
-// New creates beater
+// Creates beater
 func New(b *beat.Beat, cfg *common.Config) (beat.Beater, error) {
 	config := config.DefaultConfig
 	if err := cfg.Unpack(&config); err != nil {
@@ -38,100 +32,30 @@ func New(b *beat.Beat, cfg *common.Config) (beat.Beater, error) {
 	return bt, nil
 }
 
-// Run start beater
 func (bt *Brobeat) Run(b *beat.Beat) error {
 	logp.Info("brobeat is running! Hit CTRL-C to stop it.")
 
 	bt.client = b.Publisher.Connect()
-	path := bt.config.Path
+	ticker := time.NewTicker(bt.config.Period)
+	counter := 1
+	for {
+		select {
+		case <-bt.done:
+			return nil
+		case <-ticker.C:
+		}
 
-	info, err := os.Stat(path)
-
-	// Check that folder exists
-	if os.IsNotExist(err) {
-		logp.Err("error: folder does not exist.")
-		return nil
+		event := common.MapStr{
+			"@timestamp": common.Time(time.Now()),
+			"type":       b.Name,
+			"counter":    counter,
+		}
+		bt.client.PublishEvent(event)
+		logp.Info("Event sent")
+		counter++
 	}
-
-	// Check that path is a folder and not a file
-	if info.IsDir() {
-
-		// Create completed directory in path if it doesn't exist
-		if _, err := os.Stat(filepath.Join(path, "completed")); os.IsNotExist(err) {
-			err := os.Mkdir(filepath.Join(path, "completed"), os.ModePerm)
-			if err != nil {
-				log.Fatal(err)
-			}
-		}
-
-		watcher, err := fsnotify.NewWatcher()
-		if err != nil {
-			log.Fatal(err)
-		}
-		defer watcher.Close()
-
-		err = watcher.Add(path)
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		for {
-			select {
-			case <-bt.done:
-				return nil
-			case event := <-watcher.Events:
-				if event.Op&fsnotify.Chmod == fsnotify.Chmod {
-					logp.Info("Created file:", event.Name)
-
-					// stat, err := os.Stat(event.Name)
-					// if err != nil {
-					// 	logp.Err("Stat Error: ", err)
-					// }
-					// logp.Info("%#v", stat)
-
-					// Parse bro-log file
-					bro := ParseLogFile(event.Name)
-
-					for _, log := range bro.Logs {
-						logp.Debug("beater", "log: %#v", log)
-						event := common.MapStr{
-							"@timestamp":  common.Time(time.Now()),
-							"type":        b.Name,
-							"log.type":    log.Type,
-							"log.created": log.Created,
-						}
-						for _, field := range log.Fields {
-							// use ts field as @timestamp
-							if field.Name == log.Type+".ts" {
-								time, err := convertTs2Time(field.Value)
-								if err != nil {
-									return err
-								}
-								logp.Debug("beater", "time: %s", time)
-								event["@timestamp"] = common.Time(time)
-							}
-							// don't output fields with '-' values
-							if field.Value != log.UnsetField {
-								event[field.Name] = field.Value
-							}
-						}
-
-						bt.client.PublishEvent(event)
-						logp.Info("Event sent")
-					}
-				}
-			case err = <-watcher.Errors:
-				logp.Err("error:", err)
-			}
-		}
-	} else {
-		logp.Err("error: path is not a folder")
-	}
-
-	return nil
 }
 
-// Stop stops beater
 func (bt *Brobeat) Stop() {
 	bt.client.Close()
 	close(bt.done)

@@ -1,6 +1,6 @@
-BEATNAME=heartbeat
-BEAT_DESCRIPTION?=Ping remote services for availablity and log results to Elasticsearch or send to Logstash.
-SYSTEM_TESTS=false
+BEAT_NAME=heartbeat
+BEAT_DESCRIPTION?=Ping remote services for availability and log results to Elasticsearch or send to Logstash.
+SYSTEM_TESTS=true
 TEST_ENVIRONMENT=false
 
 # Path to the libbeat Makefile

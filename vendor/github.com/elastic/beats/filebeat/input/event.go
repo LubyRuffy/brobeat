@@ -1,13 +1,12 @@
 package input
 
 import (
-	"fmt"
 	"time"
 
 	"github.com/elastic/beats/filebeat/harvester/reader"
 	"github.com/elastic/beats/filebeat/input/file"
 	"github.com/elastic/beats/libbeat/common"
-	"github.com/elastic/beats/libbeat/logp"
+	"github.com/elastic/beats/libbeat/common/jsontransform"
 )
 
 // Event is sent to the output and must contain all relevant information
@@ -21,6 +20,9 @@ type Event struct {
 	JSONConfig   *reader.JSONConfig
 	State        file.State
 	Data         common.MapStr // Use in readers to add data to the event
+	Pipeline     string
+	Fileset      string
+	Module       string
 }
 
 func NewEvent(state file.State) *Event {
@@ -37,6 +39,13 @@ func (e *Event) ToMapStr() common.MapStr {
 		"offset":                e.State.Offset, // Offset here is the offset before the starting char.
 		"type":                  e.DocumentType,
 		"input_type":            e.InputType,
+	}
+
+	if e.Fileset != "" && e.Module != "" {
+		event["fileset"] = common.MapStr{
+			"name":   e.Fileset,
+			"module": e.Module,
+		}
 	}
 
 	// Add data fields which are added by the readers
@@ -57,6 +66,17 @@ func (e *Event) ToMapStr() common.MapStr {
 	}
 
 	return event
+}
+
+// Metadata creates a common.MapStr containing the metadata to
+// be associated with the event.
+func (e *Event) Metadata() common.MapStr {
+	if e.Pipeline != "" {
+		return common.MapStr{
+			"pipeline": e.Pipeline,
+		}
+	}
+	return nil
 }
 
 // HasData returns true if the event itself contains data
@@ -80,43 +100,6 @@ func mergeJSONFields(e *Event, event common.MapStr, jsonFields common.MapStr) {
 		// Delete existing json key
 		delete(event, "json")
 
-		for k, v := range jsonFields {
-			if e.JSONConfig.OverwriteKeys {
-				if k == "@timestamp" {
-					vstr, ok := v.(string)
-					if !ok {
-						logp.Err("JSON: Won't overwrite @timestamp because value is not string")
-						event[reader.JsonErrorKey] = "@timestamp not overwritten (not string)"
-						continue
-					}
-
-					// @timestamp must be of format RFC3339
-					ts, err := time.Parse(time.RFC3339, vstr)
-					if err != nil {
-						logp.Err("JSON: Won't overwrite @timestamp because of parsing error: %v", err)
-						event[reader.JsonErrorKey] = fmt.Sprintf("@timestamp not overwritten (parse error on %s)", vstr)
-						continue
-					}
-					event[k] = common.Time(ts)
-				} else if k == "type" {
-					vstr, ok := v.(string)
-					if !ok {
-						logp.Err("JSON: Won't overwrite type because value is not string")
-						event[reader.JsonErrorKey] = "type not overwritten (not string)"
-						continue
-					}
-					if len(vstr) == 0 || vstr[0] == '_' {
-						logp.Err("JSON: Won't overwrite type because value is empty or starts with an underscore")
-						event[reader.JsonErrorKey] = fmt.Sprintf("type not overwritten (invalid value [%s])", vstr)
-						continue
-					}
-					event[k] = vstr
-				} else {
-					event[k] = v
-				}
-			} else if _, exists := event[k]; !exists {
-				event[k] = v
-			}
-		}
+		jsontransform.WriteJSONKeys(event, jsonFields, e.JSONConfig.OverwriteKeys, reader.JsonErrorKey)
 	}
 }

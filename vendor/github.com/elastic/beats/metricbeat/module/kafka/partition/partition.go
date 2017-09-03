@@ -37,6 +37,8 @@ var debugf = logp.MakeDebug("kafka")
 
 // New creates a new instance of the partition MetricSet.
 func New(base mb.BaseMetricSet) (mb.MetricSet, error) {
+	logp.Warn("BETA: The kafka partition metricset is beta")
+
 	config := defaultConfig
 	if err := base.Module().UnpackConfig(&config); err != nil {
 		return nil, err

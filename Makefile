@@ -1,10 +1,13 @@
-BEATNAME=brobeat
-BEAT_DIR=github.com/blacktop/brobeat
+BEAT_NAME=brobeat
+BEAT_PATH=github.com/blacktop/brobeat
+BEAT_GOPATH=$(firstword $(subst :, ,${GOPATH}))
+BEAT_URL=https://${BEAT_PATH}
 SYSTEM_TESTS=false
 TEST_ENVIRONMENT=false
 ES_BEATS?=./vendor/github.com/elastic/beats
 GOPACKAGES=$(shell glide novendor)
 PREFIX?=.
+NOTICE_FILE=NOTICE
 
 # Path to the libbeat Makefile
 -include $(ES_BEATS)/libbeat/scripts/Makefile
@@ -18,7 +21,7 @@ setup: copy-vendor
 .PHONY: copy-vendor
 copy-vendor:
 	mkdir -p vendor/github.com/elastic/
-	cp -R ${GOPATH}/src/github.com/elastic/beats vendor/github.com/elastic/
+	cp -R ${BEAT_GOPATH}/src/github.com/elastic/beats vendor/github.com/elastic/
 	rm -rf vendor/github.com/elastic/beats/.git
 
 .PHONY: git-init
@@ -43,6 +46,3 @@ before-build:
 # Collects all dependencies and then calls update
 .PHONY: collect
 collect:
-	# rm _meta/fields.generated.yml
-	cat _meta/fields.yml >> _meta/fields.generated.yml
-	cat modules/*/_meta/fields.yml >> _meta/fields.generated.yml

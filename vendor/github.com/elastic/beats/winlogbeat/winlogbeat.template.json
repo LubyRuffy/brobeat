@@ -5,8 +5,9 @@
         "norms": false
       },
       "_meta": {
-        "version": "6.0.0-alpha1"
+        "version": "5.5.3"
       },
+      "date_detection": false,
       "dynamic_templates": [
         {
           "strings_as_keyword": {
@@ -171,6 +172,7 @@
   },
   "order": 0,
   "settings": {
+    "index.mapping.total_fields.limit": 10000,
     "index.refresh_interval": "5s"
   },
   "template": "winlogbeat-*"

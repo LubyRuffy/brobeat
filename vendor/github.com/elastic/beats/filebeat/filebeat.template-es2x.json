@@ -7,8 +7,9 @@
         }
       },
       "_meta": {
-        "version": "6.0.0-alpha1"
+        "version": "5.5.3"
       },
+      "date_detection": false,
       "dynamic_templates": [
         {
           "strings_as_keyword": {
@@ -24,6 +25,249 @@
       "properties": {
         "@timestamp": {
           "type": "date"
+        },
+        "apache2": {
+          "properties": {
+            "access": {
+              "properties": {
+                "agent": {
+                  "index": "analyzed",
+                  "norms": {
+                    "enabled": false
+                  },
+                  "type": "string"
+                },
+                "body_sent": {
+                  "properties": {
+                    "bytes": {
+                      "type": "long"
+                    }
+                  }
+                },
+                "geoip": {
+                  "properties": {
+                    "continent_name": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "country_iso_code": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "location": {
+                      "type": "geo_point"
+                    }
+                  }
+                },
+                "http_version": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "method": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "referrer": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "remote_ip": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "response_code": {
+                  "type": "long"
+                },
+                "url": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "user_agent": {
+                  "properties": {
+                    "device": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "major": {
+                      "type": "long"
+                    },
+                    "minor": {
+                      "type": "long"
+                    },
+                    "name": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "os": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "os_major": {
+                      "type": "long"
+                    },
+                    "os_minor": {
+                      "type": "long"
+                    },
+                    "os_name": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "patch": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    }
+                  }
+                },
+                "user_name": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                }
+              }
+            },
+            "error": {
+              "properties": {
+                "client": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "level": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "message": {
+                  "index": "analyzed",
+                  "norms": {
+                    "enabled": false
+                  },
+                  "type": "string"
+                },
+                "module": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "pid": {
+                  "type": "long"
+                },
+                "tid": {
+                  "type": "long"
+                }
+              }
+            }
+          }
+        },
+        "auditd": {
+          "properties": {
+            "log": {
+              "properties": {
+                "a0": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "acct": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "geoip": {
+                  "properties": {
+                    "city_name": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "continent_name": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "country_iso_code": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "location": {
+                      "type": "geo_point"
+                    },
+                    "region_name": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    }
+                  }
+                },
+                "item": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "items": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "new_auid": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "new_ses": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "old_auid": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "old_ses": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "pid": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "ppid": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "record_type": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "res": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "sequence": {
+                  "type": "long"
+                }
+              }
+            }
+          }
         },
         "beat": {
           "properties": {
@@ -48,6 +292,20 @@
           "ignore_above": 1024,
           "index": "not_analyzed",
           "type": "string"
+        },
+        "fileset": {
+          "properties": {
+            "module": {
+              "ignore_above": 1024,
+              "index": "not_analyzed",
+              "type": "string"
+            },
+            "name": {
+              "ignore_above": 1024,
+              "index": "not_analyzed",
+              "type": "string"
+            }
+          }
         },
         "input_type": {
           "ignore_above": 1024,
@@ -275,7 +533,9 @@
                       "type": "string"
                     },
                     "patch": {
-                      "type": "long"
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
                     }
                   }
                 },
@@ -326,9 +586,166 @@
           "index": "not_analyzed",
           "type": "string"
         },
-        "syslog": {
+        "system": {
           "properties": {
-            "system": {
+            "auth": {
+              "properties": {
+                "groupadd": {
+                  "properties": {
+                    "gid": {
+                      "type": "long"
+                    },
+                    "name": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    }
+                  }
+                },
+                "hostname": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "message": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "pid": {
+                  "type": "long"
+                },
+                "program": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "ssh": {
+                  "properties": {
+                    "dropped_ip": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "event": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "geoip": {
+                      "properties": {
+                        "city_name": {
+                          "ignore_above": 1024,
+                          "index": "not_analyzed",
+                          "type": "string"
+                        },
+                        "continent_name": {
+                          "ignore_above": 1024,
+                          "index": "not_analyzed",
+                          "type": "string"
+                        },
+                        "country_iso_code": {
+                          "ignore_above": 1024,
+                          "index": "not_analyzed",
+                          "type": "string"
+                        },
+                        "location": {
+                          "type": "geo_point"
+                        },
+                        "region_name": {
+                          "ignore_above": 1024,
+                          "index": "not_analyzed",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "ip": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "method": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "port": {
+                      "type": "long"
+                    },
+                    "signature": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    }
+                  }
+                },
+                "sudo": {
+                  "properties": {
+                    "command": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "error": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "pwd": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "tty": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "user": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    }
+                  }
+                },
+                "timestamp": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "user": {
+                  "ignore_above": 1024,
+                  "index": "not_analyzed",
+                  "type": "string"
+                },
+                "useradd": {
+                  "properties": {
+                    "gid": {
+                      "type": "long"
+                    },
+                    "home": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "name": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "shell": {
+                      "ignore_above": 1024,
+                      "index": "not_analyzed",
+                      "type": "string"
+                    },
+                    "uid": {
+                      "type": "long"
+                    }
+                  }
+                }
+              }
+            },
+            "syslog": {
               "properties": {
                 "hostname": {
                   "ignore_above": 1024,

@@ -58,7 +58,6 @@ directly from the service itself and not via a third-party tool. The goal is to
 have as few movable parts as possible and for Metricbeat to run as close as
 possible to the service that it needs to monitor.
 
-
 include::./create-metricset.asciidoc[]
 
 include::./metricset-details.asciidoc[]

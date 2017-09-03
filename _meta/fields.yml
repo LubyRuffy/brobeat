@@ -4,27 +4,6 @@
   fields:
     - name: counter
       type: long
+      required: true
       description: >
-        Count of logs that have been indexed by brobeat
-    - name: type
-      type: keyword
-      description: >
-        Event type.
-
-
-- key: log
-  title: Bro Log
-  description: >
-    Log file info
-  fields:
-    - name: log
-      type: group
-      fields:
-        - name: type
-          type: keyword
-          description: >
-            Event type.
-        - name: created
-          type: date
-          description: >
-            Timestamp for when Bro created the log file.
+        PLEASE UPDATE DOCUMENTATION
